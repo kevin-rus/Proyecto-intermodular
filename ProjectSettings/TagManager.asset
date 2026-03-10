@@ -39,6 +39,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ficha
+    uniqueID: 1073330215
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
