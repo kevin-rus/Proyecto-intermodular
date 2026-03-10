@@ -1,16 +1,13 @@
 using UnityEngine;
 
-public class Ficha : MonoBehaviour
+public class FichaPrueba : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+public GameObject fichaPrefab;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+//en el centro del tablero
+void Start()
+{
+Vector3 posicion = new Vector3(0, 0, 0);
+Instantiate(fichaPrefab, posicion, Quaternion.identity);
+}
 }

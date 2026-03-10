@@ -1,5 +1,7 @@
 using UnityEngine;
 
+
+
 public class Tablero : MonoBehaviour
 {
     // Prefab de una casilla (un sprite cuadrado con SpriteRenderer)
