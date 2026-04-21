@@ -36,16 +36,6 @@ public class Casilla : NetworkBehaviour
         }
         else if ((GameManager.instance.state == GameState.BlackTurn))
         {
-            ServerMovePiece();
-            moveBlack();
-        }
-    }
-
-    [ServerRpc]
-    private void ServerMovePiece()
-    {
-        if (GameManager.instance.state == GameState.BlackTurn)
-        {
             moveBlack();
         }
     }
