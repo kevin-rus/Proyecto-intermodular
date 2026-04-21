@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Plugins/ParrelSync/ScriptableObjects/ParrelSyncProjectSettings.asset.meta
+guid: 15474e3518d460344ba96991a0e54169
+========
+guid: 27097d230fc34404f98e1aef2c276ed8
+>>>>>>>> cc6f195007573199bcaa81dbb6a9604089e631e5:Assets/NetworkAssets.asset.meta
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

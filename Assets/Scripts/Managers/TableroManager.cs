@@ -1,11 +1,15 @@
+using PurrNet;
+using System.Collections.Generic;
 using UnityEngine;
 
-
-
-public class Tablero : MonoBehaviour
+public class TableroManager : NetworkBehaviour
 {
+    public static TableroManager instance;
     // Prefab de una casilla (un sprite cuadrado con SpriteRenderer)
-    public GameObject casillaPrefab;
+    [SerializeField] private Casilla _casillaPrefab;
+
+    // Guarda los datos de cada casilla para que sean accesibles en cualquier momento
+    private Dictionary<Vector2, Casilla> _casillas; 
 
     // Porcentaje de la altura de la pantalla que ocupará el tablero (0.1 = 10%, 1 = 100%)
     [Range(0.1f, 1f)]
@@ -14,14 +18,13 @@ public class Tablero : MonoBehaviour
     // Tamaño de cada casilla en unidades 
     float tamañoCasilla;
 
-    void Start()
+    private void Awake()
     {
-        CalcularTamañoCasilla();
-        GenerarTablero();
+        instance = this;
     }
 
     // Calcula el tamaño de cada casilla en función de la cámara y del porcentaje de pantalla
-    void CalcularTamañoCasilla()
+    public void CalcularTamañoCasilla()
     {
         Camera cam = Camera.main;
 
@@ -36,8 +39,12 @@ public class Tablero : MonoBehaviour
     }
 
     // Genera las 64 casillas del tablero
-    void GenerarTablero()
+    public void GenerarTablero()
     {
+        if (!isServer) return;
+
+        _casillas = new Dictionary<Vector2, Casilla>();
+
         // Ancho y alto del tablero en unidades del mundo
         float anchoTablero = 8f * tamañoCasilla;
         float altoTablero = 8f * tamañoCasilla;
@@ -58,7 +65,7 @@ public class Tablero : MonoBehaviour
                 );
 
                 // Instanciamos la casilla
-                GameObject casilla = Instantiate(casillaPrefab, posicion, Quaternion.identity);
+                var casilla = Instantiate(_casillaPrefab, posicion, Quaternion.identity);
 
                 // La hacemos hija del objeto Tablero para tenerlo todo ordenado en el Hierarchy
                 casilla.transform.parent = transform;
@@ -67,12 +74,25 @@ public class Tablero : MonoBehaviour
                 SpriteRenderer sr = casilla.GetComponent<SpriteRenderer>();
 
                 // Alternar colores 
-                bool esNegra = (x + y) % 2 == 1;
-                sr.color = esNegra ? Color.black : Color.white;
+                casilla.cambiarColor(x, y);
 
                 // Ajustamos la escala de la casilla para que ocupe exactamente el tamaño calculado
                 casilla.transform.localScale = new Vector3(tamañoCasilla, tamañoCasilla, 1f);
+
+                _casillas[new Vector2(x, y)] = casilla;
             }
         }
+
+        GameManager.instance.UpdateGameState(GameState.SpawnWthites);
+    }
+
+    public Casilla GetCaillaFromPosition(Vector2 pos)
+    {
+        if(_casillas.TryGetValue(pos, out var casilla))
+        {
+            return _casillas[pos];
+        }
+
+        return null;
     }
 }
