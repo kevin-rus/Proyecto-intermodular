@@ -6,7 +6,6 @@ public class Casilla : NetworkBehaviour
     [SerializeField] private SpriteRenderer _renderer;
     public BasePiece OccupiedPiece;
 
-    [ObserversRpc]
     public void setPiece(BasePiece piece)
     {
         if (piece.OccupiedCasilla != null) piece.OccupiedCasilla.OccupiedPiece = null;
@@ -15,7 +14,6 @@ public class Casilla : NetworkBehaviour
         piece.OccupiedCasilla = this;
     }
 
-    [ObserversRpc]
     public void cambiarColor(int x, int y)
     {
         this.name = $"Casilla {x} {y}";
@@ -31,12 +29,12 @@ public class Casilla : NetworkBehaviour
     {
         Debug.Log("Click + " + this.name);
 
-        if ((GameManager.instance.state == GameState.WhiteTurn) && isServer)
+        if ((GameManager.instance.state == GameState.WhiteTurn))
         {
             moveWhite();
 
         }
-        else if ((GameManager.instance.state == GameState.BlackTurn) && !isServer)
+        else if ((GameManager.instance.state == GameState.BlackTurn))
         {
             ServerMovePiece();
             moveBlack();
