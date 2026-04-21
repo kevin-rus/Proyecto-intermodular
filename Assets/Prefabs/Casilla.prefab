@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 811192234774955626}
   - component: {fileID: 5727240062169608339}
   - component: {fileID: 420033064252943155}
+  - component: {fileID: -8869809933456903261}
   m_Layer: 0
   m_Name: Casilla
   m_TagString: Untagged
@@ -46,8 +47,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12c9a5cf8abdc534ab39db6eb2f1d652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Casilla
+  _isSetup: 0
+  _prefabId: -2147483648
+  _componentIndex: -2147483648
+  _shouldBePooled: 0
+  _parent: {fileID: 0}
+  _invertedPathToNearestParent: 
+  _directChildren: []
+  _networkRules: {fileID: 0}
+  _visitiblityRules: {fileID: 0}
   OccupiedPiece: {fileID: 0}
-  _highlight: {fileID: 0}
 --- !u!212 &5727240062169608339
 SpriteRenderer:
   serializedVersion: 2
@@ -153,3 +162,34 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-8869809933456903261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721461877044913129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817fe5016bd0a2a49a95b6eb338bb132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: PurrNet.Runtime::PurrNet.NetworkTransform
+  _isSetup: 0
+  _prefabId: -2147483648
+  _componentIndex: -2147483648
+  _shouldBePooled: 0
+  _parent: {fileID: 0}
+  _invertedPathToNearestParent: 
+  _directChildren: []
+  _networkRules: {fileID: 0}
+  _visitiblityRules: {fileID: 0}
+  _syncPosition: 1
+  _syncRotation: 1
+  _syncScale: 1
+  _syncParent: 1
+  _interpolateSettings: 7
+  _minBufferSize: 1
+  _maxBufferSize: 2
+  _characterControllerPatch: 0
+  _ownerAuth: 1
+  _interpolationTiming: 0
