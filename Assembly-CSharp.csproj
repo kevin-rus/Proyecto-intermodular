@@ -65,7 +65,6 @@
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\FichaPrueba.cs" />
     <Compile Include="Assets\Scripts\Pieces\BasePiece.cs" />
-    <Compile Include="Assets\Scripts\testPing.cs" />
     <Compile Include="Assets\Scripts\Managers\PieceManager.cs" />
     <Compile Include="Assets\Scripts\Pieces\Blacks\BaseBlack.cs" />
     <Compile Include="Assets\Scripts\Casilla.cs" />

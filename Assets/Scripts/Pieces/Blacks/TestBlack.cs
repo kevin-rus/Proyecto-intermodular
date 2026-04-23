@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Placeholder para piezas negras
 public class TestBlack : BaseBlack
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created

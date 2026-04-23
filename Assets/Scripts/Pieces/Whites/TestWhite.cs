@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Placeholder para piezas blancas
 public class TestWhite : BaseWhite
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created

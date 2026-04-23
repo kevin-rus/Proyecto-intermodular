@@ -1,5 +1,7 @@
-using UnityEngine;
+﻿using UnityEngine;
 
+// Voy a ser honesto, no se para que sirve esta clase
+// Creo que tenía algo que ver con la carpeta /Resources
 [CreateAssetMenu(fileName = "New Piece", menuName = "Scriptable Piece")]
 public class ScriptablePieces : ScriptableObject
 {

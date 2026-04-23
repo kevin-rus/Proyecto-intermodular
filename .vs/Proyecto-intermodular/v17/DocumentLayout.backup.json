@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "D:\\Proyecto-Inermodular\\Proyecto-intermodular\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D7D7EC01-5719-6C22-FFC6-2D12F6B87890}|Assembly-CSharp.csproj|d:\\proyecto-inermodular\\proyecto-intermodular\\assets\\scripts\\casilla.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D7D7EC01-5719-6C22-FFC6-2D12F6B87890}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\casilla.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D7D7EC01-5719-6C22-FFC6-2D12F6B87890}|Assembly-CSharp.csproj|D:\\Proyecto-Inermodular\\Proyecto-intermodular\\assets\\scripts\\managers\\tableromanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D7D7EC01-5719-6C22-FFC6-2D12F6B87890}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\tableromanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D7D7EC01-5719-6C22-FFC6-2D12F6B87890}|Assembly-CSharp.csproj|D:\\Proyecto-Inermodular\\Proyecto-intermodular\\assets\\scripts\\testping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7D7EC01-5719-6C22-FFC6-2D12F6B87890}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\testping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D7D7EC01-5719-6C22-FFC6-2D12F6B87890}|Assembly-CSharp.csproj|D:\\Proyecto-Inermodular\\Proyecto-intermodular\\assets\\scripts\\managers\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D7D7EC01-5719-6C22-FFC6-2D12F6B87890}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D7D7EC01-5719-6C22-FFC6-2D12F6B87890}|Assembly-CSharp.csproj|D:\\Proyecto-Inermodular\\Proyecto-intermodular\\assets\\scripts\\testping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D7D7EC01-5719-6C22-FFC6-2D12F6B87890}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\testping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D7D7EC01-5719-6C22-FFC6-2D12F6B87890}|Assembly-CSharp.csproj|D:\\Proyecto-Inermodular\\Proyecto-intermodular\\assets\\scripts\\managers\\tableromanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7D7EC01-5719-6C22-FFC6-2D12F6B87890}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\tableromanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D7D7EC01-5719-6C22-FFC6-2D12F6B87890}|Assembly-CSharp.csproj|d:\\proyecto-inermodular\\proyecto-intermodular\\assets\\scripts\\casilla.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7D7EC01-5719-6C22-FFC6-2D12F6B87890}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\casilla.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D7D7EC01-5719-6C22-FFC6-2D12F6B87890}|Assembly-CSharp.csproj|D:\\Proyecto-Inermodular\\Proyecto-intermodular\\assets\\scripts\\managers\\piecemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,17 +34,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Casilla.cs",
               "DocumentMoniker": "D:\\Proyecto-Inermodular\\Proyecto-intermodular\\Assets\\Scripts\\Casilla.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Casilla.cs",
-              "ToolTip": "D:\\Proyecto-Inermodular\\Proyecto-intermodular\\Assets\\Scripts\\Casilla.cs*",
-              "RelativeToolTip": "Assets\\Scripts\\Casilla.cs*",
-              "ViewState": "AgIAACUAAAAAAAAAAAAawDkAAAAAAAAAAAAAAA==",
+              "ToolTip": "D:\\Proyecto-Inermodular\\Proyecto-intermodular\\Assets\\Scripts\\Casilla.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Casilla.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAcwCoAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-18T19:34:05.669Z",
               "IsPinned": true,
@@ -52,38 +52,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "testPing.cs",
               "DocumentMoniker": "D:\\Proyecto-Inermodular\\Proyecto-intermodular\\Assets\\Scripts\\testPing.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\testPing.cs",
               "ToolTip": "D:\\Proyecto-Inermodular\\Proyecto-intermodular\\Assets\\Scripts\\testPing.cs",
               "RelativeToolTip": "Assets\\Scripts\\testPing.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAA1wB0AAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwAQAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-21T14:52:43.262Z"
+              "WhenOpened": "2026-04-21T14:52:43.262Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "GameManager.cs",
               "DocumentMoniker": "D:\\Proyecto-Inermodular\\Proyecto-intermodular\\Assets\\Scripts\\Managers\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\GameManager.cs",
               "ToolTip": "D:\\Proyecto-Inermodular\\Proyecto-intermodular\\Assets\\Scripts\\Managers\\GameManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Managers\\GameManager.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAowBIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAQwDQAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-18T19:05:53.193Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "TableroManager.cs",
               "DocumentMoniker": "D:\\Proyecto-Inermodular\\Proyecto-intermodular\\Assets\\Scripts\\Managers\\TableroManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\TableroManager.cs",
               "ToolTip": "D:\\Proyecto-Inermodular\\Proyecto-intermodular\\Assets\\Scripts\\Managers\\TableroManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Managers\\TableroManager.cs",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAwwFUAAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAtwGIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-18T19:05:51.02Z",
               "EditorCaption": ""
@@ -96,7 +97,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\PieceManager.cs",
               "ToolTip": "D:\\Proyecto-Inermodular\\Proyecto-intermodular\\Assets\\Scripts\\Managers\\PieceManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Managers\\PieceManager.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-18T19:03:10.973Z"
             },

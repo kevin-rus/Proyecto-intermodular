@@ -3,6 +3,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Gestor central del juego, enfocado principalmente en controlar el sistema de turnos
 public class GameManager : NetworkBehaviour
 {
     public static GameManager instance;
@@ -49,6 +50,15 @@ public class GameManager : NetworkBehaviour
         }
     }
 
+    // Cuando se presiona el botón, inicia la partida
+    /*
+     * Había un problema al cargar el tablero nada mas ejecutar el juego.
+     * 
+     * RESUMEN: El Network se ralla como intentes darle órdenes nada mas empezar.
+     * El punto del botón es el de crear un delay que permita a la aplicación asentarse
+     * y asegurar el correcto funcionamiento del sistema de red.
+     */
+
     [ObserversRpc]
     public void StartGame()
     {
@@ -57,6 +67,7 @@ public class GameManager : NetworkBehaviour
     }
 }
 
+// Los diferentes estados que puede tomar el juego
 public enum GameState
 {
     Start,

@@ -41,6 +41,7 @@ public class TableroManager : NetworkBehaviour
     // Genera las 64 casillas del tablero
     public void GenerarTablero()
     {
+        // Si la instancia es un cliente, salta al estado de turno de blancas y espera al server
         if(!isServer)
         {
             await();
@@ -90,6 +91,7 @@ public class TableroManager : NetworkBehaviour
         GameManager.instance.UpdateGameState(GameState.SpawnWthites);
     }
 
+    // No se por que, pero el cliente solo se actualiza de esta forma
     public void await()
     {
         GameManager.instance.UpdateGameState(GameState.WhiteTurn);
