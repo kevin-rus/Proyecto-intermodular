@@ -1,11 +1,14 @@
-﻿using System;
+﻿using PurrNet;
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager : NetworkBehaviour
 {
     public static GameManager instance;
 
     public GameState state;
+    public Button startButton;
 
     public static event Action<GameState> OnGameStateChanged;
 
@@ -16,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        UpdateGameState(GameState.GenerateTable);
+        UpdateGameState(GameState.Start);
     }
 
     public void UpdateGameState(GameState newState)
@@ -25,6 +28,8 @@ public class GameManager : MonoBehaviour
 
         switch (state)
         {
+            case GameState.Start:
+                break;
             case GameState.GenerateTable:
                 TableroManager.instance.CalcularTamañoCasilla();
                 TableroManager.instance.GenerarTablero();
@@ -43,10 +48,18 @@ public class GameManager : MonoBehaviour
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);
         }
     }
+
+    [ObserversRpc]
+    public void StartGame()
+    {
+        startButton.gameObject.SetActive(false);
+        UpdateGameState(GameState.GenerateTable);
+    }
 }
 
 public enum GameState
 {
+    Start,
     GenerateTable,
     SpawnWthites,
     SpawnBlacks,

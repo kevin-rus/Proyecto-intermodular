@@ -41,7 +41,11 @@ public class TableroManager : NetworkBehaviour
     // Genera las 64 casillas del tablero
     public void GenerarTablero()
     {
-        if (!isServer) return;
+        if(!isServer)
+        {
+            await();
+            return;
+        }
 
         _casillas = new Dictionary<Vector2, Casilla>();
 
@@ -66,7 +70,7 @@ public class TableroManager : NetworkBehaviour
 
                 // Instanciamos la casilla
                 var casilla = Instantiate(_casillaPrefab, posicion, Quaternion.identity);
-
+                
                 // La hacemos hija del objeto Tablero para tenerlo todo ordenado en el Hierarchy
                 casilla.transform.parent = transform;
 
@@ -74,7 +78,7 @@ public class TableroManager : NetworkBehaviour
                 SpriteRenderer sr = casilla.GetComponent<SpriteRenderer>();
 
                 // Alternar colores 
-                casilla.cambiarColor(x, y);
+                casilla.inicioCambioColor(x, y);
 
                 // Ajustamos la escala de la casilla para que ocupe exactamente el tamaño calculado
                 casilla.transform.localScale = new Vector3(tamañoCasilla, tamañoCasilla, 1f);
@@ -84,6 +88,11 @@ public class TableroManager : NetworkBehaviour
         }
 
         GameManager.instance.UpdateGameState(GameState.SpawnWthites);
+    }
+
+    public void await()
+    {
+        GameManager.instance.UpdateGameState(GameState.WhiteTurn);
     }
 
     public Casilla GetCaillaFromPosition(Vector2 pos)

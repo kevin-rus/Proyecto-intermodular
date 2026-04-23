@@ -246,8 +246,8 @@ MonoBehaviour:
     y: 0
     width: 645
     height: 629
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 226}
+  m_MaxSize: {x: 4002, y: 4026}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 16}
@@ -275,9 +275,9 @@ MonoBehaviour:
     m_TextWithWhitespace: "Clones Manager\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1067
+    x: 1086
     y: 79
-    width: 292
+    width: 273
     height: 603
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 43
+    y: 0
     width: 1360
     height: 36
   m_SerializedDataModeController:
@@ -607,8 +607,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Project\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 886
-    y: 79
+    x: 887
+    y: 24
     width: 198
     height: 603
   m_SerializedDataModeController:
@@ -658,19 +658,23 @@ MonoBehaviour:
       m_Data: 51116
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 34528
-    - m_Data: 51084
-    - m_Data: 51086
-    - m_Data: 51088
-    - m_Data: 51090
-    - m_Data: 51092
-    - m_Data: 51094
-    - m_Data: 51096
-    - m_Data: 51098
-    - m_Data: 51100
-    - m_Data: 51102
-    - m_Data: 51104
-    - m_Data: 51106
+    - m_Data: 34568
+    - m_Data: 51208
+    - m_Data: 51210
+    - m_Data: 51212
+    - m_Data: 51214
+    - m_Data: 51216
+    - m_Data: 51218
+    - m_Data: 51220
+    - m_Data: 51222
+    - m_Data: 51224
+    - m_Data: 51226
+    - m_Data: 51228
+    - m_Data: 51230
+    - m_Data: 51232
+    - m_Data: 51234
+    - m_Data: 51236
+    - m_Data: 51238
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -699,29 +703,28 @@ MonoBehaviour:
   m_AssetTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs:
-    - m_Data: 50332
+    - m_Data: -2150
     m_LastClickedID:
-      m_Data: 50332
+      m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 34528
-    - m_Data: 51084
-    - m_Data: 51086
-    - m_Data: 51088
-    - m_Data: 51090
-    - m_Data: 51092
-    - m_Data: 51094
-    - m_Data: 51096
-    - m_Data: 51098
-    - m_Data: 51100
-    - m_Data: 51102
-    - m_Data: 51104
-    - m_Data: 51106
-    - m_Data: 51264
-    - m_Data: 53096
-    - m_Data: 53124
-    - m_Data: 53980
-    - m_Data: 2147483647
+    - m_Data: 34568
+    - m_Data: 51208
+    - m_Data: 51210
+    - m_Data: 51212
+    - m_Data: 51214
+    - m_Data: 51216
+    - m_Data: 51218
+    - m_Data: 51220
+    - m_Data: 51222
+    - m_Data: 51224
+    - m_Data: 51226
+    - m_Data: 51228
+    - m_Data: 51230
+    - m_Data: 51232
+    - m_Data: 51234
+    - m_Data: 51236
+    - m_Data: 51238
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -749,8 +752,8 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
     m_SelectedInstanceIDs:
-    - m_Data: 50332
-    m_LastClickedInstanceID: 50332
+    - m_Data: -2150
+    m_LastClickedInstanceID: -2150
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs:
     - m_Data: 75892
@@ -808,8 +811,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1086
-    y: 79
+    x: 1087
+    y: 24
     width: 273
     height: 603
   m_SerializedDataModeController:
@@ -860,7 +863,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 79
+    y: 24
     width: 240
     height: 603
   m_SerializedDataModeController:
@@ -879,13 +882,12 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs:
-      - m_Data: 50332
+      m_SelectedIDs: []
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
+      - m_Data: -2150
       - m_Data: -1314
-      - m_Data: 50986
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1531,8 +1533,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Game\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 241
-    y: 79
+    x: 242
+    y: 24
     width: 643
     height: 603
   m_SerializedDataModeController:

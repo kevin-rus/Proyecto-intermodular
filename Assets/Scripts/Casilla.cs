@@ -1,4 +1,5 @@
 ﻿using PurrNet;
+using System.Collections;
 using UnityEngine;
 
 public class Casilla : NetworkBehaviour
@@ -14,8 +15,18 @@ public class Casilla : NetworkBehaviour
         piece.OccupiedCasilla = this;
     }
 
+    public void inicioCambioColor(int x, int y)
+    {
+        Debug.Log("inicio cambio de color");
+        
+        cambiarColor(x, y);
+    }
+
+    [ObserversRpc]
     public void cambiarColor(int x, int y)
     {
+        Debug.Log($"Ejecutando cambio de color en casilla: {x} {y}");
+
         this.name = $"Casilla {x} {y}";
 
         _renderer = GetComponent<SpriteRenderer>();
@@ -25,54 +36,70 @@ public class Casilla : NetworkBehaviour
         Debug.Log("Se han cambiado los colores");
     }
 
+
     void OnMouseDown()
     {
         Debug.Log("Click + " + this.name);
+        Debug.Log("Turno: " + GameManager.instance.state);
 
-        if ((GameManager.instance.state == GameState.WhiteTurn))
+        if ((GameManager.instance.state == GameState.WhiteTurn) && isServer)
         {
             moveWhite();
 
         }
-        else if ((GameManager.instance.state == GameState.BlackTurn))
+        else if ((GameManager.instance.state == GameState.BlackTurn) && !isServer)
         {
             moveBlack();
         }
     }
 
+    [ObserversRpc]
     private void moveWhite()
     {
         if (OccupiedPiece != null && OccupiedPiece.player == Player.White)
         {
+            Debug.Log("Seleccionando pieza blanca");
             PieceManager.instance.SetSelectedPiece((BaseWhite)OccupiedPiece);
         }
         else
         {
             if (PieceManager.instance.SelectedPiece != null)
             {
+                Debug.Log("Moviendo pieza blanca");
                 setPiece(PieceManager.instance.SelectedPiece);
                 PieceManager.instance.SetSelectedPiece(null);
 
-                GameManager.instance.UpdateGameState(GameState.BlackTurn);
+                updateTurn();
             }
         }
     }
 
+    [ObserversRpc]
     private void moveBlack()
     {
         if (OccupiedPiece != null && OccupiedPiece.player == Player.Black)
         {
+            Debug.Log("Seleccionando pieza negra");
             PieceManager.instance.SetSelectedPiece((BaseBlack)OccupiedPiece);
         }
         else
         {
             if (PieceManager.instance.SelectedPiece != null)
             {
+                Debug.Log("Moviendo pieza negra");
                 setPiece(PieceManager.instance.SelectedPiece);
                 PieceManager.instance.SetSelectedPiece(null);
 
-                GameManager.instance.UpdateGameState(GameState.WhiteTurn);
+                updateTurn();
             }
         }
+    }
+
+    [ObserversRpc]
+    private void updateTurn()
+    {
+        GameManager.instance.UpdateGameState(
+            GameManager.instance.state == GameState.WhiteTurn ?
+            GameState.BlackTurn : GameState.WhiteTurn);
     }
 }

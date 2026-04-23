@@ -19,6 +19,10 @@
       "RelativeMoniker": "D:0:0:{D7D7EC01-5719-6C22-FFC6-2D12F6B87890}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\managers\\piecemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{D7D7EC01-5719-6C22-FFC6-2D12F6B87890}|Assembly-CSharp.csproj|D:\\Proyecto-Inermodular\\Proyecto-intermodular\\assets\\scripts\\testping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7D7EC01-5719-6C22-FFC6-2D12F6B87890}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\testping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D7D7EC01-5719-6C22-FFC6-2D12F6B87890}|Assembly-CSharp.csproj|D:\\Proyecto-Inermodular\\Proyecto-intermodular\\assets\\scripts\\pieces\\basepiece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D7D7EC01-5719-6C22-FFC6-2D12F6B87890}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\pieces\\basepiece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -40,10 +44,23 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Casilla.cs",
               "ToolTip": "D:\\Proyecto-Inermodular\\Proyecto-intermodular\\Assets\\Scripts\\Casilla.cs",
               "RelativeToolTip": "Assets\\Scripts\\Casilla.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAIwEcAAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAcwCoAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-18T19:34:05.669Z",
               "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "testPing.cs",
+              "DocumentMoniker": "D:\\Proyecto-Inermodular\\Proyecto-intermodular\\Assets\\Scripts\\testPing.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\testPing.cs",
+              "ToolTip": "D:\\Proyecto-Inermodular\\Proyecto-intermodular\\Assets\\Scripts\\testPing.cs",
+              "RelativeToolTip": "Assets\\Scripts\\testPing.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwB0AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-21T14:52:43.262Z",
               "EditorCaption": ""
             },
             {
@@ -54,9 +71,10 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\GameManager.cs",
               "ToolTip": "D:\\Proyecto-Inermodular\\Proyecto-intermodular\\Assets\\Scripts\\Managers\\GameManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Managers\\GameManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAtwB4AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T19:05:53.193Z"
+              "WhenOpened": "2026-04-18T19:05:53.193Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -66,9 +84,10 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\TableroManager.cs",
               "ToolTip": "D:\\Proyecto-Inermodular\\Proyecto-intermodular\\Assets\\Scripts\\Managers\\TableroManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Managers\\TableroManager.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAwwEwAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAD4vy4AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T19:05:51.02Z"
+              "WhenOpened": "2026-04-18T19:05:51.02Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -78,13 +97,14 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Managers\\PieceManager.cs",
               "ToolTip": "D:\\Proyecto-Inermodular\\Proyecto-intermodular\\Assets\\Scripts\\Managers\\PieceManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Managers\\PieceManager.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwBsAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-18T19:03:10.973Z"
+              "WhenOpened": "2026-04-18T19:03:10.973Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "BasePiece.cs",
               "DocumentMoniker": "D:\\Proyecto-Inermodular\\Proyecto-intermodular\\Assets\\Scripts\\Pieces\\BasePiece.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Pieces\\BasePiece.cs",
