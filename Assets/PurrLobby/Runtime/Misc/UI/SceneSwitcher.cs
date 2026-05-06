@@ -18,7 +18,7 @@ namespace PurrLobby
     public class SceneSwitcher : MonoBehaviour
     {
         [SerializeField] private LobbyManager lobbyManager;
-        [SerializeField] private string nextScene;
+        [PurrScene ,SerializeField] private string nextScene;
         [Tooltip("Automatically switch scene when OnAllReady event fires (recommended for Unity Relay)")]
         [SerializeField] private bool subscribeToOnAllReady = true;
 
