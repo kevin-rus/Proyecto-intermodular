@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 56}
   m_MaxSize: {x: 32384, y: 8096}
   vertical: 0
-  controlID: 35
+  controlID: 36
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 56}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 36
+  controlID: 37
   draggingID: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -634,7 +634,8 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders: []
+    m_Folders:
+    - Assets/Scripts/Managers
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -658,7 +659,7 @@ MonoBehaviour:
       m_Data: 51116
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 34568
+    - m_Data: 34564
     - m_Data: 51208
     - m_Data: 51210
     - m_Data: 51212
@@ -701,14 +702,14 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 0}
+    scrollPos: {x: 0, y: 60}
     m_SelectedIDs:
-    - m_Data: -2150
+    - m_Data: 19856
     m_LastClickedID:
-      m_Data: 0
+      m_Data: 19856
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 34568
+    - m_Data: 34564
     - m_Data: 51208
     - m_Data: 51210
     - m_Data: 51212
@@ -752,8 +753,8 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
     m_SelectedInstanceIDs:
-    - m_Data: -2150
-    m_LastClickedInstanceID: -2150
+    - m_Data: 19856
+    m_LastClickedInstanceID: 19856
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs:
     - m_Data: 75892
@@ -886,7 +887,7 @@ MonoBehaviour:
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
-      - m_Data: -2150
+      - m_Data: -43410
       - m_Data: -1314
       m_RenameOverlay:
         m_UserAcceptedRename: 0
