@@ -23,14 +23,6 @@ public class GameManager : NetworkBehaviour
         UpdateGameState(GameState.Start);
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-            TableroManager.instance.cambiarColor();
-        }
-    }
-
     public void UpdateGameState(GameState newState)
     {
         state = newState;
@@ -44,6 +36,7 @@ public class GameManager : NetworkBehaviour
                 TableroManager.instance.GenerarTablero();
                 break;
             case GameState.ColorTable:
+                TableroManager.instance.cambiarColor();
                 break;
             case GameState.SpawnWthites:
                 PieceManager.instance.SpawnWhites();

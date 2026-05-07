@@ -660,7 +660,6 @@ MonoBehaviour:
     m_ExpandedIDs:
     - m_Data: 0
     - m_Data: 34840
-    - m_Data: 52242
     - m_Data: 52244
     - m_Data: 52246
     - m_Data: 52248
@@ -712,7 +711,6 @@ MonoBehaviour:
     m_ExpandedIDs:
     - m_Data: 0
     - m_Data: 34840
-    - m_Data: 52242
     - m_Data: 52244
     - m_Data: 52246
     - m_Data: 52248
@@ -890,12 +888,7 @@ MonoBehaviour:
       m_SelectedIDs: []
       m_LastClickedID:
         m_Data: 0
-      m_ExpandedIDs:
-      - m_Data: -17920
-      - m_Data: -9228
-      - m_Data: -6516
-      - m_Data: 53864
-      - m_Data: 55012
+      m_ExpandedIDs: []
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1591,7 +1584,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
