@@ -71,15 +71,13 @@ public class TableroManager : NetworkBehaviour
 
                 // Instanciamos la casilla
                 var casilla = Instantiate(_casillaPrefab, posicion, Quaternion.identity);
+                casilla.Spawn(casilla.gameObject);
                 
                 // La hacemos hija del objeto Tablero para tenerlo todo ordenado en el Hierarchy
                 casilla.transform.parent = transform;
 
                 // Obtenemos el SpriteRenderer para poder cambiar el color
                 SpriteRenderer sr = casilla.GetComponent<SpriteRenderer>();
-
-                // Alternar colores 
-                casilla.inicioCambioColor(x, y);
 
                 // Ajustamos la escala de la casilla para que ocupe exactamente el tamaño calculado
                 casilla.transform.localScale = new Vector3(tamañoCasilla, tamañoCasilla, 1f);
@@ -88,6 +86,23 @@ public class TableroManager : NetworkBehaviour
             }
         }
 
+        GameManager.instance.UpdateGameState(GameState.ColorTable);
+    }
+
+    [ServerRpc]
+    public void cambiarColor()
+    {
+        Debug.Log("Init cambio color");
+
+        if (!isServer) return;
+
+        for (int x = 0; x < 8; x++)
+        {
+            for (int y = 0; y < 8; y++)
+            {
+                _casillas[new Vector2(x, y)].cambiarColor(x, y);
+            }
+        }
         GameManager.instance.UpdateGameState(GameState.SpawnWthites);
     }
 

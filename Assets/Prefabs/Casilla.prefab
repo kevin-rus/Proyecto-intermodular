@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6165271290102045368}
   - component: {fileID: 811192234774955626}
-  - component: {fileID: 7554287341990655376}
   - component: {fileID: 5727240062169608339}
   - component: {fileID: 420033064252943155}
   - component: {fileID: -8869809933456903261}
@@ -59,27 +58,6 @@ MonoBehaviour:
   _visitiblityRules: {fileID: 0}
   _renderer: {fileID: 0}
   OccupiedPiece: {fileID: 0}
---- !u!114 &7554287341990655376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1721461877044913129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 858a3b74f4a49564eae8d75f968d170b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::testPing
-  _isSetup: 0
-  _prefabId: -2147483648
-  _componentIndex: -2147483648
-  _shouldBePooled: 0
-  _parent: {fileID: 0}
-  _invertedPathToNearestParent: 
-  _directChildren: []
-  _networkRules: {fileID: 0}
-  _visitiblityRules: {fileID: 0}
 --- !u!212 &5727240062169608339
 SpriteRenderer:
   serializedVersion: 2
