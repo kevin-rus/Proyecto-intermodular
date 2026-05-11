@@ -9,7 +9,6 @@ public class GameManager : NetworkBehaviour
     public static GameManager instance;
 
     public GameState state;
-    public Button startButton;
 
     public static event Action<GameState> OnGameStateChanged;
 
@@ -18,9 +17,10 @@ public class GameManager : NetworkBehaviour
         instance = this;
     }
 
-    void Start()
+    protected override void OnSpawned()
     {
-        UpdateGameState(GameState.Start);
+        base.OnSpawned();
+        UpdateGameState(GameState.GenerateTable);
     }
 
     public void UpdateGameState(GameState newState)
@@ -30,6 +30,8 @@ public class GameManager : NetworkBehaviour
         switch (state)
         {
             case GameState.Start:
+                Debug.Log("Game Started");
+                UpdateGameState(GameState.GenerateTable);
                 break;
             case GameState.GenerateTable:
                 TableroManager.instance.CalcularTamañoCasilla();
@@ -51,22 +53,6 @@ public class GameManager : NetworkBehaviour
             default:
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);
         }
-    }
-
-    // Cuando se presiona el botón, inicia la partida
-    /*
-     * Había un problema al cargar el tablero nada mas ejecutar el juego.
-     * 
-     * RESUMEN: El Network se ralla como intentes darle órdenes nada mas empezar.
-     * El punto del botón es el de crear un delay que permita a la aplicación asentarse
-     * y asegurar el correcto funcionamiento del sistema de red.
-     */
-
-    [ObserversRpc]
-    public void StartGame()
-    {
-        startButton.gameObject.SetActive(false);
-        UpdateGameState(GameState.GenerateTable);
     }
 }
 

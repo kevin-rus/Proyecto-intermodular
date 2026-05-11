@@ -41,9 +41,11 @@ public class TableroManager : NetworkBehaviour
     // Genera las 64 casillas del tablero
     public void GenerarTablero()
     {
+        Debug.Log("Init generar tablero");
         // Si la instancia es un cliente, salta al estado de turno de blancas y espera al server
         if(!isServer)
         {
+            Debug.Log("Is not server");
             await();
             return;
         }
@@ -71,7 +73,6 @@ public class TableroManager : NetworkBehaviour
 
                 // Instanciamos la casilla
                 var casilla = Instantiate(_casillaPrefab, posicion, Quaternion.identity);
-                casilla.Spawn(casilla.gameObject);
                 
                 // La hacemos hija del objeto Tablero para tenerlo todo ordenado en el Hierarchy
                 casilla.transform.parent = transform;
@@ -92,7 +93,7 @@ public class TableroManager : NetworkBehaviour
     [ServerRpc]
     public void cambiarColor()
     {
-        Debug.Log("Init cambio color");
+        Debug.Log("Init cambio color - isServer: " + isServer);
 
         if (!isServer) return;
 
@@ -100,7 +101,7 @@ public class TableroManager : NetworkBehaviour
         {
             for (int y = 0; y < 8; y++)
             {
-                _casillas[new Vector2(x, y)].cambiarColor(x, y);
+                _casillas[new Vector2(x, y)].inicioCambioColor(x, y);
             }
         }
         GameManager.instance.UpdateGameState(GameState.SpawnWthites);

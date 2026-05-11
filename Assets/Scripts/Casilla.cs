@@ -7,6 +7,7 @@ public class Casilla : NetworkBehaviour
 {
     [SerializeField] private SpriteRenderer _renderer;
     public BasePiece OccupiedPiece;
+    private int posX, posY;
 
     // Elimina la ficha de la casilla previa y le asigna la nueva
     public void setPiece(BasePiece piece)
@@ -20,8 +21,19 @@ public class Casilla : NetworkBehaviour
     // Función puente que permite el correcto funcionamiento del Network
     public void inicioCambioColor(int x, int y)
     {
-        Debug.Log("inicio cambio de color");
-        cambiarColor(x, y);
+        Debug.Log("Init cambio color");
+        posX = x;
+        posY = y;
+
+        StartCoroutine(nameof(AwaitCambio));
+    }
+
+    IEnumerator AwaitCambio()
+    {
+        Debug.Log("Init Corrutina");
+        yield return new WaitUntil(() => observers.Count > 0);
+
+        cambiarColor(posX, posY);
     }
 
     // Cambia el color de la casilla
