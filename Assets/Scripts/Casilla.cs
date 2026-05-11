@@ -31,7 +31,7 @@ public class Casilla : NetworkBehaviour
     IEnumerator AwaitCambio()
     {
         Debug.Log("Init Corrutina");
-        yield return new WaitUntil(() => observers.Count > 0);
+        yield return new WaitUntil(() => observers.Count > 1);
 
         cambiarColor(posX, posY);
     }

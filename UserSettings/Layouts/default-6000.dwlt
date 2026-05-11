@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1360
     height: 685
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -635,7 +635,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Packages/dev.purrnet.purrnet
+    - Assets/Scripts/Pieces
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -678,6 +678,7 @@ MonoBehaviour:
     - m_Data: 52274
     - m_Data: 52276
     - m_Data: 52278
+    - m_Data: 52280
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -704,11 +705,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 300}
-    m_SelectedIDs:
-    - m_Data: 52400
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: []
     m_LastClickedID:
-      m_Data: 52400
+      m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
     - m_Data: 34840
@@ -730,6 +730,7 @@ MonoBehaviour:
     - m_Data: 52274
     - m_Data: 52276
     - m_Data: 52278
+    - m_Data: 52280
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -756,9 +757,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs:
-    - m_Data: 52400
-    m_LastClickedInstanceID: 52400
+    m_SelectedInstanceIDs: []
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs:
     - m_Data: 75892
@@ -891,10 +891,10 @@ MonoBehaviour:
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
-      - m_Data: -10180
-      - m_Data: -1314
-      - m_Data: 51678
-      - m_Data: 51712
+      - m_Data: -4920
+      - m_Data: -12
+      - m_Data: 53208
+      - m_Data: 55260
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
