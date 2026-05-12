@@ -12,6 +12,8 @@ public class PieceManager : NetworkBehaviour
     private List<ScriptablePieces> _pieces;
 
     public BasePiece SelectedPiece;
+    public BasePiece PeonBlanco;
+    public BasePiece PeonNegro;
 
     private void Awake()
     {
@@ -29,14 +31,14 @@ public class PieceManager : NetworkBehaviour
     // Carga las piezas blancas en el tablero
     public void SpawnWhites()
     {
-        var whiteCount = 1;
+        var whiteCount = 8;
 
-        for(int i = 0; i < whiteCount; i++)
+        for (int i = 0; i < whiteCount; i++)
         {
-            var testWhite = _pieces.Where(u => u.player == Player.White).First().piece;
-            var spawnedWhite = Instantiate(testWhite);
-            var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(3, 0));
+            var spawnedWhite = Instantiate(PeonBlanco);
+            var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(i, 1));
 
+            Debug.Log("Estableciendo pieza en la casilla: " + i + " - " + 1);
             casilla.setPiece(spawnedWhite);
         }
 
@@ -46,13 +48,13 @@ public class PieceManager : NetworkBehaviour
     // Carga las piezas negras en el tablero
     public void SpawnBlacks()
     {
-        var blackCount = 1;
+        var blackCount = 8;
 
         for (int i = 0; i < blackCount; i++)
         {
             var testBlack = _pieces.Where(u => u.player == Player.Black).First().piece;
             var spawnedBlack = Instantiate(testBlack);
-            var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(3, 7));
+            var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(i, 6));
 
             casilla.setPiece(spawnedBlack);
         }

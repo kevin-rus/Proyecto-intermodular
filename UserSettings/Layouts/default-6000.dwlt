@@ -635,7 +635,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Pieces
+    - Assets/Resources/Pieces/Blacks
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -659,13 +659,7 @@ MonoBehaviour:
       m_Data: 51116
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 34840
-    - m_Data: 52244
-    - m_Data: 52246
-    - m_Data: 52248
-    - m_Data: 52250
-    - m_Data: 52252
-    - m_Data: 52254
+    - m_Data: 34844
     - m_Data: 52256
     - m_Data: 52258
     - m_Data: 52260
@@ -679,6 +673,14 @@ MonoBehaviour:
     - m_Data: 52276
     - m_Data: 52278
     - m_Data: 52280
+    - m_Data: 52282
+    - m_Data: 52284
+    - m_Data: 52286
+    - m_Data: 52288
+    - m_Data: 52290
+    - m_Data: 52292
+    - m_Data: 52294
+    - m_Data: 52296
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -706,18 +708,13 @@ MonoBehaviour:
       m_ResourceFile: 
   m_AssetTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: []
+    m_SelectedIDs:
+    - m_Data: -5900
     m_LastClickedID:
-      m_Data: 0
+      m_Data: -5900
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 34840
-    - m_Data: 52244
-    - m_Data: 52246
-    - m_Data: 52248
-    - m_Data: 52250
-    - m_Data: 52252
-    - m_Data: 52254
+    - m_Data: 34844
     - m_Data: 52256
     - m_Data: 52258
     - m_Data: 52260
@@ -731,6 +728,14 @@ MonoBehaviour:
     - m_Data: 52276
     - m_Data: 52278
     - m_Data: 52280
+    - m_Data: 52282
+    - m_Data: 52284
+    - m_Data: 52286
+    - m_Data: 52288
+    - m_Data: 52290
+    - m_Data: 52292
+    - m_Data: 52294
+    - m_Data: 52296
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -757,8 +762,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: []
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs:
+    - m_Data: -5900
+    m_LastClickedInstanceID: -5900
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs:
     - m_Data: 75892
@@ -891,10 +897,10 @@ MonoBehaviour:
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
-      - m_Data: -4920
-      - m_Data: -12
-      - m_Data: 53208
-      - m_Data: 55260
+      - m_Data: -21852
+      - m_Data: -13274
+      - m_Data: -4588
+      - m_Data: 53148
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

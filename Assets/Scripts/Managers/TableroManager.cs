@@ -122,4 +122,9 @@ public class TableroManager : NetworkBehaviour
 
         return null;
     }
+
+    public Dictionary<Vector2, Casilla> GetCasillas()
+    {
+        return _casillas;
+    }
 }

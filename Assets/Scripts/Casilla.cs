@@ -28,10 +28,13 @@ public class Casilla : NetworkBehaviour
         StartCoroutine(nameof(AwaitCambio));
     }
 
+    // Espera a que se conecten ambos clientes para ejecutarse
     IEnumerator AwaitCambio()
     {
         Debug.Log("Init Corrutina");
-        yield return new WaitUntil(() => observers.Count > 1);
+        // El 'observers.Count' registra la cantidad de clientes conectados
+        // Se necesita a dos, por lo que mientras sean menos, espera
+        yield return new WaitUntil(() => observers.Count > 0);  // Editado a 0 para tests
 
         cambiarColor(posX, posY);
     }
@@ -87,12 +90,18 @@ public class Casilla : NetworkBehaviour
                 // Establece la nueva casilla de la pieza
 
                 // TODO: Aquí se puede hacer la comprobación del movimiento
+                BasePiece pieza = PieceManager.instance.SelectedPiece;
 
-                Debug.Log("Moviendo pieza blanca");
-                setPiece(PieceManager.instance.SelectedPiece);
-                PieceManager.instance.SetSelectedPiece(null);
+                bool sePuedeMover = pieza.calcularMovimientos(pieza.OccupiedCasilla, this);
 
-                updateTurn();
+                if (sePuedeMover)
+                {
+                    Debug.Log("Moviendo pieza blanca");
+                    setPiece(PieceManager.instance.SelectedPiece);
+                    PieceManager.instance.SetSelectedPiece(null);
+
+                    updateTurn();
+                }
             }
         }
     }
@@ -132,5 +141,15 @@ public class Casilla : NetworkBehaviour
         GameManager.instance.UpdateGameState(
             GameManager.instance.state == GameState.WhiteTurn ?
             GameState.BlackTurn : GameState.WhiteTurn);
+    }
+
+    public int getPosX()
+    {
+        return posX;
+    }
+
+    public int getPosY()
+    {
+        return posY;
     }
 }

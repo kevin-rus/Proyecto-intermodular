@@ -67,9 +67,11 @@
     <Compile Include="Assets\Scripts\Pieces\BasePiece.cs" />
     <Compile Include="Assets\Scripts\Managers\PieceManager.cs" />
     <Compile Include="Assets\Scripts\Pieces\Blacks\BaseBlack.cs" />
+    <Compile Include="Assets\Scripts\Pieces\Whites\PawnWhite.cs" />
     <Compile Include="Assets\Scripts\Casilla.cs" />
     <Compile Include="Assets\Scripts\Managers\TableroManager.cs" />
     <Compile Include="Assets\Scripts\Pieces\Whites\TestWhite.cs" />
+    <Compile Include="Assets\Scripts\Pieces\Blacks\PawnBlack.cs" />
     <Compile Include="Assets\Scripts\Pieces\Blacks\TestBlack.cs" />
     <Compile Include="Assets\Scripts\Pieces\Whites\BaseWhite.cs" />
   </ItemGroup>
