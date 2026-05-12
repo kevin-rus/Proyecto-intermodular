@@ -28,17 +28,6 @@ public class Casilla : NetworkBehaviour
         cambiarColor(posX, posY);
     }
 
-    // Espera a que se conecten ambos clientes para ejecutarse
-    IEnumerator AwaitCambio()
-    {
-        Debug.Log("Init Corrutina");
-        // El 'observers.Count' registra la cantidad de clientes conectados
-        // Se necesita a dos, por lo que mientras sean menos, espera
-        yield return new WaitUntil(() => observers.Count > 1);  // Editado a 0 para tests, default 1
-
-        cambiarColor(posX, posY);
-    }
-
     // Cambia el color de la casilla
     [ObserversRpc]
     public void cambiarColor(int x, int y)
@@ -87,13 +76,11 @@ public class Casilla : NetworkBehaviour
             // Se ejecuta una vez seleccionada la pieza
             if (PieceManager.instance.SelectedPiece != null)
             {
-                // Establece la nueva casilla de la pieza
-
-                // TODO: Aquí se puede hacer la comprobación del movimiento
+                // Se calculan los movimientos posibles de la pieza seleccionada
                 BasePiece pieza = PieceManager.instance.SelectedPiece;
-
                 bool sePuedeMover = pieza.calcularMovimientos(pieza.OccupiedCasilla, this);
 
+                // Si el movimiento es válido, se mueve la pieza a la nueva casilla
                 if (sePuedeMover)
                 {
                     Debug.Log("Moviendo pieza blanca");
@@ -123,13 +110,19 @@ public class Casilla : NetworkBehaviour
             {
                 // Establece la nueva casilla de la pieza
 
-                // TODO: Aquí se puede hacer la comprobación del movimiento
+                // Se calculan los movimientos posibles de la pieza seleccionada
+                BasePiece pieza = PieceManager.instance.SelectedPiece;
+                bool sePuedeMover = pieza.calcularMovimientos(pieza.OccupiedCasilla, this);
 
-                Debug.Log("Moviendo pieza negra");
-                setPiece(PieceManager.instance.SelectedPiece);
-                PieceManager.instance.SetSelectedPiece(null);
+                // Si el movimiento es válido, se mueve la pieza a la nueva casilla
+                if (sePuedeMover)
+                {
+                    Debug.Log("Moviendo pieza negra");
+                    setPiece(PieceManager.instance.SelectedPiece);
+                    PieceManager.instance.SetSelectedPiece(null);
 
-                updateTurn();
+                    updateTurn();
+                }
             }
         }
     }
