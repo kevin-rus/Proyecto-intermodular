@@ -25,7 +25,7 @@ public class Casilla : NetworkBehaviour
         posX = x;
         posY = y;
 
-        StartCoroutine(nameof(AwaitCambio));
+        cambiarColor(posX, posY);
     }
 
     // Espera a que se conecten ambos clientes para ejecutarse

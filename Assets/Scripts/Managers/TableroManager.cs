@@ -1,4 +1,5 @@
 using PurrNet;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -87,6 +88,18 @@ public class TableroManager : NetworkBehaviour
             }
         }
 
+        // Debido a la naturaleza del networking, el servidor debe esperar a que ambos clientes
+        // estén conectados antes de continuar con las siguientes funciones, debido a que si no
+        // están conectados, las funciones no se ejecutan en el lado del cliente
+        StartCoroutine(nameof(EsperarJugadores));
+    }
+
+    // Espera a que se conecten ambos clientes para ejecutarse
+    IEnumerator EsperarJugadores()
+    {
+        // El 'observers.Count' registra la cantidad de clientes conectados
+        // Se necesita a dos, por lo que mientras sean menos, espera
+        yield return new WaitUntil(() => observers.Count > 1);
         GameManager.instance.UpdateGameState(GameState.ColorTable);
     }
 
