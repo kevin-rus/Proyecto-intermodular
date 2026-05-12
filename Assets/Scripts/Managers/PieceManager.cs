@@ -52,10 +52,10 @@ public class PieceManager : NetworkBehaviour
 
         for (int i = 0; i < blackCount; i++)
         {
-            var testBlack = _pieces.Where(u => u.player == Player.Black).First().piece;
-            var spawnedBlack = Instantiate(testBlack);
+            var spawnedBlack = Instantiate(PeonNegro);
             var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(i, 6));
 
+            Debug.Log("Estableciendo pieza en la casilla: " + i + " - " + 1);
             casilla.setPiece(spawnedBlack);
         }
 
