@@ -34,7 +34,7 @@ public class Casilla : NetworkBehaviour
         Debug.Log("Init Corrutina");
         // El 'observers.Count' registra la cantidad de clientes conectados
         // Se necesita a dos, por lo que mientras sean menos, espera
-        yield return new WaitUntil(() => observers.Count > 0);  // Editado a 0 para tests
+        yield return new WaitUntil(() => observers.Count > 1);  // Editado a 0 para tests, default 1
 
         cambiarColor(posX, posY);
     }
