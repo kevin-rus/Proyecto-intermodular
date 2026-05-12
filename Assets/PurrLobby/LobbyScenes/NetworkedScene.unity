@@ -192,7 +192,7 @@ MonoBehaviour:
   _visitiblityRules: {fileID: 0}
   SelectedPiece: {fileID: 0}
   PeonBlanco: {fileID: 4887620086571400248, guid: 072a18c17b8c96440ab01d71b7d8d4f9, type: 3}
-  PeonNegro: {fileID: 0}
+  PeonNegro: {fileID: -4865826469690020272, guid: d1da8abba5c0fdd4ebcc64643867b567, type: 3}
 --- !u!114 &46510589
 MonoBehaviour:
   m_ObjectHideFlags: 0
