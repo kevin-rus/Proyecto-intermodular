@@ -659,23 +659,7 @@ MonoBehaviour:
       m_Data: 51116
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 34844
-    - m_Data: 52256
-    - m_Data: 52258
-    - m_Data: 52260
-    - m_Data: 52262
-    - m_Data: 52264
-    - m_Data: 52266
-    - m_Data: 52268
-    - m_Data: 52270
-    - m_Data: 52272
-    - m_Data: 52274
-    - m_Data: 52276
-    - m_Data: 52278
-    - m_Data: 52280
-    - m_Data: 52282
-    - m_Data: 52284
-    - m_Data: 52286
+    - m_Data: 34860
     - m_Data: 52288
     - m_Data: 52290
     - m_Data: 52292
@@ -683,6 +667,17 @@ MonoBehaviour:
     - m_Data: 52296
     - m_Data: 52298
     - m_Data: 52300
+    - m_Data: 52302
+    - m_Data: 52304
+    - m_Data: 52306
+    - m_Data: 52308
+    - m_Data: 52310
+    - m_Data: 52312
+    - m_Data: 52314
+    - m_Data: 52316
+    - m_Data: 52318
+    - m_Data: 52320
+    - m_Data: 52322
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -710,28 +705,13 @@ MonoBehaviour:
       m_ResourceFile: 
   m_AssetTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: []
+    m_SelectedIDs:
+    - m_Data: -1318
     m_LastClickedID:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 34844
-    - m_Data: 52256
-    - m_Data: 52258
-    - m_Data: 52260
-    - m_Data: 52262
-    - m_Data: 52264
-    - m_Data: 52266
-    - m_Data: 52268
-    - m_Data: 52270
-    - m_Data: 52272
-    - m_Data: 52274
-    - m_Data: 52276
-    - m_Data: 52278
-    - m_Data: 52280
-    - m_Data: 52282
-    - m_Data: 52284
-    - m_Data: 52286
+    - m_Data: 34860
     - m_Data: 52288
     - m_Data: 52290
     - m_Data: 52292
@@ -739,6 +719,17 @@ MonoBehaviour:
     - m_Data: 52296
     - m_Data: 52298
     - m_Data: 52300
+    - m_Data: 52302
+    - m_Data: 52304
+    - m_Data: 52306
+    - m_Data: 52308
+    - m_Data: 52310
+    - m_Data: 52312
+    - m_Data: 52314
+    - m_Data: 52316
+    - m_Data: 52318
+    - m_Data: 52320
+    - m_Data: 52322
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -765,8 +756,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: []
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs:
+    - m_Data: -1318
+    m_LastClickedInstanceID: -1318
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs:
     - m_Data: 75892
@@ -848,7 +840,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 300
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -898,7 +890,13 @@ MonoBehaviour:
       m_SelectedIDs: []
       m_LastClickedID:
         m_Data: 0
-      m_ExpandedIDs: []
+      m_ExpandedIDs:
+      - m_Data: -63086
+      - m_Data: -13240
+      - m_Data: -10112
+      - m_Data: -1318
+      - m_Data: -1314
+      - m_Data: 55016
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

@@ -76,9 +76,11 @@
     <Compile Include="Assets\Scripts\Casilla.cs" />
     <Compile Include="Assets\Scripts\Managers\TableroManager.cs" />
     <Compile Include="Assets\Scripts\Pieces\Whites\TestWhite.cs" />
+    <Compile Include="Assets\Scripts\Pieces\Blacks\QueenBlack.cs" />
     <Compile Include="Assets\Scripts\Pieces\Blacks\PawnBlack.cs" />
     <Compile Include="Assets\Scripts\Pieces\Blacks\TestBlack.cs" />
     <Compile Include="Assets\Scripts\Pieces\Blacks\TowerBlack.cs" />
+    <Compile Include="Assets\Scripts\Pieces\Whites\QueenWhite.cs" />
     <Compile Include="Assets\Scripts\Pieces\Whites\BaseWhite.cs" />
     <Compile Include="Assets\Scripts\Pieces\Whites\BishopWhite.cs" />
     <Compile Include="Assets\Scripts\Pieces\Blacks\BishopBlack.cs" />

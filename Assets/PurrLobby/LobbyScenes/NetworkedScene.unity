@@ -201,6 +201,8 @@ MonoBehaviour:
   AlfilNegro: {fileID: -4426979423712116553, guid: ea35b9dcd809c9148b1d19d3d7e81c1c, type: 3}
   ReyBlanco: {fileID: 4277313625323963730, guid: 93dddb79fabc4dc48acac63415536927, type: 3}
   ReyNegro: {fileID: -4819891991039017521, guid: a2d1dbad80f51d14a879990f24bea010, type: 3}
+  ReinaBlanca: {fileID: -1897385740667326817, guid: d406c9192e8724745aa6d6f40b7fb7ec, type: 3}
+  ReinaNegra: {fileID: -1105453104220389948, guid: 6188d329b2ab23241a86339b62564216, type: 3}
 --- !u!114 &46510589
 MonoBehaviour:
   m_ObjectHideFlags: 0
