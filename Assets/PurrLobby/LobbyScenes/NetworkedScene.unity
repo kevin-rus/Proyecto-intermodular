@@ -197,6 +197,10 @@ MonoBehaviour:
   TorreNegra: {fileID: 598749466563627648, guid: 10fa13f4f177c5642b27f2753dda492f, type: 3}
   CaballoBlanco: {fileID: -7831936604380811304, guid: 584c2dad15f16c0429abeb6aa6a3942d, type: 3}
   CaballoNegro: {fileID: -3367679229937054245, guid: c4dafcab6efa4ff42bc1b3e0b6fcf29b, type: 3}
+  AlfilBlanco: {fileID: -8968912704338514324, guid: 009635323daa13648b8d301f78835d61, type: 3}
+  AlfilNegro: {fileID: -4426979423712116553, guid: ea35b9dcd809c9148b1d19d3d7e81c1c, type: 3}
+  ReyBlanco: {fileID: 4277313625323963730, guid: 93dddb79fabc4dc48acac63415536927, type: 3}
+  ReyNegro: {fileID: -4819891991039017521, guid: a2d1dbad80f51d14a879990f24bea010, type: 3}
 --- !u!114 &46510589
 MonoBehaviour:
   m_ObjectHideFlags: 0

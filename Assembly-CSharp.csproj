@@ -64,10 +64,12 @@
     <Compile Include="Assets\Scripts\Pieces\Whites\HorseWhite.cs" />
     <Compile Include="Assets\Scripts\Pieces\ScriptablePieces.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Pieces\Whites\KingWhite.cs" />
     <Compile Include="Assets\Scripts\FichaPrueba.cs" />
     <Compile Include="Assets\Scripts\Pieces\BasePiece.cs" />
     <Compile Include="Assets\Scripts\Pieces\Blacks\HorseBlack.cs" />
     <Compile Include="Assets\Scripts\Pieces\Whites\TowerWhite.cs" />
+    <Compile Include="Assets\Scripts\Pieces\Blacks\KingBlack.cs" />
     <Compile Include="Assets\Scripts\Managers\PieceManager.cs" />
     <Compile Include="Assets\Scripts\Pieces\Blacks\BaseBlack.cs" />
     <Compile Include="Assets\Scripts\Pieces\Whites\PawnWhite.cs" />
@@ -78,6 +80,8 @@
     <Compile Include="Assets\Scripts\Pieces\Blacks\TestBlack.cs" />
     <Compile Include="Assets\Scripts\Pieces\Blacks\TowerBlack.cs" />
     <Compile Include="Assets\Scripts\Pieces\Whites\BaseWhite.cs" />
+    <Compile Include="Assets\Scripts\Pieces\Whites\BishopWhite.cs" />
+    <Compile Include="Assets\Scripts\Pieces\Blacks\BishopBlack.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

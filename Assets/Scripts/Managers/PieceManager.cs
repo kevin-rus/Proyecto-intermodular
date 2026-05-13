@@ -15,6 +15,8 @@ public class PieceManager : NetworkBehaviour
     public BasePiece PeonBlanco, PeonNegro;
     public BasePiece TorreBlanca, TorreNegra;
     public BasePiece CaballoBlanco, CaballoNegro;
+    public BasePiece AlfilBlanco, AlfilNegro;
+    public BasePiece ReyBlanco, ReyNegro;
 
     private void Awake()
     {
@@ -61,6 +63,21 @@ public class PieceManager : NetworkBehaviour
             casilla.setPiece(spawnedCaballo);
         }
 
+        // Genera los alfiles blancos
+        for (int i = 0; i < 2; i++)
+        {
+            var spawnedAlfil = Instantiate(AlfilBlanco);
+            var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(2 + i * 3, 0));
+
+            casilla.setPiece(spawnedAlfil);
+        }
+
+        // Genera el rey blanco
+        var spawnedRey = Instantiate(ReyBlanco);
+        var casillaRey = TableroManager.instance.GetCaillaFromPosition(new Vector2(4, 0));
+
+        casillaRey.setPiece(spawnedRey);
+
         GameManager.instance.UpdateGameState(GameState.SpawnBlacks);
     }
 
@@ -95,6 +112,21 @@ public class PieceManager : NetworkBehaviour
 
             casilla.setPiece(spawnedCaballo);
         }
+
+        // Genera los alfiles negros
+        for (int i = 0; i < 2; i++)
+        {
+            var spawnedAlfil = Instantiate(AlfilNegro);
+            var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(2 + i * 3, 7));
+
+            casilla.setPiece(spawnedAlfil);
+        }
+
+        // Genera el rey negro
+        var spawnedRey = Instantiate(ReyNegro);
+        var casillaRey = TableroManager.instance.GetCaillaFromPosition(new Vector2(4, 7));
+
+        casillaRey.setPiece(spawnedRey);
 
         GameManager.instance.UpdateGameState(GameState.WhiteTurn);
     }
