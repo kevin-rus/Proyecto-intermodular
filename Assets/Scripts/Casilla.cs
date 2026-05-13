@@ -39,7 +39,7 @@ public class Casilla : NetworkBehaviour
         _renderer = GetComponent<SpriteRenderer>();
 
         bool esNegra = (x + y) % 2 == 1;
-        _renderer.color = esNegra ? Color.black : Color.white;
+        _renderer.color = esNegra ? new Color32(0x4F, 0x30, 0x16, 0xFF) : new Color32(0xFD, 0xE7, 0xD5, 0xFF);
         Debug.Log("Se han cambiado los colores");
     }
 

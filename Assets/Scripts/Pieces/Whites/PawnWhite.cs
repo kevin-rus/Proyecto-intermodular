@@ -6,18 +6,6 @@ using UnityEngine;
 public class PawnWhite : BaseWhite
 {
     private bool isFirstMove = true;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override bool calcularMovimientos(Casilla casillaIni, Casilla CasillaDese)
     {
         // Registra los posibles movimientos en una lista, luego comprueba que el movimiento

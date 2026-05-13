@@ -3,23 +3,13 @@ using UnityEngine;
 
 public class PawnBlack : BaseBlack
 {
+    private bool isFirstMove = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override bool calcularMovimientos(Casilla casillaIni, Casilla CasillaDese)
     {
         List<Casilla> posibMovimientos = new List<Casilla>();
 
-        for (int i = -1; i >= -2; i--)
+        for (int i = -1; i >= (isFirstMove ? -2 : -1); i--)
         {
             int posibMovX = casillaIni.getPosX();
             int posibMovY = casillaIni.getPosY() + i;

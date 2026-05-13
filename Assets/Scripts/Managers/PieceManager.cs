@@ -14,6 +14,7 @@ public class PieceManager : NetworkBehaviour
     public BasePiece SelectedPiece;
     public BasePiece PeonBlanco, PeonNegro;
     public BasePiece TorreBlanca, TorreNegra;
+    public BasePiece CaballoBlanco, CaballoNegro;
 
     private void Awake()
     {
@@ -39,7 +40,6 @@ public class PieceManager : NetworkBehaviour
             var spawnedPeon = Instantiate(PeonBlanco);
             var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(i, 1));
 
-            Debug.Log("Estableciendo pieza en la casilla: " + i + " - " + 1);
             casilla.setPiece(spawnedPeon);
         }
 
@@ -49,8 +49,16 @@ public class PieceManager : NetworkBehaviour
             var spawnedTorre = Instantiate(TorreBlanca);
             var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(i * 7, 0));
 
-            Debug.Log("Estableciendo pieza en la casilla: " + i * 7 + " - " + 0);
             casilla.setPiece(spawnedTorre);
+        }
+        
+        // Genera los caballos blancos
+        for (int i = 0; i < 2; i++)
+        {
+            var spawnedCaballo = Instantiate(CaballoBlanco);
+            var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(1 + i * 5, 0));
+
+            casilla.setPiece(spawnedCaballo);
         }
 
         GameManager.instance.UpdateGameState(GameState.SpawnBlacks);
@@ -67,7 +75,6 @@ public class PieceManager : NetworkBehaviour
             var spawnedBlack = Instantiate(PeonNegro);
             var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(i, 6));
 
-            Debug.Log("Estableciendo pieza en la casilla: " + i + " - " + 6);
             casilla.setPiece(spawnedBlack);
         }
 
@@ -77,8 +84,16 @@ public class PieceManager : NetworkBehaviour
             var spawnedTorre = Instantiate(TorreNegra);
             var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(i * 7, 7));
 
-            Debug.Log("Estableciendo pieza en la casilla: " + i * 7 + " - " + 7);
             casilla.setPiece(spawnedTorre);
+        }
+
+        // Genera los caballos negros
+        for (int i = 0; i < 2; i++)
+        {
+            var spawnedCaballo = Instantiate(CaballoNegro);
+            var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(1 + i * 5, 7));
+
+            casilla.setPiece(spawnedCaballo);
         }
 
         GameManager.instance.UpdateGameState(GameState.WhiteTurn);

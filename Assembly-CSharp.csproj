@@ -61,10 +61,12 @@
     <Analyzer Include="D:\Program Files\6000.3.4f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Pieces\Whites\HorseWhite.cs" />
     <Compile Include="Assets\Scripts\Pieces\ScriptablePieces.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\FichaPrueba.cs" />
     <Compile Include="Assets\Scripts\Pieces\BasePiece.cs" />
+    <Compile Include="Assets\Scripts\Pieces\Blacks\HorseBlack.cs" />
     <Compile Include="Assets\Scripts\Pieces\Whites\TowerWhite.cs" />
     <Compile Include="Assets\Scripts\Managers\PieceManager.cs" />
     <Compile Include="Assets\Scripts\Pieces\Blacks\BaseBlack.cs" />
