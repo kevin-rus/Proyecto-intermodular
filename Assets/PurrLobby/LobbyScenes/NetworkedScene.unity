@@ -193,6 +193,8 @@ MonoBehaviour:
   SelectedPiece: {fileID: 0}
   PeonBlanco: {fileID: 4887620086571400248, guid: 072a18c17b8c96440ab01d71b7d8d4f9, type: 3}
   PeonNegro: {fileID: -4865826469690020272, guid: d1da8abba5c0fdd4ebcc64643867b567, type: 3}
+  TorreBlanca: {fileID: 7658826363276411799, guid: aee87f6d6b5caba4ea96d8b7b2428c07, type: 3}
+  TorreNegra: {fileID: 598749466563627648, guid: 10fa13f4f177c5642b27f2753dda492f, type: 3}
 --- !u!114 &46510589
 MonoBehaviour:
   m_ObjectHideFlags: 0

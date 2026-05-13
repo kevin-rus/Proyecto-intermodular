@@ -12,8 +12,8 @@ public class PieceManager : NetworkBehaviour
     private List<ScriptablePieces> _pieces;
 
     public BasePiece SelectedPiece;
-    public BasePiece PeonBlanco;
-    public BasePiece PeonNegro;
+    public BasePiece PeonBlanco, PeonNegro;
+    public BasePiece TorreBlanca, TorreNegra;
 
     private void Awake()
     {
@@ -33,13 +33,24 @@ public class PieceManager : NetworkBehaviour
     {
         var whiteCount = 8;
 
+        // Genera los peones blancos
         for (int i = 0; i < whiteCount; i++)
         {
-            var spawnedWhite = Instantiate(PeonBlanco);
+            var spawnedPeon = Instantiate(PeonBlanco);
             var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(i, 1));
 
             Debug.Log("Estableciendo pieza en la casilla: " + i + " - " + 1);
-            casilla.setPiece(spawnedWhite);
+            casilla.setPiece(spawnedPeon);
+        }
+
+        //Genera las torres blancas
+        for (int i = 0; i < 2; i++)
+        {
+            var spawnedTorre = Instantiate(TorreBlanca);
+            var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(i * 7, 0));
+
+            Debug.Log("Estableciendo pieza en la casilla: " + i * 7 + " - " + 0);
+            casilla.setPiece(spawnedTorre);
         }
 
         GameManager.instance.UpdateGameState(GameState.SpawnBlacks);
@@ -50,13 +61,24 @@ public class PieceManager : NetworkBehaviour
     {
         var blackCount = 8;
 
+        // Genera los peones negros
         for (int i = 0; i < blackCount; i++)
         {
             var spawnedBlack = Instantiate(PeonNegro);
             var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(i, 6));
 
-            Debug.Log("Estableciendo pieza en la casilla: " + i + " - " + 1);
+            Debug.Log("Estableciendo pieza en la casilla: " + i + " - " + 6);
             casilla.setPiece(spawnedBlack);
+        }
+
+        // Genera las torres negras
+        for (int i = 0; i < 2; i++)
+        {
+            var spawnedTorre = Instantiate(TorreNegra);
+            var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(i * 7, 7));
+
+            Debug.Log("Estableciendo pieza en la casilla: " + i * 7 + " - " + 7);
+            casilla.setPiece(spawnedTorre);
         }
 
         GameManager.instance.UpdateGameState(GameState.WhiteTurn);
