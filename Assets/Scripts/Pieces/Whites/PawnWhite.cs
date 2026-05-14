@@ -8,6 +8,33 @@ public class PawnWhite : BaseWhite
     private bool isFirstMove = true;
     public override bool calcularMovimientos(Casilla casillaIni, Casilla CasillaDese)
     {
+        if(CasillaDese.OccupiedPiece != null && CasillaDese.OccupiedPiece.player == Player.Black)
+        {
+            int posibMovY = casillaIni.getPosY() + 1;
+
+            int leftCorner = casillaIni.getPosX() - 1;
+            int rightCorner = casillaIni.getPosX() + 1;
+
+            if (leftCorner >= 0)
+            {
+                Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(leftCorner, posibMovY));
+                if (posibCasilla == CasillaDese)
+                {
+                    Destroy(posibCasilla.OccupiedPiece.gameObject);
+                    return true;
+                }
+            }
+            if (rightCorner <= 7)
+            {
+                Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(rightCorner, posibMovY));
+                if (posibCasilla == CasillaDese)
+                {
+                    Destroy(posibCasilla.OccupiedPiece.gameObject);
+                    return true;
+                }
+            }
+        }
+
         // Registra los posibles movimientos en una lista, luego comprueba que el movimiento
         // deseado se encuentra en la lista
         List<Casilla> posibMovimientos = new List<Casilla>();

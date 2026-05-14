@@ -28,6 +28,13 @@ public class QueenBlack : BaseBlack
                 Debug.Log("Casilla vacia");
                 posibMovimientos.Add(posibCasilla);
             }
+            else if (posibCasilla.OccupiedPiece.player == Player.White && posibCasilla == CasillaDese)
+            {
+                Debug.Log("Casilla ocupada por pieza blanca, se puede comer");
+                Destroy(posibCasilla.OccupiedPiece.gameObject);
+
+                return true;
+            }
             else break;
         }
 
@@ -45,6 +52,13 @@ public class QueenBlack : BaseBlack
             if (posibCasilla.OccupiedPiece == null)
             {
                 posibMovimientos.Add(posibCasilla);
+            }
+            else if (posibCasilla.OccupiedPiece.player == Player.White && posibCasilla == CasillaDese)
+            {
+                Debug.Log("Casilla ocupada por pieza blanca, se puede comer");
+                Destroy(posibCasilla.OccupiedPiece.gameObject);
+
+                return true;
             }
             else break;
         }
@@ -64,6 +78,13 @@ public class QueenBlack : BaseBlack
             {
                 posibMovimientos.Add(posibCasilla);
             }
+            else if (posibCasilla.OccupiedPiece.player == Player.White && posibCasilla == CasillaDese)
+            {
+                Debug.Log("Casilla ocupada por pieza blanca, se puede comer");
+                Destroy(posibCasilla.OccupiedPiece.gameObject);
+
+                return true;
+            }
             else break;
         }
 
@@ -81,6 +102,13 @@ public class QueenBlack : BaseBlack
             if (posibCasilla.OccupiedPiece == null)
             {
                 posibMovimientos.Add(posibCasilla);
+            }
+            else if (posibCasilla.OccupiedPiece.player == Player.White && posibCasilla == CasillaDese)
+            {
+                Debug.Log("Casilla ocupada por pieza blanca, se puede comer");
+                Destroy(posibCasilla.OccupiedPiece.gameObject);
+
+                return true;
             }
             else break;
         }
@@ -101,6 +129,13 @@ public class QueenBlack : BaseBlack
                 Debug.Log("Casilla vacia");
                 posibMovimientos.Add(posibCasilla);
             }
+            else if (posibCasilla.OccupiedPiece.player == Player.White && posibCasilla == CasillaDese)
+            {
+                Debug.Log("Casilla ocupada por pieza blanca, se puede comer");
+                Destroy(posibCasilla.OccupiedPiece.gameObject);
+
+                return true;
+            }
             else break;
         }
 
@@ -118,6 +153,13 @@ public class QueenBlack : BaseBlack
             if (posibCasilla.OccupiedPiece == null)
             {
                 posibMovimientos.Add(posibCasilla);
+            }
+            else if (posibCasilla.OccupiedPiece.player == Player.White && posibCasilla == CasillaDese)
+            {
+                Debug.Log("Casilla ocupada por pieza blanca, se puede comer");
+                Destroy(posibCasilla.OccupiedPiece.gameObject);
+
+                return true;
             }
             else break;
         }
@@ -137,6 +179,13 @@ public class QueenBlack : BaseBlack
             {
                 posibMovimientos.Add(posibCasilla);
             }
+            else if (posibCasilla.OccupiedPiece.player == Player.White && posibCasilla == CasillaDese)
+            {
+                Debug.Log("Casilla ocupada por pieza blanca, se puede comer");
+                Destroy(posibCasilla.OccupiedPiece.gameObject);
+
+                return true;
+            }
             else break;
         }
 
@@ -154,6 +203,13 @@ public class QueenBlack : BaseBlack
             if (posibCasilla.OccupiedPiece == null)
             {
                 posibMovimientos.Add(posibCasilla);
+            }
+            else if (posibCasilla.OccupiedPiece.player == Player.White && posibCasilla == CasillaDese)
+            {
+                Debug.Log("Casilla ocupada por pieza blanca, se puede comer");
+                Destroy(posibCasilla.OccupiedPiece.gameObject);
+
+                return true;
             }
             else break;
         }

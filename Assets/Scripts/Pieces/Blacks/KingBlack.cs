@@ -28,6 +28,13 @@ public class KingBlack : BaseBlack
                     Debug.Log("Casilla vacia");
                     posibMovimientos.Add(posibCasilla);
                 }
+                else if (posibCasilla.OccupiedPiece.player == Player.White && posibCasilla == CasillaDese)
+                {
+                    Debug.Log("Casilla ocupada por pieza blanca, se puede comer");
+                    Destroy(posibCasilla.OccupiedPiece.gameObject);
+
+                    return true;
+                }
             }
         }
 
@@ -49,6 +56,13 @@ public class KingBlack : BaseBlack
                     Debug.Log("Casilla vacia");
                     posibMovimientos.Add(posibCasilla);
                 }
+                else if (posibCasilla.OccupiedPiece.player == Player.White && posibCasilla == CasillaDese)
+                {
+                    Debug.Log("Casilla ocupada por pieza blanca, se puede comer");
+                    Destroy(posibCasilla.OccupiedPiece.gameObject);
+
+                    return true;
+                }
             }
         }
 
@@ -67,6 +81,13 @@ public class KingBlack : BaseBlack
                 {
                     Debug.Log("Casilla vacia");
                     posibMovimientos.Add(posibCasilla);
+                }
+                else if (posibCasilla.OccupiedPiece.player == Player.White && posibCasilla == CasillaDese)
+                {
+                    Debug.Log("Casilla ocupada por pieza blanca, se puede comer");
+                    Destroy(posibCasilla.OccupiedPiece.gameObject);
+
+                    return true;
                 }
             }
         }
