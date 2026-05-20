@@ -1,4 +1,4 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,6 +7,9 @@ public class Queen : BasePiece
 {
     public override bool calcularMovimientos(Casilla casillaIni, Casilla CasillaDese)
     {
+        // Obtiene el rey del jugador para comprobar los movimientos cuando está en jaque
+        King myKing = player == Player.White ? PieceManager.instance.GetWhiteKing() : PieceManager.instance.GetBlackKing();
+
         Debug.Log("Calculando movimientos reina blanca");
         // Registra los posibles movimientos en una lista, luego comprueba que el movimiento
         // deseado se encuentra en la lista
@@ -30,10 +33,20 @@ public class Queen : BasePiece
             }
             else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
             {
-                Debug.Log("Casilla ocupada por pieza negra, se puede comer");
-                Destroy(posibCasilla.OccupiedPiece.gameObject);
-
-                return true;
+                if (!myKing.inCheck)
+                {
+                    Destroy(posibCasilla.OccupiedPiece.gameObject);
+                    return true;
+                }
+                else
+                {
+                    // Si el rey está en jaque, el peón solo puede comer la pieza que lo amenaza
+                    if (myKing.dangerPieces.Count == 1 && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
+                }
             }
             else break;
         }
@@ -55,10 +68,20 @@ public class Queen : BasePiece
             }
             else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
             {
-                Debug.Log("Casilla ocupada por pieza negra, se puede comer");
-                Destroy(posibCasilla.OccupiedPiece.gameObject);
-
-                return true;
+                if (!myKing.inCheck)
+                {
+                    Destroy(posibCasilla.OccupiedPiece.gameObject);
+                    return true;
+                }
+                else
+                {
+                    // Si el rey está en jaque, el peón solo puede comer la pieza que lo amenaza
+                    if (myKing.dangerPieces.Count == 1 && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
+                }
             }
             else break;
         }
@@ -80,10 +103,20 @@ public class Queen : BasePiece
             }
             else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
             {
-                Debug.Log("Casilla ocupada por pieza negra, se puede comer");
-                Destroy(posibCasilla.OccupiedPiece.gameObject);
-
-                return true;
+                if (!myKing.inCheck)
+                {
+                    Destroy(posibCasilla.OccupiedPiece.gameObject);
+                    return true;
+                }
+                else
+                {
+                    // Si el rey está en jaque, el peón solo puede comer la pieza que lo amenaza
+                    if (myKing.dangerPieces.Count == 1 && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
+                }
             }
             else break;
         }
@@ -105,10 +138,20 @@ public class Queen : BasePiece
             }
             else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
             {
-                Debug.Log("Casilla ocupada por pieza negra, se puede comer");
-                Destroy(posibCasilla.OccupiedPiece.gameObject);
-
-                return true;
+                if (!myKing.inCheck)
+                {
+                    Destroy(posibCasilla.OccupiedPiece.gameObject);
+                    return true;
+                }
+                else
+                {
+                    // Si el rey está en jaque, el peón solo puede comer la pieza que lo amenaza
+                    if (myKing.dangerPieces.Count == 1 && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
+                }
             }
             else break;
         }
@@ -131,10 +174,20 @@ public class Queen : BasePiece
             }
             else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
             {
-                Debug.Log("Casilla ocupada por pieza negra, se puede comer");
-                Destroy(posibCasilla.OccupiedPiece.gameObject);
-
-                return true;
+                if (!myKing.inCheck)
+                {
+                    Destroy(posibCasilla.OccupiedPiece.gameObject);
+                    return true;
+                }
+                else
+                {
+                    // Si el rey está en jaque, el peón solo puede comer la pieza que lo amenaza
+                    if (myKing.dangerPieces.Count == 1 && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
+                }
             }
             else break;
         }
@@ -156,10 +209,20 @@ public class Queen : BasePiece
             }
             else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
             {
-                Debug.Log("Casilla ocupada por pieza negra, se puede comer");
-                Destroy(posibCasilla.OccupiedPiece.gameObject);
-
-                return true;
+                if (!myKing.inCheck)
+                {
+                    Destroy(posibCasilla.OccupiedPiece.gameObject);
+                    return true;
+                }
+                else
+                {
+                    // Si el rey está en jaque, el peón solo puede comer la pieza que lo amenaza
+                    if (myKing.dangerPieces.Count == 1 && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
+                }
             }
             else break;
         }
@@ -181,10 +244,20 @@ public class Queen : BasePiece
             }
             else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
             {
-                Debug.Log("Casilla ocupada por pieza negra, se puede comer");
-                Destroy(posibCasilla.OccupiedPiece.gameObject);
-
-                return true;
+                if (!myKing.inCheck)
+                {
+                    Destroy(posibCasilla.OccupiedPiece.gameObject);
+                    return true;
+                }
+                else
+                {
+                    // Si el rey está en jaque, el peón solo puede comer la pieza que lo amenaza
+                    if (myKing.dangerPieces.Count == 1 && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
+                }
             }
             else break;
         }
@@ -206,17 +279,36 @@ public class Queen : BasePiece
             }
             else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
             {
-                Debug.Log("Casilla ocupada por pieza negra, se puede comer");
-                Destroy(posibCasilla.OccupiedPiece.gameObject);
-
-                return true;
+                if (!myKing.inCheck)
+                {
+                    Destroy(posibCasilla.OccupiedPiece.gameObject);
+                    return true;
+                }
+                else
+                {
+                    // Si el rey está en jaque, el peón solo puede comer la pieza que lo amenaza
+                    if (myKing.dangerPieces.Count == 1 && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
+                }
             }
             else break;
         }
 
         if (posibMovimientos.Contains(CasillaDese))
         {
-            return true;
+            if (myKing.inCheck)
+            {
+                List<Casilla> dangerPath = myKing.dangerPath;
+                // Si el rey está en jaque, el peón solo puede moverse a una casilla que bloquee el jaque
+                if (myKing.dangerPieces.Count == 1 && dangerPath.Contains(CasillaDese))
+                {
+                    return true;
+                }
+            }
+            else return true;
         }
 
         return false;

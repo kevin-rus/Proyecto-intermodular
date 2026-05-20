@@ -7,10 +7,12 @@ public class Pawn : BasePiece
 
     public override bool calcularMovimientos(Casilla casillaIni, Casilla CasillaDese)
     {
+        // Obtiene el rey del jugador para comprobar los movimientos cuando está en jaque
+        King myKing = player == Player.White ? PieceManager.instance.GetWhiteKing() : PieceManager.instance.GetBlackKing();
+
         if (CasillaDese.OccupiedPiece != null && CasillaDese.OccupiedPiece.player != player)
         {
             int posibMovY = casillaIni.getPosY() + (player == Player.White ? 1 : -1);
-
 
             int leftCorner = casillaIni.getPosX() - 1;
             int rightCorner = casillaIni.getPosX() + 1;
@@ -20,8 +22,20 @@ public class Pawn : BasePiece
                 Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(leftCorner, posibMovY));
                 if (posibCasilla == CasillaDese)
                 {
-                    Destroy(posibCasilla.OccupiedPiece.gameObject);
-                    return true;
+                    if(!myKing.inCheck)
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
+                    else
+                    {
+                        // Si el rey está en jaque, el peón solo puede comer la pieza que lo amenaza
+                        if (myKing.dangerPieces.Count == 1 && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                        {
+                            Destroy(posibCasilla.OccupiedPiece.gameObject);
+                            return true;
+                        }
+                    }
                 }
             }
             if (rightCorner <= 7)
@@ -29,8 +43,20 @@ public class Pawn : BasePiece
                 Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(rightCorner, posibMovY));
                 if (posibCasilla == CasillaDese)
                 {
-                    Destroy(posibCasilla.OccupiedPiece.gameObject);
-                    return true;
+                    if (!myKing.inCheck)
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
+                    else
+                    {
+                        // Si el rey está en jaque, el peón solo puede comer la pieza que lo amenaza
+                        if (myKing.dangerPieces.Count == 1 && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                        {
+                            Destroy(posibCasilla.OccupiedPiece.gameObject);
+                            return true;
+                        }
+                    }
                 }
             }
         }
@@ -60,8 +86,21 @@ public class Pawn : BasePiece
         // Si el movimiento es posible, devuelve true y asigna isFirstMove a false
         if (posibMovimientos.Contains(CasillaDese))
         {
-            isFirstMove = false;
-            return true;
+            if(myKing.inCheck)
+            {
+                List<Casilla> dangerPath = myKing.dangerPath;
+                // Si el rey está en jaque, el peón solo puede moverse a una casilla que bloquee el jaque
+                if (myKing.dangerPieces.Count == 1 && dangerPath.Contains(CasillaDese))
+                {
+                    isFirstMove = false;
+                    return true;
+                }
+            }
+            else
+            {
+                isFirstMove = false;
+                return true;
+            }
         }
 
         // Si no es posible, devuelve false
