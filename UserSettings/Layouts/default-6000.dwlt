@@ -634,7 +634,8 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders: []
+    m_Folders:
+    - Assets/Scripts
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -704,7 +705,8 @@ MonoBehaviour:
       m_ResourceFile: 
   m_AssetTreeState:
     scrollPos: {x: 0, y: 163}
-    m_SelectedIDs: []
+    m_SelectedIDs:
+    - m_Data: -65978
     m_LastClickedID:
       m_Data: 0
     m_ExpandedIDs:
@@ -754,8 +756,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: []
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs:
+    - m_Data: -65978
+    m_LastClickedInstanceID: -65978
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs:
     - m_Data: 75892
@@ -888,9 +891,9 @@ MonoBehaviour:
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
-      - m_Data: -1318
-      - m_Data: 52880
-      - m_Data: 52888
+      - m_Data: -64874
+      - m_Data: -24070
+      - m_Data: -19060
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

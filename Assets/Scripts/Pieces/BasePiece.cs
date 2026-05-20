@@ -35,11 +35,10 @@ public abstract class BasePiece : MonoBehaviour
         // ****** Detecta jaque en los ejes lineales (Torre, Reina) ******
         Debug.Log("Comprobando ejes lineales");
 
+        List<Casilla> path = new List<Casilla>();
         // Comprueba casilla en eje X positivo
         for (int i = 1; i <= 7; i++)
         {
-            List<Casilla> path = new List<Casilla>();
-
             int posibMovX = casillaIni.getPosX();
             int posibMovY = casillaIni.getPosY() + i;
 
@@ -67,11 +66,10 @@ public abstract class BasePiece : MonoBehaviour
             else if (posibCasilla.OccupiedPiece.player == player) break;
         }
 
+        path = new List<Casilla>();
         // Comprueba casilla en eje X negativo
         for (int i = -1; i >= -7; i--)
         {
-            List<Casilla> path = new List<Casilla>();
-
             int posibMovX = casillaIni.getPosX();
             int posibMovY = casillaIni.getPosY() + i;
 
@@ -100,10 +98,9 @@ public abstract class BasePiece : MonoBehaviour
         }
 
         // Comprueba casilla en eje Y positivo
+        path = new List<Casilla>();
         for (int i = 1; i <= 7; i++)
         {
-            List<Casilla> path = new List<Casilla>();
-
             int posibMovX = casillaIni.getPosX() + i;
             int posibMovY = casillaIni.getPosY();
 
@@ -133,10 +130,9 @@ public abstract class BasePiece : MonoBehaviour
         }
 
         // Comprueba casilla en eje Y negativo
+        path = new List<Casilla>();
         for (int i = -1; i >= -7; i--)
         {
-            List<Casilla> path = new List<Casilla>();
-
             int posibMovX = casillaIni.getPosX() + i;
             int posibMovY = casillaIni.getPosY();
 
@@ -168,10 +164,9 @@ public abstract class BasePiece : MonoBehaviour
         Debug.Log("Comprobando ejes diagonales");
 
         // Comprueba casilla en eje X positivo - eje Y positivo
+        path = new List<Casilla>();
         for (int i = 1; i <= 7; i++)
         {
-            List<Casilla> path = new List<Casilla>();
-
             int posibMovX = casillaIni.getPosX() + i;
             int posibMovY = casillaIni.getPosY() + i;
 
@@ -200,10 +195,9 @@ public abstract class BasePiece : MonoBehaviour
         }
 
         // Comprueba casilla en eje X positivo - eje Y negativo
+        path = new List<Casilla>();
         for (int i = 1; i <= 7; i++)
         {
-            List<Casilla> path = new List<Casilla>();
-
             int posibMovX = casillaIni.getPosX() + i;
             int posibMovY = casillaIni.getPosY() + (i * -1);
 
@@ -232,10 +226,9 @@ public abstract class BasePiece : MonoBehaviour
         }
 
         // Comprueba casilla en eje X negativo - eje Y negativo
+        path = new List<Casilla>();
         for (int i = 1; i <= 7; i++)
         {
-            List<Casilla> path = new List<Casilla>();
-
             int posibMovX = casillaIni.getPosX() + (i * -1);
             int posibMovY = casillaIni.getPosY() + (i * -1);
 
@@ -264,10 +257,9 @@ public abstract class BasePiece : MonoBehaviour
         }
 
         // Comprueba casilla en eje X negativo - eje Y positivo
+        path = new List<Casilla>();
         for (int i = 1; i <= 7; i++)
         {
-            List<Casilla> path = new List<Casilla>();
-
             int posibMovX = casillaIni.getPosX() + (i * -1);
             int posibMovY = casillaIni.getPosY() + i;
 
