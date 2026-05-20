@@ -246,8 +246,8 @@ MonoBehaviour:
     y: 0
     width: 661
     height: 629
-  m_MinSize: {x: 202, y: 226}
-  m_MaxSize: {x: 4002, y: 4026}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 16}
@@ -275,9 +275,9 @@ MonoBehaviour:
     m_TextWithWhitespace: "Clones Manager\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1086
+    x: 1058
     y: 79
-    width: 273
+    width: 301
     height: 603
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: 43
     width: 1360
     height: 36
   m_SerializedDataModeController:
@@ -607,8 +607,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Project\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 866
-    y: 24
+    x: 865
+    y: 79
     width: 191
     height: 603
   m_SerializedDataModeController:
@@ -634,8 +634,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders:
-    - Assets/Prefabs
+    m_Folders: []
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -674,10 +673,6 @@ MonoBehaviour:
     - m_Data: 52318
     - m_Data: 52320
     - m_Data: 52322
-    - m_Data: 52324
-    - m_Data: 52326
-    - m_Data: 52328
-    - m_Data: 52330
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -704,9 +699,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs:
-    - m_Data: -1318
+    scrollPos: {x: 0, y: 163}
+    m_SelectedIDs: []
     m_LastClickedID:
       m_Data: 0
     m_ExpandedIDs:
@@ -726,14 +720,14 @@ MonoBehaviour:
     - m_Data: 52318
     - m_Data: 52320
     - m_Data: 52322
-    - m_Data: 52324
-    - m_Data: 52326
-    - m_Data: 52328
-    - m_Data: 52330
+    - m_Data: 52472
+    - m_Data: 52664
+    - m_Data: 52674
+    - m_Data: 52676
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: King
+      m_OriginalName: King
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
@@ -741,10 +735,10 @@ MonoBehaviour:
         width: 0
         height: 0
       m_UserData:
-        m_Data: 0
+        m_Data: 67160
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
       m_ClientGUIView: {fileID: 2}
@@ -756,9 +750,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs:
-    - m_Data: -1318
-    m_LastClickedInstanceID: -1318
+    m_SelectedInstanceIDs: []
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs:
     - m_Data: 75892
@@ -816,8 +809,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1059
-    y: 24
+    x: 1058
+    y: 79
     width: 301
     height: 603
   m_SerializedDataModeController:
@@ -840,7 +833,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 300
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -868,7 +861,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 24
+    y: 79
     width: 203
     height: 603
   m_SerializedDataModeController:
@@ -891,12 +884,9 @@ MonoBehaviour:
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
-      - m_Data: -63086
-      - m_Data: -13240
-      - m_Data: -10112
       - m_Data: -1318
-      - m_Data: -1314
-      - m_Data: 55016
+      - m_Data: 52880
+      - m_Data: 52888
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1542,8 +1532,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Game\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 205
-    y: 24
+    x: 204
+    y: 79
     width: 659
     height: 603
   m_SerializedDataModeController:

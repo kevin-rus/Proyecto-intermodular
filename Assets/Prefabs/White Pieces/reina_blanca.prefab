@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6711381965112840032}
   - component: {fileID: 6735666847634774814}
-  - component: {fileID: -1897385740667326817}
+  - component: {fileID: -1640331462936558035}
   - component: {fileID: 8627054494268203604}
   m_Layer: 0
   m_Name: reina_blanca
@@ -93,7 +93,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &-1897385740667326817
+--- !u!114 &-1640331462936558035
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,9 +102,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1080226862835263064}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9fde87953d22cc408b59064e0ad4c02, type: 3}
+  m_Script: {fileID: 11500000, guid: b7aeee30721635b44ab1b4b145593936, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::QueenWhite
+  m_EditorClassIdentifier: Assembly-CSharp::Queen
   OccupiedCasilla: {fileID: 0}
   player: 0
 --- !u!114 &8627054494268203604

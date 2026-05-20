@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2600930419297561298}
   - component: {fileID: 387557734435532180}
-  - component: {fileID: -4426979423712116553}
+  - component: {fileID: -3989657125907412595}
   - component: {fileID: -5140652555032840242}
   m_Layer: 0
   m_Name: alfil_negro
@@ -93,7 +93,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &-4426979423712116553
+--- !u!114 &-3989657125907412595
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,9 +102,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4736502090885980043}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fda8ebaa37e43f947a17e48b9ea5bee5, type: 3}
+  m_Script: {fileID: 11500000, guid: 33d7732130ecc6d45b69b6bc53fb5490, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BishopBlack
+  m_EditorClassIdentifier: Assembly-CSharp::Bishop
   OccupiedCasilla: {fileID: 0}
   player: 1
 --- !u!114 &-5140652555032840242

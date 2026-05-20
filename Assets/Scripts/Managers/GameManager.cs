@@ -1,5 +1,6 @@
 ﻿using PurrNet;
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,11 @@ public class GameManager : NetworkBehaviour
 {
     public static GameManager instance;
 
+    public Image whiteTurnIndicator, blackTurnIndicator;
+
+    public Image checkIndicator;
+    public TextMeshProUGUI checkIndicatorText;
+
     public GameState state;
 
     public static event Action<GameState> OnGameStateChanged;
@@ -15,6 +21,9 @@ public class GameManager : NetworkBehaviour
     private void Awake()
     {
         instance = this;
+        whiteTurnIndicator.gameObject.SetActive(false);
+        blackTurnIndicator.gameObject.SetActive(false);
+        checkIndicator.gameObject.SetActive(false);
     }
 
     protected override void OnSpawned()
@@ -25,6 +34,7 @@ public class GameManager : NetworkBehaviour
 
     public void UpdateGameState(GameState newState)
     {
+        Debug.Log("Actualizando estado: " + newState);
         state = newState;
 
         switch (state)
@@ -47,11 +57,36 @@ public class GameManager : NetworkBehaviour
                 PieceManager.instance.SpawnBlacks();
                 break;
             case GameState.WhiteTurn:
+                whiteTurnIndicator.gameObject.SetActive(true);
+                blackTurnIndicator.gameObject.SetActive(false);
+                lookForCheck();
                 break;
             case GameState.BlackTurn:
+                whiteTurnIndicator.gameObject.SetActive(false);
+                blackTurnIndicator.gameObject.SetActive(true);
+                lookForCheck();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);
+            }
+    }
+
+    [ObserversRpc]
+    public void lookForCheck()
+    {
+        if (PieceManager.instance.GetWhiteKing().inCheck)
+        {
+            checkIndicatorText.text = "Rey blanco en jaque!";
+            checkIndicator.gameObject.SetActive(true);
+        }
+        else if (PieceManager.instance.GetBlackKing().inCheck)
+        {
+            checkIndicatorText.text = "Rey negro en jaque!";
+            checkIndicator.gameObject.SetActive(true);
+        }
+        else
+        {
+            checkIndicator.gameObject.SetActive(false);
         }
     }
 }
@@ -65,5 +100,5 @@ public enum GameState
     SpawnWthites,
     SpawnBlacks,
     WhiteTurn,
-    BlackTurn
+    BlackTurn,
 }

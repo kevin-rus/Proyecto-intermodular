@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4384415808531880953}
   - component: {fileID: 3549221387096177938}
-  - component: {fileID: -4865826469690020272}
+  - component: {fileID: 4538064352823889846}
   - component: {fileID: -3855045631587887322}
   m_Layer: 0
   m_Name: peon_negro
@@ -93,7 +93,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &-4865826469690020272
+--- !u!114 &4538064352823889846
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,9 +102,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4302815516361266226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7ebd8f48a1d78d4c94df8c144fba844, type: 3}
+  m_Script: {fileID: 11500000, guid: 2036e85e23f518740980776607a96370, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PawnBlack
+  m_EditorClassIdentifier: Assembly-CSharp::Pawn
   OccupiedCasilla: {fileID: 0}
   player: 1
 --- !u!114 &-3855045631587887322

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class QueenBlack : BaseBlack
+public class Queen : BasePiece
 {
     public override bool calcularMovimientos(Casilla casillaIni, Casilla CasillaDese)
     {
-        Debug.Log("Calculando movimientos reina negra");
+        Debug.Log("Calculando movimientos reina blanca");
         // Registra los posibles movimientos en una lista, luego comprueba que el movimiento
         // deseado se encuentra en la lista
         List<Casilla> posibMovimientos = new List<Casilla>();
@@ -28,9 +28,9 @@ public class QueenBlack : BaseBlack
                 Debug.Log("Casilla vacia");
                 posibMovimientos.Add(posibCasilla);
             }
-            else if (posibCasilla.OccupiedPiece.player == Player.White && posibCasilla == CasillaDese)
+            else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
             {
-                Debug.Log("Casilla ocupada por pieza blanca, se puede comer");
+                Debug.Log("Casilla ocupada por pieza negra, se puede comer");
                 Destroy(posibCasilla.OccupiedPiece.gameObject);
 
                 return true;
@@ -53,9 +53,9 @@ public class QueenBlack : BaseBlack
             {
                 posibMovimientos.Add(posibCasilla);
             }
-            else if (posibCasilla.OccupiedPiece.player == Player.White && posibCasilla == CasillaDese)
+            else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
             {
-                Debug.Log("Casilla ocupada por pieza blanca, se puede comer");
+                Debug.Log("Casilla ocupada por pieza negra, se puede comer");
                 Destroy(posibCasilla.OccupiedPiece.gameObject);
 
                 return true;
@@ -78,9 +78,9 @@ public class QueenBlack : BaseBlack
             {
                 posibMovimientos.Add(posibCasilla);
             }
-            else if (posibCasilla.OccupiedPiece.player == Player.White && posibCasilla == CasillaDese)
+            else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
             {
-                Debug.Log("Casilla ocupada por pieza blanca, se puede comer");
+                Debug.Log("Casilla ocupada por pieza negra, se puede comer");
                 Destroy(posibCasilla.OccupiedPiece.gameObject);
 
                 return true;
@@ -103,9 +103,9 @@ public class QueenBlack : BaseBlack
             {
                 posibMovimientos.Add(posibCasilla);
             }
-            else if (posibCasilla.OccupiedPiece.player == Player.White && posibCasilla == CasillaDese)
+            else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
             {
-                Debug.Log("Casilla ocupada por pieza blanca, se puede comer");
+                Debug.Log("Casilla ocupada por pieza negra, se puede comer");
                 Destroy(posibCasilla.OccupiedPiece.gameObject);
 
                 return true;
@@ -129,9 +129,9 @@ public class QueenBlack : BaseBlack
                 Debug.Log("Casilla vacia");
                 posibMovimientos.Add(posibCasilla);
             }
-            else if (posibCasilla.OccupiedPiece.player == Player.White && posibCasilla == CasillaDese)
+            else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
             {
-                Debug.Log("Casilla ocupada por pieza blanca, se puede comer");
+                Debug.Log("Casilla ocupada por pieza negra, se puede comer");
                 Destroy(posibCasilla.OccupiedPiece.gameObject);
 
                 return true;
@@ -154,9 +154,9 @@ public class QueenBlack : BaseBlack
             {
                 posibMovimientos.Add(posibCasilla);
             }
-            else if (posibCasilla.OccupiedPiece.player == Player.White && posibCasilla == CasillaDese)
+            else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
             {
-                Debug.Log("Casilla ocupada por pieza blanca, se puede comer");
+                Debug.Log("Casilla ocupada por pieza negra, se puede comer");
                 Destroy(posibCasilla.OccupiedPiece.gameObject);
 
                 return true;
@@ -179,9 +179,9 @@ public class QueenBlack : BaseBlack
             {
                 posibMovimientos.Add(posibCasilla);
             }
-            else if (posibCasilla.OccupiedPiece.player == Player.White && posibCasilla == CasillaDese)
+            else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
             {
-                Debug.Log("Casilla ocupada por pieza blanca, se puede comer");
+                Debug.Log("Casilla ocupada por pieza negra, se puede comer");
                 Destroy(posibCasilla.OccupiedPiece.gameObject);
 
                 return true;
@@ -204,9 +204,9 @@ public class QueenBlack : BaseBlack
             {
                 posibMovimientos.Add(posibCasilla);
             }
-            else if (posibCasilla.OccupiedPiece.player == Player.White && posibCasilla == CasillaDese)
+            else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
             {
-                Debug.Log("Casilla ocupada por pieza blanca, se puede comer");
+                Debug.Log("Casilla ocupada por pieza negra, se puede comer");
                 Destroy(posibCasilla.OccupiedPiece.gameObject);
 
                 return true;

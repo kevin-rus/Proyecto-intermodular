@@ -19,6 +19,9 @@ public class PieceManager : NetworkBehaviour
     public BasePiece ReyBlanco, ReyNegro;
     public BasePiece ReinaBlanca, ReinaNegra;
 
+    // Referencias a los reyes spawneados en partida
+    private King _blackKing, _whiteKing;
+
     private void Awake()
     {
         instance = this;
@@ -79,6 +82,8 @@ public class PieceManager : NetworkBehaviour
 
         casillaRey.setPiece(spawnedRey);
 
+        _whiteKing = (King)spawnedRey;
+
         // Genera la reina blanca
         var spawnedReina = Instantiate(ReinaBlanca);
         var casillaReina = TableroManager.instance.GetCaillaFromPosition(new Vector2(3, 0));
@@ -135,18 +140,30 @@ public class PieceManager : NetworkBehaviour
 
         casillaRey.setPiece(spawnedRey);
 
-        GameManager.instance.UpdateGameState(GameState.WhiteTurn);
+        _blackKing = (King)spawnedRey;
 
         // Genera la reina negra
         var spawnedReina = Instantiate(ReinaNegra);
         var casillaReina = TableroManager.instance.GetCaillaFromPosition(new Vector2(3, 7));
 
         casillaReina.setPiece(spawnedReina);
+
+        GameManager.instance.UpdateGameState(GameState.WhiteTurn);
     }
 
     // Establece la pieza seleccionada
     public void SetSelectedPiece(BasePiece piece)
     {
         SelectedPiece = piece;
+    }
+
+    public King GetWhiteKing()
+    {
+        return _whiteKing;
+    }
+
+    public King GetBlackKing()
+    {
+        return _blackKing;
     }
 }

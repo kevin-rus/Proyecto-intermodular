@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 448046907917830014}
   - component: {fileID: 6842992310601692598}
+  - component: {fileID: 9100804728594379350}
   - component: {fileID: 1491268368287133156}
-  - component: {fileID: -3367679229937054245}
   m_Layer: 0
   m_Name: caballo_negro
   m_TagString: Untagged
@@ -93,6 +93,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &9100804728594379350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226617907214016648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9555066101c81a04d8cf8f6fee14e399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Horse
+  OccupiedCasilla: {fileID: 0}
+  player: 1
 --- !u!114 &1491268368287133156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,17 +138,3 @@ MonoBehaviour:
   _characterControllerPatch: 0
   _ownerAuth: 1
   _interpolationTiming: 0
---- !u!114 &-3367679229937054245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 226617907214016648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf8e51043b36d7d4183738cb8813e9d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HorseBlack
-  OccupiedCasilla: {fileID: 0}
-  player: 1

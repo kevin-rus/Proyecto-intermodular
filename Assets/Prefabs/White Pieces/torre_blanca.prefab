@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2795425870920131686}
   - component: {fileID: 9075907137510510163}
-  - component: {fileID: 7658826363276411799}
+  - component: {fileID: -1162141694881261147}
   - component: {fileID: 395549151891087187}
   m_Layer: 0
   m_Name: torre_blanca
@@ -93,7 +93,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &7658826363276411799
+--- !u!114 &-1162141694881261147
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,9 +102,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4414116190177894326}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0cad2b0c0a801843acf72899cdff7f8, type: 3}
+  m_Script: {fileID: 11500000, guid: ceb1890b3e4acbf4b9b5852feda96933, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TowerWhite
+  m_EditorClassIdentifier: Assembly-CSharp::Tower
   OccupiedCasilla: {fileID: 0}
   player: 0
 --- !u!114 &395549151891087187

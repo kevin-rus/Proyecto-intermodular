@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5130312491624313602}
   - component: {fileID: 6758760410255742153}
-  - component: {fileID: -4819891991039017521}
+  - component: {fileID: 4176835358884849097}
   - component: {fileID: 3149377955552114866}
   m_Layer: 0
   m_Name: rey_negro
@@ -93,7 +93,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &-4819891991039017521
+--- !u!114 &4176835358884849097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,11 +102,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4309533469745816266}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5278758cf31d08543848f1a2280a5341, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c1154f8c2918df4ea4c8fb5c61ddca8, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::KingBlack
+  m_EditorClassIdentifier: Assembly-CSharp::King
   OccupiedCasilla: {fileID: 0}
   player: 1
+  inCheck: 0
 --- !u!114 &3149377955552114866
 MonoBehaviour:
   m_ObjectHideFlags: 0

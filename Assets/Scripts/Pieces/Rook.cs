@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class TowerWhite : BaseWhite
+public class Rook : BasePiece
 {
     public override bool calcularMovimientos(Casilla casillaIni, Casilla CasillaDese)
     {
@@ -29,7 +29,7 @@ public class TowerWhite : BaseWhite
                 posibMovimientos.Add(posibCasilla);
 
             }
-            else if(posibCasilla.OccupiedPiece.player == Player.Black && posibCasilla == CasillaDese)
+            else if(posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
             {
                 Debug.Log("Casilla ocupada por pieza negra, se puede comer");
                 Destroy(posibCasilla.OccupiedPiece.gameObject);
@@ -54,7 +54,7 @@ public class TowerWhite : BaseWhite
             {
                 posibMovimientos.Add(posibCasilla);
             }
-            else if (posibCasilla.OccupiedPiece.player == Player.Black && posibCasilla == CasillaDese)
+            else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
             {
                 Debug.Log("Casilla ocupada por pieza negra, se puede comer");
                 Destroy(posibCasilla.OccupiedPiece.gameObject);
@@ -79,7 +79,7 @@ public class TowerWhite : BaseWhite
             {
                 posibMovimientos.Add(posibCasilla);
             }
-            else if (posibCasilla.OccupiedPiece.player == Player.Black && posibCasilla == CasillaDese)
+            else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
             {
                 Debug.Log("Casilla ocupada por pieza negra, se puede comer");
                 Destroy(posibCasilla.OccupiedPiece.gameObject);
@@ -104,7 +104,7 @@ public class TowerWhite : BaseWhite
             {
                 posibMovimientos.Add(posibCasilla);
             }
-            else if (posibCasilla.OccupiedPiece.player == Player.Black && posibCasilla == CasillaDese)
+            else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
             {
                 Debug.Log("Casilla ocupada por pieza negra, se puede comer");
                 Destroy(posibCasilla.OccupiedPiece.gameObject);

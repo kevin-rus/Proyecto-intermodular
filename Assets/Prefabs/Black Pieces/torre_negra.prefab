@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7658342422903875637}
   - component: {fileID: 2587995847436364043}
-  - component: {fileID: 598749466563627648}
+  - component: {fileID: 8384181040276734919}
   - component: {fileID: -5958190060129022269}
   m_Layer: 0
   m_Name: torre_negra
@@ -93,7 +93,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &598749466563627648
+--- !u!114 &8384181040276734919
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,9 +102,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7925611442539670503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff18bb57802ec3b4997edbabf6c8fc05, type: 3}
+  m_Script: {fileID: 11500000, guid: ceb1890b3e4acbf4b9b5852feda96933, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TowerBlack
+  m_EditorClassIdentifier: Assembly-CSharp::Tower
   OccupiedCasilla: {fileID: 0}
   player: 1
 --- !u!114 &-5958190060129022269

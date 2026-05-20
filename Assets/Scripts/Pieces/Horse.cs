@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class HorseWhite : BaseWhite
+public class Horse : BasePiece
 {
     public override bool calcularMovimientos(Casilla casillaIni, Casilla CasillaDese)
     {
-        Debug.Log("Calculando movimientos torre blanca");
+        Debug.Log("Calculando movimientos caballo");
         // Registra los posibles movimientos en una lista, luego comprueba que el movimiento
         // deseado se encuentra en la lista
         List<Casilla> posibMovimientos = new List<Casilla>();
@@ -23,14 +23,13 @@ public class HorseWhite : BaseWhite
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Debug.Log("Casilla: " + posibMovX + " - " + posibMovY);
                 Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     Debug.Log("Casilla vacia");
                     posibMovimientos.Add(posibCasilla);
                 }
-                else if (posibCasilla.OccupiedPiece.player == Player.Black && posibCasilla == CasillaDese)
+                else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
                 {
                     Debug.Log("Casilla ocupada por pieza negra, se puede comer");
                     Destroy(posibCasilla.OccupiedPiece.gameObject);
@@ -51,14 +50,13 @@ public class HorseWhite : BaseWhite
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Debug.Log("Casilla: " + posibMovX + " - " + posibMovY);
                 Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     Debug.Log("Casilla vacia");
                     posibMovimientos.Add(posibCasilla);
                 }
-                else if (posibCasilla.OccupiedPiece.player == Player.Black && posibCasilla == CasillaDese)
+                else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
                 {
                     Debug.Log("Casilla ocupada por pieza negra, se puede comer");
                     Destroy(posibCasilla.OccupiedPiece.gameObject);
@@ -79,14 +77,13 @@ public class HorseWhite : BaseWhite
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Debug.Log("Casilla: " + posibMovX + " - " + posibMovY);
                 Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     Debug.Log("Casilla vacia");
                     posibMovimientos.Add(posibCasilla);
                 }
-                else if (posibCasilla.OccupiedPiece.player == Player.Black && posibCasilla == CasillaDese)
+                else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
                 {
                     Debug.Log("Casilla ocupada por pieza negra, se puede comer");
                     Destroy(posibCasilla.OccupiedPiece.gameObject);
@@ -107,14 +104,13 @@ public class HorseWhite : BaseWhite
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Debug.Log("Casilla: " + posibMovX + " - " + posibMovY);
                 Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     Debug.Log("Casilla vacia");
                     posibMovimientos.Add(posibCasilla);
                 }
-                else if (posibCasilla.OccupiedPiece.player == Player.Black && posibCasilla == CasillaDese)
+                else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
                 {
                     Debug.Log("Casilla ocupada por pieza negra, se puede comer");
                     Destroy(posibCasilla.OccupiedPiece.gameObject);

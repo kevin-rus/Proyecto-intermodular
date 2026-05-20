@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3671334963942929632}
   - component: {fileID: 3776777302285833712}
-  - component: {fileID: -7831936604380811304}
+  - component: {fileID: -1395883728960559899}
   - component: {fileID: -3136301639915266921}
   m_Layer: 0
   m_Name: caballo_blanco
@@ -93,7 +93,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &-7831936604380811304
+--- !u!114 &-1395883728960559899
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,9 +102,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 374084609349897060}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b32dfb38cedd9fb4886ffe27f5659537, type: 3}
+  m_Script: {fileID: 11500000, guid: 9555066101c81a04d8cf8f6fee14e399, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HorseWhite
+  m_EditorClassIdentifier: Assembly-CSharp::Horse
   OccupiedCasilla: {fileID: 0}
   player: 0
 --- !u!114 &-3136301639915266921

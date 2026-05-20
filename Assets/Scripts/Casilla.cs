@@ -69,7 +69,7 @@ public class Casilla : NetworkBehaviour
         if (OccupiedPiece != null && OccupiedPiece.player == Player.White)
         {
             Debug.Log("Seleccionando pieza blanca");
-            PieceManager.instance.SetSelectedPiece((BaseWhite)OccupiedPiece);
+            PieceManager.instance.SetSelectedPiece((BasePiece)OccupiedPiece);
         }
         else
         {
@@ -87,6 +87,10 @@ public class Casilla : NetworkBehaviour
                     setPiece(PieceManager.instance.SelectedPiece);
                     PieceManager.instance.SetSelectedPiece(null);
 
+                    PieceManager.instance.GetBlackKing().detectCheck(null);
+                    PieceManager.instance.GetWhiteKing().detectCheck(null);
+
+                    Debug.Log("Fin turno blanco");
                     updateTurn();
                 }
             }
@@ -101,7 +105,7 @@ public class Casilla : NetworkBehaviour
         if (OccupiedPiece != null && OccupiedPiece.player == Player.Black)
         {
             Debug.Log("Seleccionando pieza negra");
-            PieceManager.instance.SetSelectedPiece((BaseBlack)OccupiedPiece);
+            PieceManager.instance.SetSelectedPiece((BasePiece)OccupiedPiece);
         }
         else
         {
@@ -121,6 +125,10 @@ public class Casilla : NetworkBehaviour
                     setPiece(PieceManager.instance.SelectedPiece);
                     PieceManager.instance.SetSelectedPiece(null);
 
+                    PieceManager.instance.GetBlackKing().detectCheck(null);
+                    PieceManager.instance.GetWhiteKing().detectCheck(null);
+
+                    Debug.Log("Fin turno negro");
                     updateTurn();
                 }
             }
@@ -131,9 +139,12 @@ public class Casilla : NetworkBehaviour
     [ObserversRpc]
     private void updateTurn()
     {
+        Debug.Log("Actualizando turno");
+        Debug.Log(GameManager.instance.state);
         GameManager.instance.UpdateGameState(
             GameManager.instance.state == GameState.WhiteTurn ?
-            GameState.BlackTurn : GameState.WhiteTurn);
+            GameState.BlackTurn : GameState.WhiteTurn
+        );
     }
 
     public int getPosX()
