@@ -25,14 +25,17 @@ public class King : BasePiece
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     Debug.Log("Casilla vacia");
-                    posibMovimientos.Add(posibCasilla);
+                    if (!detectCheck(posibCasilla)) posibMovimientos.Add(posibCasilla);
                 }
                 else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
                 {
                     Debug.Log("Casilla ocupada por pieza negra, se puede comer");
-                    Destroy(posibCasilla.OccupiedPiece.gameObject);
 
-                    return true;
+                    if (!detectCheck(posibCasilla))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
                 }
             }
         }
@@ -52,14 +55,17 @@ public class King : BasePiece
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     Debug.Log("Casilla vacia");
-                    posibMovimientos.Add(posibCasilla);
+                    if(!detectCheck(posibCasilla)) posibMovimientos.Add(posibCasilla);
                 }
                 else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
                 {
                     Debug.Log("Casilla ocupada por pieza negra, se puede comer");
-                    Destroy(posibCasilla.OccupiedPiece.gameObject);
 
-                    return true;
+                    if(!detectCheck(posibCasilla))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
                 }
             }
         }
@@ -77,14 +83,17 @@ public class King : BasePiece
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     Debug.Log("Casilla vacia");
-                    posibMovimientos.Add(posibCasilla);
+                    if (!detectCheck(posibCasilla)) posibMovimientos.Add(posibCasilla);
                 }
                 else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
                 {
                     Debug.Log("Casilla ocupada por pieza negra, se puede comer");
-                    Destroy(posibCasilla.OccupiedPiece.gameObject);
 
-                    return true;
+                    if (!detectCheck(posibCasilla))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
                 }
             }
         }
@@ -101,7 +110,49 @@ public class King : BasePiece
     {
         inCheck = detectCheck(null);
 
-        if(inCheck) canMove();
+        if (inCheck)
+        {
+            bool kingCanMove = false;
+            bool enemyCanBeCaptured = false;
+            bool pathCanBeBlocked = false;
+
+            Debug.Log($"Rey {player} en jaque");
+            kingCanMove = canMove();
+
+            if(dangerPieces.Count == 1)
+            {
+                BasePiece enemyPiece = dangerPieces.First();
+
+                if(enemyPiece.detectCheck(null))
+                {
+                    Debug.Log("La pieza puede ser capturada");
+                    enemyCanBeCaptured = true;
+                }
+                else Debug.Log("La pieza no puede ser capturada");
+
+                Debug.Log("Comprobando si el camino puede ser bloqueado");
+                foreach (Casilla casilla in dangerPath)
+                {
+                    Debug.Log("Casilla: " + casilla.getPosX() + " - " + casilla.getPosY());
+                    if (enemyPiece.detectCheck(casilla))
+                    {
+                        Debug.Log("El camino puede ser bloqueado");
+                        pathCanBeBlocked = true;
+                        break;
+                    }
+                }
+            }
+            else Debug.Log("Más de una pieza amenaza al rey");
+
+            if ((!kingCanMove) && (!enemyCanBeCaptured) && (!pathCanBeBlocked))
+            {
+                Debug.Log($"Rey {player} en jaque mate");
+            }
+            else
+            {
+                Debug.Log($"Rey {player} en jaque, pero puede escapar o ser defendido");
+            }
+        }
     }
 
     public bool canMove()
@@ -110,7 +161,6 @@ public class King : BasePiece
         bool inCheck = false;
         Casilla casillaIni = OccupiedCasilla;
 
-        Debug.Log("Comprobando eje X positivo");
         for (int i = -1; i < 2; i++)
         {
             int posibMovX = casillaIni.getPosX() + 1;
@@ -133,7 +183,6 @@ public class King : BasePiece
         }
 
         // Comprueba casilla laterales
-        Debug.Log("Comprobando eje X negativo");
         for (int i = 0; i < 2; i++)
         {
             int leteral = i == 0 ? 1 : -1;
@@ -158,7 +207,6 @@ public class King : BasePiece
         }
 
         // Comprueba casilla en eje X negativo
-        Debug.Log("Comprobando eje X negativo");
         for (int i = -1; i < 2; i++)
         {
             int posibMovX = casillaIni.getPosX() - 1;
@@ -180,7 +228,7 @@ public class King : BasePiece
             }
         }
 
-        Debug.Log("Jaque Mate");
+        Debug.Log("No hay salidas viables para el rey");
         return false;
     }
 }
