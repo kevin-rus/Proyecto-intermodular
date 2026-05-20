@@ -87,8 +87,8 @@ public class Casilla : NetworkBehaviour
                     setPiece(PieceManager.instance.SelectedPiece);
                     PieceManager.instance.SetSelectedPiece(null);
 
-                    PieceManager.instance.GetBlackKing().detectCheck(null);
-                    PieceManager.instance.GetWhiteKing().detectCheck(null);
+                    PieceManager.instance.GetBlackKing().isInCheck();
+                    PieceManager.instance.GetWhiteKing().isInCheck();
 
                     Debug.Log("Fin turno blanco");
                     updateTurn();
@@ -125,8 +125,8 @@ public class Casilla : NetworkBehaviour
                     setPiece(PieceManager.instance.SelectedPiece);
                     PieceManager.instance.SetSelectedPiece(null);
 
-                    PieceManager.instance.GetBlackKing().detectCheck(null);
-                    PieceManager.instance.GetWhiteKing().detectCheck(null);
+                    PieceManager.instance.GetBlackKing().isInCheck();
+                    PieceManager.instance.GetWhiteKing().isInCheck();
 
                     Debug.Log("Fin turno negro");
                     updateTurn();

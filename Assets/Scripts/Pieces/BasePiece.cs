@@ -18,9 +18,9 @@ public abstract class BasePiece : MonoBehaviour
         return OccupiedCasilla;
     }
 
-    public void detectCheck(Casilla casillaIni)
+    public bool detectCheck(Casilla casillaIni)
     {
-        inCheck = false;
+        bool inCheck = false;
 
         Debug.Log("Detectando jaque para rey");
         casillaIni = casillaIni ?? OccupiedCasilla;
@@ -367,26 +367,34 @@ public abstract class BasePiece : MonoBehaviour
         int leftCorner = casillaIni.getPosX() - 1;
         int rightCorner = casillaIni.getPosX() + 1;
 
-        if (posibMovYPawn > 7) return;
-        if (leftCorner >= 0)
+        if (posibMovYPawn < 7 && posibMovYPawn >= 0)
         {
-            Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(leftCorner, posibMovYPawn));
-            if (posibCasilla.OccupiedPiece is Pawn && posibCasilla.OccupiedPiece.player != player)
+            if (leftCorner >= 0)
             {
-                BasePiece enemyPiece = posibCasilla.OccupiedPiece;
-                Debug.Log("Rey en jaque por pieza en casilla: " + leftCorner + " - " + posibMovYPawn);
-                inCheck = true;
+                Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(leftCorner, posibMovYPawn));
+                if (posibCasilla.OccupiedPiece is Pawn && posibCasilla.OccupiedPiece.player != player)
+                {
+                    BasePiece enemyPiece = posibCasilla.OccupiedPiece;
+                    Debug.Log("Rey en jaque por pieza en casilla: " + leftCorner + " - " + posibMovYPawn);
+                    inCheck = true;
+                }
+            }
+            if (rightCorner <= 7)
+            {
+                Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(rightCorner, posibMovYPawn));
+                if (posibCasilla.OccupiedPiece is Pawn && posibCasilla.OccupiedPiece.player != player)
+                {
+                    BasePiece enemyPiece = posibCasilla.OccupiedPiece;
+                    Debug.Log("Rey en jaque por pieza en casilla: " + rightCorner + " - " + posibMovYPawn);
+                    inCheck = true;
+                }
             }
         }
-        if (rightCorner <= 7)
+
+        if (inCheck)
         {
-            Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(rightCorner, posibMovYPawn));
-            if (posibCasilla.OccupiedPiece is Pawn && posibCasilla.OccupiedPiece.player != player)
-            {
-                BasePiece enemyPiece = posibCasilla.OccupiedPiece;
-                Debug.Log("Rey en jaque por pieza en casilla: " + rightCorner + " - " + posibMovYPawn);
-                inCheck = true;
-            }
+            return true;
         }
+        else return false;
     }
 }

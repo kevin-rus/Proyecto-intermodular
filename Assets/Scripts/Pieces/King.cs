@@ -96,4 +96,91 @@ public class King : BasePiece
 
         return false;
     }
+
+    public void isInCheck()
+    {
+        inCheck = detectCheck(null);
+
+        if(inCheck) canMove();
+    }
+
+    public bool canMove()
+    {
+        Debug.Log("Se puede mover el rey?");
+        bool inCheck = false;
+        Casilla casillaIni = OccupiedCasilla;
+
+        Debug.Log("Comprobando eje X positivo");
+        for (int i = -1; i < 2; i++)
+        {
+            int posibMovX = casillaIni.getPosX() + 1;
+            int posibMovY = casillaIni.getPosY() + i;
+
+            if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
+            {
+                Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                if (posibCasilla.OccupiedPiece == null || posibCasilla.OccupiedPiece.player != player)
+                {
+                    inCheck = detectCheck(posibCasilla);
+
+                    if(!inCheck)
+                    {
+                        Debug.Log("Salida viable en: " + posibMovX + " - " + posibMovY);
+                        return true;
+                    }
+                }
+            }
+        }
+
+        // Comprueba casilla laterales
+        Debug.Log("Comprobando eje X negativo");
+        for (int i = 0; i < 2; i++)
+        {
+            int leteral = i == 0 ? 1 : -1;
+
+            int posibMovX = casillaIni.getPosX();
+            int posibMovY = casillaIni.getPosY() + leteral;
+
+            if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
+            {
+                Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                if (posibCasilla.OccupiedPiece == null || posibCasilla.OccupiedPiece.player != player)
+                {
+                    inCheck = detectCheck(posibCasilla);
+
+                    if (!inCheck)
+                    {
+                        Debug.Log("Salida viable en: " + posibMovX + " - " + posibMovY);
+                        return true;
+                    }
+                }
+            }
+        }
+
+        // Comprueba casilla en eje X negativo
+        Debug.Log("Comprobando eje X negativo");
+        for (int i = -1; i < 2; i++)
+        {
+            int posibMovX = casillaIni.getPosX() - 1;
+            int posibMovY = casillaIni.getPosY() + i;
+
+            if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
+            {
+                Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                if (posibCasilla.OccupiedPiece == null || posibCasilla.OccupiedPiece.player != player)
+                {
+                    inCheck = detectCheck(posibCasilla);
+
+                    if (!inCheck)
+                    {
+                        Debug.Log("Salida viable en: " + posibMovX + " - " + posibMovY);
+                        return true;
+                    }
+                }
+            }
+        }
+
+        Debug.Log("Jaque Mate");
+        return false;
+    }
 }
