@@ -96,6 +96,7 @@ public class Pawn : BasePiece
                     return true;
                 }
             }
+            else if (myKing.protectingPieces.Contains(this) && dangerPath.Contains(CasillaDese)) return true;
             else
             {
                 isFirstMove = false;

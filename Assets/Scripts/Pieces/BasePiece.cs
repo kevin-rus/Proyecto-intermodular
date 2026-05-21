@@ -9,6 +9,8 @@ public abstract class BasePiece : MonoBehaviour
     public Vector2[][] movimientosPosibles;     // Array en el que se registran los posibles movimientos de la ficha en un turno
     public bool inCheck = false;
 
+    public List<BasePiece> protectingPieces;    // Lista de piezas que protejen del jaque
+
     public List<BasePiece> dangerPieces;        // Lista de piezas que ponen en jaque
     public List<Casilla> dangerPath;            // Lista de casillas que forman el camino de amenaza
 
@@ -29,12 +31,15 @@ public abstract class BasePiece : MonoBehaviour
         casillaIni = casillaIni ?? OccupiedCasilla;
         Debug.Log(OccupiedCasilla);
 
-        List<BasePiece> dangerPieces = new List<BasePiece>();
-        List<Casilla> dangerPath = new List<Casilla>();
+        protectingPieces = new List<BasePiece>();               // Lista de piezas que protejen a la ficha
+
+        List<BasePiece> dangerPieces = new List<BasePiece>();   // Lista de piezas que ponen en jaque a la ficha
+        List<Casilla> dangerPath = new List<Casilla>();         // Camino que forma la pieza atacante
 
         // ****** Detecta jaque en los ejes lineales (Torre, Reina) ******
         Debug.Log("Comprobando ejes lineales");
 
+        BasePiece protectingPiece = null;
         List<Casilla> pathPY = new List<Casilla>();
         // Comprueba casilla en eje Y positivo
         for (int i = 1; i <= 7; i++)
@@ -55,10 +60,16 @@ public abstract class BasePiece : MonoBehaviour
                 BasePiece enemyPiece = posibCasilla.OccupiedPiece;
                 if (enemyPiece is Rook || enemyPiece is Queen)
                 {
+                    if(protectingPiece != null)
+                    {
+                        this.protectingPieces.Add(protectingPiece);
+                        protectingPiece.dangerPath = pathPY;
+                        break;
+                    }
+
                     Debug.Log($"{name} en amenaza por pieza en casilla: " + posibMovX + " - " + posibMovY);
                     dangerPieces.Add(enemyPiece);
 
-                    Debug.Log("Danger path: " + pathPY);
                     dangerPath = pathPY;
 
                     inCheck = true;
@@ -66,9 +77,13 @@ public abstract class BasePiece : MonoBehaviour
                 }
                 else break;
             }
-            else if (posibCasilla.OccupiedPiece.player == player) break;
+            else if (posibCasilla.OccupiedPiece.player == player)
+            {
+                protectingPiece = posibCasilla.OccupiedPiece;
+            }
         }
 
+        protectingPiece = null;
         List<Casilla> pathNY = new List<Casilla>();
         // Comprueba casilla en eje Y negativo
         for (int i = -1; i >= -7; i--)
@@ -89,10 +104,15 @@ public abstract class BasePiece : MonoBehaviour
                 BasePiece enemyPiece = posibCasilla.OccupiedPiece;
                 if (enemyPiece is Rook || enemyPiece is Queen)
                 {
+                    if (protectingPiece != null)
+                    {
+                        this.protectingPieces.Add(protectingPiece);
+                        protectingPiece.dangerPath = pathNY;
+                        break;
+                    }
                     Debug.Log($"{name} en amenaza por pieza en casilla: " + posibMovX + " - " + posibMovY);
                     dangerPieces.Add(enemyPiece);
 
-                    Debug.Log("Danger path: " + pathNY);
                     dangerPath = pathNY;
 
                     inCheck = true;
@@ -100,10 +120,14 @@ public abstract class BasePiece : MonoBehaviour
                 }
                 else break;
             }
-            else if (posibCasilla.OccupiedPiece.player == player) break;
+            else if (posibCasilla.OccupiedPiece.player == player)
+            {
+                protectingPiece = posibCasilla.OccupiedPiece;
+            }
         }
 
         // Comprueba casilla en eje X positivo
+        protectingPiece = null;
         List<Casilla> pathPX = new List<Casilla>();
         for (int i = 1; i <= 7; i++)
         {
@@ -123,10 +147,16 @@ public abstract class BasePiece : MonoBehaviour
                 BasePiece enemyPiece = posibCasilla.OccupiedPiece;
                 if (enemyPiece is Rook || enemyPiece is Queen)
                 {
+                    if (protectingPiece != null)
+                    {
+                        this.protectingPieces.Add(protectingPiece);
+                        protectingPiece.dangerPath = pathPX;
+                        break;
+                    }
+
                     Debug.Log($"{name} en amenaza por pieza en casilla: " + posibMovX + " - " + posibMovY);
                     dangerPieces.Add(enemyPiece);
 
-                    Debug.Log("Danger path: " + pathPX);
                     dangerPath = pathPX;
 
                     inCheck = true;
@@ -134,10 +164,14 @@ public abstract class BasePiece : MonoBehaviour
                 }
                 else break;
             }
-            else if (posibCasilla.OccupiedPiece.player == player) break;
+            else if (posibCasilla.OccupiedPiece.player == player)
+            {
+                protectingPiece = posibCasilla.OccupiedPiece;
+            }
         }
 
         // Comprueba casilla en eje X negativo
+        protectingPiece = null;
         List<Casilla> pathNX = new List<Casilla>();
         for (int i = -1; i >= -7; i--)
         {
@@ -157,10 +191,16 @@ public abstract class BasePiece : MonoBehaviour
                 BasePiece enemyPiece = posibCasilla.OccupiedPiece;
                 if (enemyPiece is Rook || enemyPiece is Queen)
                 {
+                    if (protectingPiece != null)
+                    {
+                        this.protectingPieces.Add(protectingPiece);
+                        protectingPiece.dangerPath = pathNX;
+                        break;
+                    }
+
                     Debug.Log($"{name} en amenaza por pieza en casilla: " + posibMovX + " - " + posibMovY);
                     dangerPieces.Add(enemyPiece);
 
-                    Debug.Log("Danger path: " + pathNX);
                     dangerPath = pathNX;
 
                     inCheck = true;
@@ -168,13 +208,17 @@ public abstract class BasePiece : MonoBehaviour
                 }
                 else break;
             }
-            else if (posibCasilla.OccupiedPiece.player == player) break;
+            else if (posibCasilla.OccupiedPiece.player == player)
+            {
+                protectingPiece = posibCasilla.OccupiedPiece;
+            }
         }
 
         // ****** Detecta jaque en los ejes diagonales (Alfil, Reina) ******
         Debug.Log("Comprobando ejes diagonales");
 
         // Comprueba casilla en eje X positivo - eje Y positivo
+        protectingPiece = null;
         List<Casilla> pathPXPY = new List<Casilla>();
         for (int i = 1; i <= 7; i++)
         {
@@ -194,13 +238,16 @@ public abstract class BasePiece : MonoBehaviour
                 BasePiece enemyPiece = posibCasilla.OccupiedPiece;
                 if (enemyPiece is Bishop || enemyPiece is Queen)
                 {
+                    if (protectingPiece != null)
+                    {
+                        this.protectingPieces.Add(protectingPiece);
+                        protectingPiece.dangerPath = pathPXPY;
+                        break;
+                    }
+
                     Debug.Log($"{name} en amenaza por pieza en casilla: " + posibMovX + " - " + posibMovY);
                     dangerPieces.Add(enemyPiece);
 
-                    Debug.Log("Danger path: ");
-                    foreach(Casilla c in pathPXPY) {
-                        Debug.Log(c.name);
-                    }
                     dangerPath = pathPXPY;
 
                     inCheck = true;
@@ -208,10 +255,14 @@ public abstract class BasePiece : MonoBehaviour
                 }
                 else break;
             }
-            else if (posibCasilla.OccupiedPiece.player == player) break;
+            else if (posibCasilla.OccupiedPiece.player == player)
+            {
+                protectingPiece = posibCasilla.OccupiedPiece;
+            }
         }
 
         // Comprueba casilla en eje X positivo - eje Y negativo
+        protectingPiece = null;
         List<Casilla> pathPXNY = new List<Casilla>();
         for (int i = 1; i <= 7; i++)
         {
@@ -231,10 +282,15 @@ public abstract class BasePiece : MonoBehaviour
                 BasePiece enemyPiece = posibCasilla.OccupiedPiece;
                 if (enemyPiece is Bishop || enemyPiece is Queen)
                 {
+                    if (protectingPiece != null)
+                    {
+                        this.protectingPieces.Add(protectingPiece);
+                        protectingPiece.dangerPath = pathPXNY;
+                        break;
+                    }
                     Debug.Log($"{name} en amenaza por pieza en casilla: " + posibMovX + " - " + posibMovY);
                     dangerPieces.Add(enemyPiece);
 
-                    Debug.Log("Danger path: " + pathPXNY);
                     dangerPath = pathPXNY;
 
                     inCheck = true;
@@ -242,10 +298,14 @@ public abstract class BasePiece : MonoBehaviour
                 }
                 else break;
             }
-            else if (posibCasilla.OccupiedPiece.player == player) break;
+            else if (posibCasilla.OccupiedPiece.player == player)
+            {
+                protectingPiece = posibCasilla.OccupiedPiece;
+            }
         }
 
         // Comprueba casilla en eje X negativo - eje Y negativo
+        protectingPiece = null;
         List<Casilla> pathNXNY = new List<Casilla>();
         for (int i = 1; i <= 7; i++)
         {
@@ -255,7 +315,6 @@ public abstract class BasePiece : MonoBehaviour
             if (posibMovX < 0 || posibMovY < 0) break;
 
             Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
-            Debug.Log(posibCasilla.name);
             if (posibCasilla.OccupiedPiece == null)
             {
                 // CASILLA LIBRE
@@ -266,10 +325,22 @@ public abstract class BasePiece : MonoBehaviour
                 BasePiece enemyPiece = posibCasilla.OccupiedPiece;
                 if (enemyPiece is Bishop || enemyPiece is Queen)
                 {
+                    if (protectingPiece != null)
+                    {
+                        this.protectingPieces.Add(protectingPiece);
+                        protectingPiece.dangerPath = pathPY;
+
+                        foreach(Casilla c in protectingPiece.dangerPath)
+                        {
+                            Debug.Log("Casilla del camino de protección: " + c.getPosX() + " - " + c.getPosY());
+                        }
+
+                        break;
+                    }
+
                     Debug.Log($"{name} en amenaza por pieza en casilla: " + posibMovX + " - " + posibMovY);
                     dangerPieces.Add(enemyPiece);
 
-                    Debug.Log("Danger path: NXNY");
                     dangerPath = pathNXNY;
 
                     inCheck = true;
@@ -277,10 +348,14 @@ public abstract class BasePiece : MonoBehaviour
                 }
                 else break;
             }
-            else if (posibCasilla.OccupiedPiece.player == player) break;
+            else if (posibCasilla.OccupiedPiece.player == player)
+            {
+                protectingPiece = posibCasilla.OccupiedPiece;
+            }
         }
 
         // Comprueba casilla en eje X negativo - eje Y positivo
+        protectingPiece = null;
         List<Casilla> pathNXPY = new List<Casilla>();
         for (int i = 1; i <= 7; i++)
         {
@@ -300,10 +375,16 @@ public abstract class BasePiece : MonoBehaviour
                 BasePiece enemyPiece = posibCasilla.OccupiedPiece;
                 if (enemyPiece is Bishop || enemyPiece is Queen)
                 {
+                    if (protectingPiece != null)
+                    {
+                        this.protectingPieces.Add(protectingPiece);
+                        protectingPiece.dangerPath = pathPY;
+                        break;
+                    }
+
                     Debug.Log($"{name} en amenaza por pieza en casilla: " + posibMovX + " - " + posibMovY);
                     dangerPieces.Add(enemyPiece);
 
-                    Debug.Log("Danger path: " + pathNXPY);
                     dangerPath = pathNXPY;
 
                     inCheck = true;
@@ -311,7 +392,10 @@ public abstract class BasePiece : MonoBehaviour
                 }
                 else break;
             }
-            else if (posibCasilla.OccupiedPiece.player == player) break;
+            else if (posibCasilla.OccupiedPiece.player == player)
+            {
+                protectingPiece = posibCasilla.OccupiedPiece;
+            }
         }
 
         // ****** Detecta jaque por caballo ******

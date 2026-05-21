@@ -24,7 +24,6 @@ public class Queen : BasePiece
 
             if (posibMovX > 7 || posibMovY > 7) break;
 
-            Debug.Log("Casilla: " + posibMovX + " - " + posibMovY);
             Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
@@ -60,7 +59,6 @@ public class Queen : BasePiece
 
             if (posibMovX < 0 || posibMovY < 0) break;
 
-            Debug.Log("Casilla: " + posibMovX + " - " + posibMovY);
             Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
@@ -95,7 +93,6 @@ public class Queen : BasePiece
 
             if (posibMovX > 7 || posibMovY > 7) break;
 
-            Debug.Log("Casilla: " + posibMovX + " - " + posibMovY);
             Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
@@ -130,7 +127,6 @@ public class Queen : BasePiece
 
             if (posibMovX < 0 || posibMovY < 0) break;
 
-            Debug.Log("Casilla: " + posibMovX + " - " + posibMovY);
             Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
@@ -165,7 +161,6 @@ public class Queen : BasePiece
 
             if (posibMovX > 7 || posibMovY > 7) break;
 
-            Debug.Log("Casilla: " + posibMovX + " - " + posibMovY);
             Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
@@ -201,7 +196,6 @@ public class Queen : BasePiece
 
             if (posibMovX > 7 || posibMovY < 0) break;
 
-            Debug.Log("Casilla: " + posibMovX + " - " + posibMovY);
             Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
@@ -236,7 +230,6 @@ public class Queen : BasePiece
 
             if (posibMovX < 0 || posibMovY < 0) break;
 
-            Debug.Log("Casilla: " + posibMovX + " - " + posibMovY);
             Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
@@ -307,6 +300,11 @@ public class Queen : BasePiece
                 {
                     return true;
                 }
+            }
+            else if (myKing.protectingPieces.Contains(this) && dangerPath.Contains(CasillaDese))
+            {
+                Debug.Log("La pieza está protegiendo al rey y el movimiento está en el camino de peligro.");
+                return true;
             }
             else return true;
         }

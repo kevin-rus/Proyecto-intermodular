@@ -174,6 +174,7 @@ public class Horse : BasePiece
                     return true;
                 }
             }
+            else if (myKing.protectingPieces.Contains(this) && dangerPath.Contains(CasillaDese)) return true;
             else return true;
         }
 
