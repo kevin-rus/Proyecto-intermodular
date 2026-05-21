@@ -133,7 +133,6 @@ public class King : BasePiece
                 Debug.Log("Comprobando si el camino puede ser bloqueado");
                 foreach (Casilla casilla in dangerPath)
                 {
-                    Debug.Log("Casilla: " + casilla.getPosX() + " - " + casilla.getPosY());
                     if (enemyPiece.detectCheck(casilla))
                     {
                         Debug.Log("El camino puede ser bloqueado");

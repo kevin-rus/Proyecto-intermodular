@@ -10,7 +10,7 @@ public class Queen : BasePiece
         // Obtiene el rey del jugador para comprobar los movimientos cuando está en jaque
         King myKing = player == Player.White ? PieceManager.instance.GetWhiteKing() : PieceManager.instance.GetBlackKing();
 
-        Debug.Log("Calculando movimientos reina blanca");
+        Debug.Log("Calculando movimientos reina");
         // Registra los posibles movimientos en una lista, luego comprueba que el movimiento
         // deseado se encuentra en la lista
         List<Casilla> posibMovimientos = new List<Casilla>();
