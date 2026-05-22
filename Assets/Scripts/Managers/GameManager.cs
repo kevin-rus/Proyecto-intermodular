@@ -10,6 +10,9 @@ public class GameManager : NetworkBehaviour
     public static GameManager instance;
 
     public Image whiteTurnIndicator, blackTurnIndicator;
+    
+    public Image checkMate;
+    public TextMeshProUGUI winner;
 
     public Image checkIndicator;
     public TextMeshProUGUI checkIndicatorText;
@@ -24,6 +27,7 @@ public class GameManager : NetworkBehaviour
         whiteTurnIndicator.gameObject.SetActive(false);
         blackTurnIndicator.gameObject.SetActive(false);
         checkIndicator.gameObject.SetActive(false);
+        checkMate.gameObject.SetActive(false);
     }
 
     protected override void OnSpawned()
@@ -80,6 +84,9 @@ public class GameManager : NetworkBehaviour
         {
             Debug.Log("Jaque Mate. Fin de la partida");
             UpdateGameState(GameState.CheckMate);
+
+            winner.text = PieceManager.instance.GetWhiteKing().checkMate ? "Negras ganan!" : "Blancas ganan!";
+            checkMate.gameObject.SetActive(true);
         }
         if (PieceManager.instance.GetWhiteKing().inCheck)
         {
