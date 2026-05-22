@@ -6,6 +6,7 @@ using UnityEngine;
 public class King : BasePiece
 {
     public bool checkMate = false;
+    private bool isFirstMove = true;
 
     public override bool calcularMovimientos(Casilla casillaIni, Casilla CasillaDese)
     {
@@ -13,6 +14,36 @@ public class King : BasePiece
         // Registra los posibles movimientos en una lista, luego comprueba que el movimiento
         // deseado se encuentra en la lista
         List<Casilla> posibMovimientos = new List<Casilla>();
+
+        if(CasillaDese.OccupiedPiece is Rook && CasillaDese.OccupiedPiece.player == player)
+        {
+            Debug.Log("Enrroque");
+            Rook rook = (Rook)CasillaDese.OccupiedPiece;
+
+            if(rook.isFirstMove && this.isFirstMove)
+            {
+                int rookPosX = rook.OccupiedCasilla.getPosX();
+                int kingPosY = this.OccupiedCasilla.getPosY();
+
+                int newRookPosX = rookPosX == 7 ? 5 : 3;
+                int newKingPosX = rookPosX == 7 ? 6 : 2;
+
+                Casilla rookTile = TableroManager.instance.GetCaillaFromPosition(new Vector2(newRookPosX, kingPosY));
+                Casilla kingTile = TableroManager.instance.GetCaillaFromPosition(new Vector2(newKingPosX, kingPosY));
+
+                rookTile.setPiece(rook);
+                kingTile.setPiece(this);
+
+                isFirstMove = false;
+                rook.isFirstMove = false;
+
+                GameManager.instance.UpdateGameState(
+                    GameManager.instance.state == GameState.WhiteTurn ?
+                    GameState.BlackTurn : GameState.WhiteTurn
+                );
+                return false;
+            }
+        }
 
         // Comprueba casilla en eje X positivo
         Debug.Log("Comprobando eje X positivo");
@@ -35,6 +66,7 @@ public class King : BasePiece
 
                     if (!detectCheck(posibCasilla))
                     {
+                        isFirstMove = false;
                         Destroy(posibCasilla.OccupiedPiece.gameObject);
                         return true;
                     }
@@ -65,6 +97,7 @@ public class King : BasePiece
 
                     if(!detectCheck(posibCasilla))
                     {
+                        isFirstMove = false;
                         Destroy(posibCasilla.OccupiedPiece.gameObject);
                         return true;
                     }
@@ -93,6 +126,7 @@ public class King : BasePiece
 
                     if (!detectCheck(posibCasilla))
                     {
+                        isFirstMove = false;
                         Destroy(posibCasilla.OccupiedPiece.gameObject);
                         return true;
                     }
@@ -102,6 +136,7 @@ public class King : BasePiece
 
         if (posibMovimientos.Contains(CasillaDese))
         {
+            isFirstMove = false;
             return true;
         }
 

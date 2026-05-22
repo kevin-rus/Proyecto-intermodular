@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Rook : BasePiece
 {
+    public bool isFirstMove = true;
+
     public override bool calcularMovimientos(Casilla casillaIni, Casilla CasillaDese)
     {
         // Obtiene el rey del jugador para comprobar los movimientos cuando está en jaque
@@ -34,6 +36,7 @@ public class Rook : BasePiece
             {
                 if (!myKing.inCheck)
                 {
+                    isFirstMove = false;
                     Destroy(posibCasilla.OccupiedPiece.gameObject);
                     return true;
                 }
@@ -42,6 +45,7 @@ public class Rook : BasePiece
                     // Si el rey está en jaque, el peón solo puede comer la pieza que lo amenaza
                     if (myKing.dangerPieces.Count == 1 && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
                     {
+                        isFirstMove = false;
                         Destroy(posibCasilla.OccupiedPiece.gameObject);
                         return true;
                     }
@@ -68,14 +72,15 @@ public class Rook : BasePiece
             {
                 if (!myKing.inCheck)
                 {
+                    isFirstMove = false;
                     Destroy(posibCasilla.OccupiedPiece.gameObject);
                     return true;
                 }
                 else
                 {
-                    // Si el rey está en jaque, el peón solo puede comer la pieza que lo amenaza
                     if (myKing.dangerPieces.Count == 1 && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
                     {
+                        isFirstMove = false;
                         Destroy(posibCasilla.OccupiedPiece.gameObject);
                         return true;
                     }
@@ -102,14 +107,15 @@ public class Rook : BasePiece
             {
                 if (!myKing.inCheck)
                 {
+                    isFirstMove = false;
                     Destroy(posibCasilla.OccupiedPiece.gameObject);
                     return true;
                 }
                 else
                 {
-                    // Si el rey está en jaque, el peón solo puede comer la pieza que lo amenaza
                     if (myKing.dangerPieces.Count == 1 && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
                     {
+                        isFirstMove = false;
                         Destroy(posibCasilla.OccupiedPiece.gameObject);
                         return true;
                     }
@@ -136,14 +142,16 @@ public class Rook : BasePiece
             {
                 if (!myKing.inCheck)
                 {
+                    isFirstMove = false;
                     Destroy(posibCasilla.OccupiedPiece.gameObject);
                     return true;
                 }
                 else
                 {
-                    // Si el rey está en jaque, el peón solo puede comer la pieza que lo amenaza
+                    // Si el rey está en jaque, la pieza solo puede comer la pieza que lo amenaza
                     if (myKing.dangerPieces.Count == 1 && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
                     {
+                        isFirstMove = false;
                         Destroy(posibCasilla.OccupiedPiece.gameObject);
                         return true;
                     }
@@ -160,6 +168,7 @@ public class Rook : BasePiece
                 // Si el rey está en jaque, el peón solo puede moverse a una casilla que bloquee el jaque
                 if (myKing.dangerPieces.Count == 1 && dangerPath.Contains(CasillaDese))
                 {
+                    isFirstMove = false;
                     return true;
                 }
             }
@@ -168,6 +177,8 @@ public class Rook : BasePiece
                 if(dangerPath.Contains(CasillaDese))
                 {
                     Debug.Log("La pieza está protegiendo al rey y el movimiento está en el camino de peligro.");
+
+                    isFirstMove = false;
                     return true;
                 }
                 else return false;

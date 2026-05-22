@@ -101,6 +101,8 @@ public class Pawn : BasePiece
                 if(dangerPath.Contains(CasillaDese))
                 {
                     Debug.Log("La pieza está protegiendo al rey y el movimiento está en el camino de peligro.");
+
+                    isFirstMove = false;
                     return true;
                 }
                 else return false;

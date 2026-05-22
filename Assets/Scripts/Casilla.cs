@@ -66,7 +66,8 @@ public class Casilla : NetworkBehaviour
     private void moveWhite()
     {
         // Comprueba que haya una pieza y sea blanaca
-        if (OccupiedPiece != null && OccupiedPiece.player == Player.White)
+        if (OccupiedPiece != null && OccupiedPiece.player == Player.White &&
+        !(PieceManager.instance.SelectedPiece is King && OccupiedPiece is Rook))
         {
             Debug.Log("Seleccionando pieza blanca");
             PieceManager.instance.SetSelectedPiece((BasePiece)OccupiedPiece);
