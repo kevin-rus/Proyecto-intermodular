@@ -350,8 +350,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Console\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 121
-    y: 144
+    x: 0
+    y: 26
     width: 795
     height: 544
   m_SerializedDataModeController:
@@ -427,7 +427,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 43
+    y: 0
     width: 1366
     height: 36
   m_SerializedDataModeController:
@@ -720,8 +720,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Project\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 869
-    y: 79
+    x: 870
+    y: 24
     width: 192
     height: 603
   m_SerializedDataModeController:
@@ -771,13 +771,13 @@ MonoBehaviour:
       m_Data: 51116
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 34846
-    - m_Data: 52458
-    - m_Data: 52460
-    - m_Data: 52462
-    - m_Data: 52464
-    - m_Data: 52466
-    - m_Data: 52468
+    - m_Data: 34844
+    - m_Data: 52264
+    - m_Data: 52266
+    - m_Data: 52268
+    - m_Data: 52270
+    - m_Data: 52272
+    - m_Data: 52274
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -811,13 +811,13 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 34846
-    - m_Data: 52458
-    - m_Data: 52460
-    - m_Data: 52462
-    - m_Data: 52464
-    - m_Data: 52466
-    - m_Data: 52468
+    - m_Data: 34844
+    - m_Data: 52264
+    - m_Data: 52266
+    - m_Data: 52268
+    - m_Data: 52270
+    - m_Data: 52272
+    - m_Data: 52274
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -904,8 +904,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1063
-    y: 79
+    x: 1064
+    y: 24
     width: 302
     height: 603
   m_SerializedDataModeController:
@@ -956,7 +956,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 79
+    y: 24
     width: 204
     height: 603
   m_SerializedDataModeController:
@@ -975,10 +975,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs:
-      - m_Data: -17828
+      m_SelectedIDs: []
       m_LastClickedID:
-        m_Data: -17828
+        m_Data: 0
       m_ExpandedIDs:
       - m_Data: -16726
       - m_Data: -13478
@@ -1629,8 +1628,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Game\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 205
-    y: 79
+    x: 206
+    y: 24
     width: 662
     height: 603
   m_SerializedDataModeController:

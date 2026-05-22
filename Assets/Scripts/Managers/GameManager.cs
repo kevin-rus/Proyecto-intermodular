@@ -66,6 +66,8 @@ public class GameManager : NetworkBehaviour
                 blackTurnIndicator.gameObject.SetActive(true);
                 lookForCheck();
                 break;
+            case GameState.CheckMate:
+                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);
             }
@@ -74,6 +76,11 @@ public class GameManager : NetworkBehaviour
     [ObserversRpc]
     public void lookForCheck()
     {
+        if(PieceManager.instance.GetWhiteKing().checkMate || PieceManager.instance.GetBlackKing().checkMate)
+        {
+            Debug.Log("Jaque Mate. Fin de la partida");
+            UpdateGameState(GameState.CheckMate);
+        }
         if (PieceManager.instance.GetWhiteKing().inCheck)
         {
             checkIndicatorText.text = "Rey blanco en jaque!";
@@ -101,4 +108,5 @@ public enum GameState
     SpawnBlacks,
     WhiteTurn,
     BlackTurn,
+    CheckMate,
 }

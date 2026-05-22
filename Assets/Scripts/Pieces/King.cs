@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class King : BasePiece
 {
+    public bool checkMate = false;
+
     public override bool calcularMovimientos(Casilla casillaIni, Casilla CasillaDese)
     {
         Debug.Log("Calculando movimientos rey blanco");
@@ -146,6 +148,7 @@ public class King : BasePiece
             if ((!kingCanMove) && (!enemyCanBeCaptured) && (!pathCanBeBlocked))
             {
                 Debug.Log($"Rey {player} en jaque mate");
+                checkMate = true;
             }
             else
             {
