@@ -32,6 +32,7 @@ public abstract class BasePiece : MonoBehaviour
         Debug.Log(OccupiedCasilla);
 
         protectingPieces = new List<BasePiece>();               // Lista de piezas que protejen a la ficha
+        bool dobleProtect = false;
 
         List<BasePiece> dangerPieces = new List<BasePiece>();   // Lista de piezas que ponen en jaque a la ficha
         List<Casilla> dangerPath = new List<Casilla>();         // Camino que forma la pieza atacante
@@ -62,6 +63,7 @@ public abstract class BasePiece : MonoBehaviour
                 {
                     if(protectingPiece != null)
                     {
+                        if(dobleProtect) break;
                         this.protectingPieces.Add(protectingPiece);
                         protectingPiece.dangerPath = pathPY;
                         break;
@@ -79,11 +81,13 @@ public abstract class BasePiece : MonoBehaviour
             }
             else if (posibCasilla.OccupiedPiece.player == player)
             {
-                protectingPiece = posibCasilla.OccupiedPiece;
+                if(protectingPiece == null) protectingPiece = posibCasilla.OccupiedPiece;
+                else dobleProtect = true;
             }
         }
 
         protectingPiece = null;
+        dobleProtect = false;
         List<Casilla> pathNY = new List<Casilla>();
         // Comprueba casilla en eje Y negativo
         for (int i = -1; i >= -7; i--)
@@ -106,6 +110,7 @@ public abstract class BasePiece : MonoBehaviour
                 {
                     if (protectingPiece != null)
                     {
+                        if(dobleProtect) break;
                         this.protectingPieces.Add(protectingPiece);
                         protectingPiece.dangerPath = pathNY;
                         break;
@@ -122,12 +127,14 @@ public abstract class BasePiece : MonoBehaviour
             }
             else if (posibCasilla.OccupiedPiece.player == player)
             {
-                protectingPiece = posibCasilla.OccupiedPiece;
+                if(protectingPiece == null) protectingPiece = posibCasilla.OccupiedPiece;
+                else dobleProtect = true;
             }
         }
 
         // Comprueba casilla en eje X positivo
         protectingPiece = null;
+        dobleProtect = false;
         List<Casilla> pathPX = new List<Casilla>();
         for (int i = 1; i <= 7; i++)
         {
@@ -149,6 +156,7 @@ public abstract class BasePiece : MonoBehaviour
                 {
                     if (protectingPiece != null)
                     {
+                        if(dobleProtect) break;
                         this.protectingPieces.Add(protectingPiece);
                         protectingPiece.dangerPath = pathPX;
                         break;
@@ -166,12 +174,14 @@ public abstract class BasePiece : MonoBehaviour
             }
             else if (posibCasilla.OccupiedPiece.player == player)
             {
-                protectingPiece = posibCasilla.OccupiedPiece;
+                if(protectingPiece == null) protectingPiece = posibCasilla.OccupiedPiece;
+                else dobleProtect = true;
             }
         }
 
         // Comprueba casilla en eje X negativo
         protectingPiece = null;
+        dobleProtect = false;
         List<Casilla> pathNX = new List<Casilla>();
         for (int i = -1; i >= -7; i--)
         {
@@ -193,6 +203,7 @@ public abstract class BasePiece : MonoBehaviour
                 {
                     if (protectingPiece != null)
                     {
+                        if(dobleProtect) break;
                         this.protectingPieces.Add(protectingPiece);
                         protectingPiece.dangerPath = pathNX;
                         break;
@@ -210,7 +221,8 @@ public abstract class BasePiece : MonoBehaviour
             }
             else if (posibCasilla.OccupiedPiece.player == player)
             {
-                protectingPiece = posibCasilla.OccupiedPiece;
+                if(protectingPiece == null) protectingPiece = posibCasilla.OccupiedPiece;
+                else dobleProtect = true;
             }
         }
 
@@ -219,6 +231,7 @@ public abstract class BasePiece : MonoBehaviour
 
         // Comprueba casilla en eje X positivo - eje Y positivo
         protectingPiece = null;
+        dobleProtect = false;
         List<Casilla> pathPXPY = new List<Casilla>();
         for (int i = 1; i <= 7; i++)
         {
@@ -240,6 +253,7 @@ public abstract class BasePiece : MonoBehaviour
                 {
                     if (protectingPiece != null)
                     {
+                        if(dobleProtect) break;
                         this.protectingPieces.Add(protectingPiece);
                         protectingPiece.dangerPath = pathPXPY;
                         break;
@@ -257,12 +271,14 @@ public abstract class BasePiece : MonoBehaviour
             }
             else if (posibCasilla.OccupiedPiece.player == player)
             {
-                protectingPiece = posibCasilla.OccupiedPiece;
+                if(protectingPiece == null) protectingPiece = posibCasilla.OccupiedPiece;
+                else dobleProtect = true;
             }
         }
 
         // Comprueba casilla en eje X positivo - eje Y negativo
         protectingPiece = null;
+        dobleProtect = false;
         List<Casilla> pathPXNY = new List<Casilla>();
         for (int i = 1; i <= 7; i++)
         {
@@ -284,6 +300,7 @@ public abstract class BasePiece : MonoBehaviour
                 {
                     if (protectingPiece != null)
                     {
+                        if(dobleProtect) break;
                         this.protectingPieces.Add(protectingPiece);
                         protectingPiece.dangerPath = pathPXNY;
                         break;
@@ -300,12 +317,14 @@ public abstract class BasePiece : MonoBehaviour
             }
             else if (posibCasilla.OccupiedPiece.player == player)
             {
-                protectingPiece = posibCasilla.OccupiedPiece;
+                if(protectingPiece == null) protectingPiece = posibCasilla.OccupiedPiece;
+                else dobleProtect = true;
             }
         }
 
         // Comprueba casilla en eje X negativo - eje Y negativo
         protectingPiece = null;
+        dobleProtect = false;
         List<Casilla> pathNXNY = new List<Casilla>();
         for (int i = 1; i <= 7; i++)
         {
@@ -327,14 +346,9 @@ public abstract class BasePiece : MonoBehaviour
                 {
                     if (protectingPiece != null)
                     {
+                        if(dobleProtect) break;
                         this.protectingPieces.Add(protectingPiece);
-                        protectingPiece.dangerPath = pathPY;
-
-                        foreach(Casilla c in protectingPiece.dangerPath)
-                        {
-                            Debug.Log("Casilla del camino de protección: " + c.getPosX() + " - " + c.getPosY());
-                        }
-
+                        protectingPiece.dangerPath = pathNXNY;
                         break;
                     }
 
@@ -350,12 +364,14 @@ public abstract class BasePiece : MonoBehaviour
             }
             else if (posibCasilla.OccupiedPiece.player == player)
             {
-                protectingPiece = posibCasilla.OccupiedPiece;
+                if(protectingPiece == null) protectingPiece = posibCasilla.OccupiedPiece;
+                else dobleProtect = true;
             }
         }
 
         // Comprueba casilla en eje X negativo - eje Y positivo
         protectingPiece = null;
+        dobleProtect = false;
         List<Casilla> pathNXPY = new List<Casilla>();
         for (int i = 1; i <= 7; i++)
         {
@@ -377,8 +393,9 @@ public abstract class BasePiece : MonoBehaviour
                 {
                     if (protectingPiece != null)
                     {
+                        if(dobleProtect) break;
                         this.protectingPieces.Add(protectingPiece);
-                        protectingPiece.dangerPath = pathPY;
+                        protectingPiece.dangerPath = pathNXPY;
                         break;
                     }
 
@@ -394,7 +411,8 @@ public abstract class BasePiece : MonoBehaviour
             }
             else if (posibCasilla.OccupiedPiece.player == player)
             {
-                protectingPiece = posibCasilla.OccupiedPiece;
+                if(protectingPiece == null) protectingPiece = posibCasilla.OccupiedPiece;
+                else dobleProtect = true;
             }
         }
 

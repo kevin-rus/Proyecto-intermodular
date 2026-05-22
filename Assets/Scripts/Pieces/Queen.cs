@@ -301,10 +301,14 @@ public class Queen : BasePiece
                     return true;
                 }
             }
-            else if (myKing.protectingPieces.Contains(this) && dangerPath.Contains(CasillaDese))
+            else if (myKing.protectingPieces.Contains(this))
             {
-                Debug.Log("La pieza está protegiendo al rey y el movimiento está en el camino de peligro.");
-                return true;
+                if(dangerPath.Contains(CasillaDese))
+                {
+                    Debug.Log("La pieza está protegiendo al rey y el movimiento está en el camino de peligro.");
+                    return true;
+                }
+                else return false;
             }
             else return true;
         }
