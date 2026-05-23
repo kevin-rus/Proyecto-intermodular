@@ -99,7 +99,7 @@ public class TableroManager : NetworkBehaviour
     {
         // El 'observers.Count' registra la cantidad de clientes conectados
         // Se necesita a dos, por lo que mientras sean menos, espera
-        yield return new WaitUntil(() => observers.Count > 0);
+        yield return new WaitUntil(() => observers.Count > 1);
         GameManager.instance.UpdateGameState(GameState.ColorTable);
     }
 
