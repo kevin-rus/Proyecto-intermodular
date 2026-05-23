@@ -1,7 +1,9 @@
-﻿using PurrNet;
+﻿using PurrLobby;
+using PurrNet;
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 //Gestor central del juego, enfocado principalmente en controlar el sistema de turnos
@@ -17,6 +19,9 @@ public class GameManager : NetworkBehaviour
     public Image checkIndicator;
     public TextMeshProUGUI checkIndicatorText;
 
+    public Button returnToLobby;
+    [PurrScene, SerializeField] private string nextScene;
+
     public GameState state;
 
     public static event Action<GameState> OnGameStateChanged;
@@ -24,10 +29,16 @@ public class GameManager : NetworkBehaviour
     private void Awake()
     {
         instance = this;
+
         whiteTurnIndicator.gameObject.SetActive(false);
         blackTurnIndicator.gameObject.SetActive(false);
         checkIndicator.gameObject.SetActive(false);
         checkMate.gameObject.SetActive(false);
+
+        returnToLobby.onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene(nextScene);
+        });
     }
 
     protected override void OnSpawned()

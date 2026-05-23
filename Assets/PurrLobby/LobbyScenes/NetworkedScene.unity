@@ -1467,6 +1467,8 @@ MonoBehaviour:
   winner: {fileID: 233678705}
   checkIndicator: {fileID: 314631134}
   checkIndicatorText: {fileID: 2138321540}
+  returnToLobby: {fileID: 40079204}
+  nextScene: LobbySample
   state: 0
 --- !u!4 &1578639922
 Transform:

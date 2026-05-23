@@ -27,6 +27,8 @@ namespace PurrLobby
 
         private void Start()
         {
+            _hasAlreadySwitched = false;
+
             if (subscribeToOnAllReady && lobbyManager != null)
             {
                 // Subscribe to OnAllReady event - fires after SetAllReadyAsync() completes
