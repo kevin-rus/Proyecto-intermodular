@@ -93,11 +93,7 @@ public class GameManager : NetworkBehaviour
     {
         if(PieceManager.instance.GetWhiteKing().checkMate || PieceManager.instance.GetBlackKing().checkMate)
         {
-            Debug.Log("Jaque Mate. Fin de la partida");
-            UpdateGameState(GameState.CheckMate);
-
-            winner.text = PieceManager.instance.GetWhiteKing().checkMate ? "Negras ganan!" : "Blancas ganan!";
-            checkMate.gameObject.SetActive(true);
+            endGame();
         }
         if (PieceManager.instance.GetWhiteKing().inCheck)
         {
@@ -113,6 +109,16 @@ public class GameManager : NetworkBehaviour
         {
             checkIndicator.gameObject.SetActive(false);
         }
+    }
+
+    [ObserversRpc]
+    public void endGame()
+    {
+        Debug.Log("Jaque Mate. Fin de la partida");
+        UpdateGameState(GameState.CheckMate);
+
+        winner.text = PieceManager.instance.GetWhiteKing().checkMate ? "Negras ganan!" : "Blancas ganan!";
+        checkMate.gameObject.SetActive(true);
     }
 }
 
