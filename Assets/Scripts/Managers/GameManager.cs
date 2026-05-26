@@ -117,6 +117,7 @@ public class GameManager : NetworkBehaviour
         Debug.Log("Jaque Mate. Fin de la partida");
         UpdateGameState(GameState.CheckMate);
 
+        if (!isServer) return;
         winner.text = PieceManager.instance.GetWhiteKing().checkMate ? "Negras ganan!" : "Blancas ganan!";
         checkMate.gameObject.SetActive(true);
     }
