@@ -111,7 +111,7 @@ public class GameManager : NetworkBehaviour
         }
     }
 
-    [ObserversRpc]
+    [ServerRpc]
     public void endGame()
     {
         Debug.Log("Jaque Mate. Fin de la partida");
@@ -119,6 +119,13 @@ public class GameManager : NetworkBehaviour
 
         if (!isServer) return;
         winner.text = PieceManager.instance.GetWhiteKing().checkMate ? "Negras ganan!" : "Blancas ganan!";
+        
+        displayEndGame();
+    }
+
+    [ObserversRpc]
+    public void displayEndGame()
+    {
         checkMate.gameObject.SetActive(true);
     }
 }
