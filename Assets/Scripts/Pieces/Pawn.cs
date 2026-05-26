@@ -5,7 +5,7 @@ public class Pawn : BasePiece
 {
     private bool isFirstMove = true;
 
-    public override bool calcularMovimientos(Casilla casillaIni, Casilla CasillaDese)
+    public override bool calcularMovimientos(Tile casillaIni, Tile CasillaDese)
     {
         // Obtiene el rey del jugador para comprobar los movimientos cuando está en jaque
         King myKing = player == Player.White ? PieceManager.instance.GetWhiteKing() : PieceManager.instance.GetBlackKing();
@@ -19,7 +19,7 @@ public class Pawn : BasePiece
 
             if (leftCorner >= 0)
             {
-                Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(leftCorner, posibMovY));
+                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(leftCorner, posibMovY));
                 if (posibCasilla == CasillaDese)
                 {
                     if(!myKing.inCheck)
@@ -40,7 +40,7 @@ public class Pawn : BasePiece
             }
             if (rightCorner <= 7)
             {
-                Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(rightCorner, posibMovY));
+                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(rightCorner, posibMovY));
                 if (posibCasilla == CasillaDese)
                 {
                     if (!myKing.inCheck)
@@ -63,7 +63,7 @@ public class Pawn : BasePiece
 
         // Registra los posibles movimientos en una lista, luego comprueba que el movimiento
         // deseado se encuentra en la lista
-        List<Casilla> posibMovimientos = new List<Casilla>();
+        List<Tile> posibMovimientos = new List<Tile>();
 
         // Durante el primer movimiento, el peón puede avanzar dos casillas
         for (int i = 1; i <= (isFirstMove ? 2 : 1); i++)
@@ -75,7 +75,7 @@ public class Pawn : BasePiece
             if (posibMovX > 7 || posibMovY > 7) break;
 
             // Obtiene la casilla y comprueba que está libre para asignarla a la lista de movimientos posibles
-            Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+            Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
                 posibMovimientos.Add(posibCasilla);
@@ -88,7 +88,7 @@ public class Pawn : BasePiece
         {
             if(myKing.inCheck)
             {
-                List<Casilla> dangerPath = myKing.dangerPath;
+                List<Tile> dangerPath = myKing.dangerPath;
                 // Si el rey está en jaque, el peón solo puede moverse a una casilla que bloquee el jaque
                 if (myKing.dangerPieces.Count == 1 && dangerPath.Contains(CasillaDese))
                 {

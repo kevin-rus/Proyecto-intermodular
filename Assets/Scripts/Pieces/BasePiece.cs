@@ -4,7 +4,7 @@ using UnityEngine;
 // Clase base para las piezas
 public abstract class BasePiece : MonoBehaviour
 {
-    public Casilla OccupiedCasilla;             // Casilla que ocupa
+    public Tile OccupiedCasilla;             // Casilla que ocupa
     public Player player;                       // Jugador al que pertenece
     public Vector2[][] movimientosPosibles;     // Array en el que se registran los posibles movimientos de la ficha en un turno
     public bool inCheck = false;
@@ -12,18 +12,18 @@ public abstract class BasePiece : MonoBehaviour
     public List<BasePiece> protectingPieces;    // Lista de piezas que protejen del jaque
 
     public List<BasePiece> dangerPieces;        // Lista de piezas que ponen en jaque
-    public List<Casilla> dangerPath;            // Lista de casillas que forman el camino de amenaza
+    public List<Tile> dangerPath;            // Lista de casillas que forman el camino de amenaza
 
     // Calcula los posibles movimientos de la ficha, dependiendo de su tipo y posición actual
     // El métedo está sujeto a cambios, según que clase de ficha se trate
-    public abstract bool calcularMovimientos(Casilla casillaInic, Casilla casillaDese);
+    public abstract bool calcularMovimientos(Tile casillaInic, Tile casillaDese);
 
-    public Casilla getCasilla()
+    public Tile getCasilla()
     {
         return OccupiedCasilla;
     }
 
-    public bool detectCheck(Casilla casillaIni)
+    public bool detectCheck(Tile casillaIni)
     {
         bool inCheck = false;
 
@@ -35,13 +35,13 @@ public abstract class BasePiece : MonoBehaviour
         bool dobleProtect = false;
 
         List<BasePiece> dangerPieces = new List<BasePiece>();   // Lista de piezas que ponen en jaque a la ficha
-        List<Casilla> dangerPath = new List<Casilla>();         // Camino que forma la pieza atacante
+        List<Tile> dangerPath = new List<Tile>();         // Camino que forma la pieza atacante
 
         // ****** Detecta jaque en los ejes lineales (Torre, Reina) ******
         Debug.Log("Comprobando ejes lineales");
 
         BasePiece protectingPiece = null;
-        List<Casilla> pathPY = new List<Casilla>();
+        List<Tile> pathPY = new List<Tile>();
         // Comprueba casilla en eje Y positivo
         for (int i = 1; i <= 7; i++)
         {
@@ -50,7 +50,7 @@ public abstract class BasePiece : MonoBehaviour
 
             if (posibMovX > 7 || posibMovY > 7) break;
 
-            Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+            Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
                 // CASILLA LIBRE
@@ -88,7 +88,7 @@ public abstract class BasePiece : MonoBehaviour
 
         protectingPiece = null;
         dobleProtect = false;
-        List<Casilla> pathNY = new List<Casilla>();
+        List<Tile> pathNY = new List<Tile>();
         // Comprueba casilla en eje Y negativo
         for (int i = -1; i >= -7; i--)
         {
@@ -97,7 +97,7 @@ public abstract class BasePiece : MonoBehaviour
 
             if (posibMovX < 0 || posibMovY < 0) break;
 
-            Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+            Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
                 // CASILLA LIBRE
@@ -135,7 +135,7 @@ public abstract class BasePiece : MonoBehaviour
         // Comprueba casilla en eje X positivo
         protectingPiece = null;
         dobleProtect = false;
-        List<Casilla> pathPX = new List<Casilla>();
+        List<Tile> pathPX = new List<Tile>();
         for (int i = 1; i <= 7; i++)
         {
             int posibMovX = casillaIni.getPosX() + i;
@@ -143,7 +143,7 @@ public abstract class BasePiece : MonoBehaviour
 
             if (posibMovX > 7 || posibMovY > 7) break;
 
-            Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+            Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
                 // CASILLA LIBRE
@@ -182,7 +182,7 @@ public abstract class BasePiece : MonoBehaviour
         // Comprueba casilla en eje X negativo
         protectingPiece = null;
         dobleProtect = false;
-        List<Casilla> pathNX = new List<Casilla>();
+        List<Tile> pathNX = new List<Tile>();
         for (int i = -1; i >= -7; i--)
         {
             int posibMovX = casillaIni.getPosX() + i;
@@ -190,7 +190,7 @@ public abstract class BasePiece : MonoBehaviour
 
             if (posibMovX < 0 || posibMovY < 0) break;
 
-            Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+            Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
                 // CASILLA LIBRE
@@ -232,7 +232,7 @@ public abstract class BasePiece : MonoBehaviour
         // Comprueba casilla en eje X positivo - eje Y positivo
         protectingPiece = null;
         dobleProtect = false;
-        List<Casilla> pathPXPY = new List<Casilla>();
+        List<Tile> pathPXPY = new List<Tile>();
         for (int i = 1; i <= 7; i++)
         {
             int posibMovX = casillaIni.getPosX() + i;
@@ -240,7 +240,7 @@ public abstract class BasePiece : MonoBehaviour
 
             if (posibMovX > 7 || posibMovY > 7) break;
 
-            Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+            Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
                 // CASILLA LIBRE
@@ -279,7 +279,7 @@ public abstract class BasePiece : MonoBehaviour
         // Comprueba casilla en eje X positivo - eje Y negativo
         protectingPiece = null;
         dobleProtect = false;
-        List<Casilla> pathPXNY = new List<Casilla>();
+        List<Tile> pathPXNY = new List<Tile>();
         for (int i = 1; i <= 7; i++)
         {
             int posibMovX = casillaIni.getPosX() + i;
@@ -287,7 +287,7 @@ public abstract class BasePiece : MonoBehaviour
 
             if (posibMovX > 7 || posibMovY < 0) break;
 
-            Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+            Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
                 // CASILLA LIBRE
@@ -325,7 +325,7 @@ public abstract class BasePiece : MonoBehaviour
         // Comprueba casilla en eje X negativo - eje Y negativo
         protectingPiece = null;
         dobleProtect = false;
-        List<Casilla> pathNXNY = new List<Casilla>();
+        List<Tile> pathNXNY = new List<Tile>();
         for (int i = 1; i <= 7; i++)
         {
             int posibMovX = casillaIni.getPosX() + (i * -1);
@@ -333,7 +333,7 @@ public abstract class BasePiece : MonoBehaviour
 
             if (posibMovX < 0 || posibMovY < 0) break;
 
-            Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+            Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
                 // CASILLA LIBRE
@@ -372,7 +372,7 @@ public abstract class BasePiece : MonoBehaviour
         // Comprueba casilla en eje X negativo - eje Y positivo
         protectingPiece = null;
         dobleProtect = false;
-        List<Casilla> pathNXPY = new List<Casilla>();
+        List<Tile> pathNXPY = new List<Tile>();
         for (int i = 1; i <= 7; i++)
         {
             int posibMovX = casillaIni.getPosX() + (i * -1);
@@ -380,7 +380,7 @@ public abstract class BasePiece : MonoBehaviour
 
             if (posibMovX < 0 || posibMovY > 7) break;
 
-            Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+            Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
                 // CASILLA LIBRE
@@ -429,7 +429,7 @@ public abstract class BasePiece : MonoBehaviour
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     // CASILLA LIBRE
@@ -457,7 +457,7 @@ public abstract class BasePiece : MonoBehaviour
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     // CASILLA LIBRE
@@ -485,7 +485,7 @@ public abstract class BasePiece : MonoBehaviour
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     // CASILLA LIBRE
@@ -513,7 +513,7 @@ public abstract class BasePiece : MonoBehaviour
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     // CASILLA LIBRE
@@ -543,7 +543,7 @@ public abstract class BasePiece : MonoBehaviour
         {
             if (leftCorner >= 0)
             {
-                Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(leftCorner, posibMovYPawn));
+                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(leftCorner, posibMovYPawn));
                 if (posibCasilla.OccupiedPiece is Pawn && posibCasilla.OccupiedPiece.player != player)
                 {
                     BasePiece enemyPiece = posibCasilla.OccupiedPiece;
@@ -554,7 +554,7 @@ public abstract class BasePiece : MonoBehaviour
             }
             if (rightCorner <= 7)
             {
-                Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(rightCorner, posibMovYPawn));
+                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(rightCorner, posibMovYPawn));
                 if (posibCasilla.OccupiedPiece is Pawn && posibCasilla.OccupiedPiece.player != player)
                 {
                     BasePiece enemyPiece = posibCasilla.OccupiedPiece;

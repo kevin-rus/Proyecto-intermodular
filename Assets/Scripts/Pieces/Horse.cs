@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Horse : BasePiece
 {
-    public override bool calcularMovimientos(Casilla casillaIni, Casilla CasillaDese)
+    public override bool calcularMovimientos(Tile casillaIni, Tile CasillaDese)
     {
         // Obtiene el rey del jugador para comprobar los movimientos cuando está en jaque
         King myKing = player == Player.White ? PieceManager.instance.GetWhiteKing() : PieceManager.instance.GetBlackKing();
@@ -13,7 +13,7 @@ public class Horse : BasePiece
         Debug.Log("Calculando movimientos caballo");
         // Registra los posibles movimientos en una lista, luego comprueba que el movimiento
         // deseado se encuentra en la lista
-        List<Casilla> posibMovimientos = new List<Casilla>();
+        List<Tile> posibMovimientos = new List<Tile>();
 
         // Comprueba casilla en eje X positivo
         Debug.Log("Comprobando eje X positivo");
@@ -26,7 +26,7 @@ public class Horse : BasePiece
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     Debug.Log("Casilla vacia");
@@ -63,7 +63,7 @@ public class Horse : BasePiece
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     Debug.Log("Casilla vacia");
@@ -100,7 +100,7 @@ public class Horse : BasePiece
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     Debug.Log("Casilla vacia");
@@ -137,7 +137,7 @@ public class Horse : BasePiece
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Casilla posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     Debug.Log("Casilla vacia");
@@ -167,7 +167,7 @@ public class Horse : BasePiece
         {
             if (myKing.inCheck)
             {
-                List<Casilla> dangerPath = myKing.dangerPath;
+                List<Tile> dangerPath = myKing.dangerPath;
                 // Si el rey está en jaque, el peón solo puede moverse a una casilla que bloquee el jaque
                 if (myKing.dangerPieces.Count == 1 && dangerPath.Contains(CasillaDese))
                 {

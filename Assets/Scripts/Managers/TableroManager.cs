@@ -7,10 +7,10 @@ public class TableroManager : NetworkBehaviour
 {
     public static TableroManager instance;
     // Prefab de una casilla (un sprite cuadrado con SpriteRenderer)
-    [SerializeField] private Casilla _casillaPrefab;
+    [SerializeField] private Tile _casillaPrefab;
 
     // Guarda los datos de cada casilla para que sean accesibles en cualquier momento
-    private Dictionary<Vector2, Casilla> _casillas; 
+    private Dictionary<Vector2, Tile> _casillas; 
 
     // Porcentaje de la altura de la pantalla que ocupará el tablero (0.1 = 10%, 1 = 100%)
     [Range(0.1f, 1f)]
@@ -51,7 +51,7 @@ public class TableroManager : NetworkBehaviour
             return;
         }
 
-        _casillas = new Dictionary<Vector2, Casilla>();
+        _casillas = new Dictionary<Vector2, Tile>();
 
         // Ancho y alto del tablero en unidades del mundo
         float anchoTablero = 8f * tamañoCasilla;
@@ -126,7 +126,7 @@ public class TableroManager : NetworkBehaviour
         GameManager.instance.UpdateGameState(GameState.WhiteTurn);
     }
 
-    public Casilla GetCaillaFromPosition(Vector2 pos)
+    public Tile GetCaillaFromPosition(Vector2 pos)
     {
         if(_casillas.TryGetValue(pos, out var casilla))
         {
@@ -136,7 +136,7 @@ public class TableroManager : NetworkBehaviour
         return null;
     }
 
-    public Dictionary<Vector2, Casilla> GetCasillas()
+    public Dictionary<Vector2, Tile> GetCasillas()
     {
         return _casillas;
     }

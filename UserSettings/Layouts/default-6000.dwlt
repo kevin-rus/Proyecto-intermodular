@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1360
     height: 685
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 56}
   m_MaxSize: {x: 32384, y: 8096}
   vertical: 0
-  controlID: 61
+  controlID: 37
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 56}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 62
+  controlID: 38
   draggingID: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -646,7 +646,7 @@ MonoBehaviour:
   m_StartGridSize: 64
   m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\danie\Proyecto-Intermodular
+  m_LastProjectPath: D:\Proyecto-Inermodular\Proyecto-intermodular
   m_LockTracker:
     m_IsLocked: 0
   m_LastLocalAssetsSearchArea: 1
@@ -658,7 +658,9 @@ MonoBehaviour:
       m_Data: 51116
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 34850
+    - m_Data: 34844
+    - m_Data: 52256
+    - m_Data: 52258
     - m_Data: 52260
     - m_Data: 52262
     - m_Data: 52264
@@ -668,9 +670,6 @@ MonoBehaviour:
     - m_Data: 52272
     - m_Data: 52274
     - m_Data: 52276
-    - m_Data: 52278
-    - m_Data: 52280
-    - m_Data: 52282
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -697,14 +696,16 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 35}
+    scrollPos: {x: 0, y: 0}
     m_SelectedIDs:
-    - m_Data: 19860
+    - m_Data: 48074
     m_LastClickedID:
-      m_Data: 19860
+      m_Data: 48074
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 34850
+    - m_Data: 34844
+    - m_Data: 52256
+    - m_Data: 52258
     - m_Data: 52260
     - m_Data: 52262
     - m_Data: 52264
@@ -714,9 +715,6 @@ MonoBehaviour:
     - m_Data: 52272
     - m_Data: 52274
     - m_Data: 52276
-    - m_Data: 52278
-    - m_Data: 52280
-    - m_Data: 52282
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -744,8 +742,8 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
     m_SelectedInstanceIDs:
-    - m_Data: 19860
-    m_LastClickedInstanceID: 19860
+    - m_Data: 48074
+    m_LastClickedInstanceID: 48074
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs:
     - m_Data: 75892
@@ -826,7 +824,7 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: 19860
+  m_LastInspectedObjectInstanceID: -1
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
@@ -877,7 +875,8 @@ MonoBehaviour:
       m_SelectedIDs: []
       m_LastClickedID:
         m_Data: 0
-      m_ExpandedIDs: []
+      m_ExpandedIDs:
+      - m_Data: -1338
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

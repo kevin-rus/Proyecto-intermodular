@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 // Objeto de las casilla del juego, guarda la ficha que tenga encima y gestiona los movimientos
-public class Casilla : NetworkBehaviour
+public class Tile : NetworkBehaviour
 {
     [SerializeField] private SpriteRenderer _renderer;
     public BasePiece OccupiedPiece;

@@ -25,14 +25,6 @@ public class PieceManager : NetworkBehaviour
     private void Awake()
     {
         instance = this;
-
-        // Carga todas las piezas de la carpeta Assets/Resources
-        /*
-         * La carpeta de /Resources tenía una forma única de cargar prefabas
-         * pero no me acuerdo muy bien de como funcionaba, el vídeo de Grid-vid-p2
-         * en el doc de las tareas explicaba su funcionamiento
-        */
-        _pieces = Resources.LoadAll<ScriptablePieces>("Pieces").ToList();
     }
 
     // Carga las piezas blancas en el tablero
