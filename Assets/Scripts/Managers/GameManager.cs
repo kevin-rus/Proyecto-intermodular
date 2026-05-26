@@ -65,7 +65,7 @@ public class GameManager : NetworkBehaviour
             case GameState.ColorTable:
                 TableroManager.instance.cambiarColor();
                 break;
-            case GameState.SpawnWthites:
+            case GameState.SpawnWhites:
                 PieceManager.instance.SpawnWhites();
                 break;
             case GameState.SpawnBlacks:
@@ -136,7 +136,7 @@ public enum GameState
     Start,
     GenerateTable,
     ColorTable,
-    SpawnWthites,
+    SpawnWhites,
     SpawnBlacks,
     WhiteTurn,
     BlackTurn,

@@ -117,7 +117,7 @@ public class TableroManager : NetworkBehaviour
                 _casillas[new Vector2(x, y)].inicioCambioColor(x, y);
             }
         }
-        GameManager.instance.UpdateGameState(GameState.SpawnWthites);
+        GameManager.instance.UpdateGameState(GameState.SpawnWhites);
     }
 
     // No se por que, pero el cliente solo se actualiza de esta forma
