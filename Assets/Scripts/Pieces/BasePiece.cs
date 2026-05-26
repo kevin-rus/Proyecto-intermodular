@@ -6,7 +6,7 @@ public abstract class BasePiece : MonoBehaviour
 {
     public Tile OccupiedTile;                   // Casilla que ocupa
     public Player player;                       // Jugador al que pertenece
-    public Vector2[][] posibleMoves;            // Array en el que se registran los posibles movimientos de la ficha en un turno
+    public Vector2[][] possibleMoves;            // Array en el que se registran los posibles movimientos de la ficha en un turno
     public bool inCheck = false;
 
     public List<BasePiece> protectingPieces;    // Lista de piezas que protejen del jaque
