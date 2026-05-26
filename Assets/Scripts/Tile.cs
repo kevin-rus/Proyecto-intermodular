@@ -12,10 +12,10 @@ public class Tile : NetworkBehaviour
     // Elimina la ficha de la casilla previa y le asigna la nueva
     public void setPiece(BasePiece piece)
     {
-        if (piece.OccupiedCasilla != null) piece.OccupiedCasilla.OccupiedPiece = null;
+        if (piece.OccupiedTile != null) piece.OccupiedTile.OccupiedPiece = null;
         piece.transform.position = transform.position;
         OccupiedPiece = piece;
-        piece.OccupiedCasilla = this;
+        piece.OccupiedTile = this;
     }
 
     // Función puente que permite el correcto funcionamiento del Network
@@ -79,7 +79,7 @@ public class Tile : NetworkBehaviour
             {
                 // Se calculan los movimientos posibles de la pieza seleccionada
                 BasePiece pieza = PieceManager.instance.SelectedPiece;
-                bool sePuedeMover = pieza.calcularMovimientos(pieza.OccupiedCasilla, this);
+                bool sePuedeMover = pieza.calculateMovements(pieza.OccupiedTile, this);
 
                 // Si el movimiento es válido, se mueve la pieza a la nueva casilla
                 if (sePuedeMover)
@@ -117,7 +117,7 @@ public class Tile : NetworkBehaviour
 
                 // Se calculan los movimientos posibles de la pieza seleccionada
                 BasePiece pieza = PieceManager.instance.SelectedPiece;
-                bool sePuedeMover = pieza.calcularMovimientos(pieza.OccupiedCasilla, this);
+                bool sePuedeMover = pieza.calculateMovements(pieza.OccupiedTile, this);
 
                 // Si el movimiento es válido, se mueve la pieza a la nueva casilla
                 if (sePuedeMover)

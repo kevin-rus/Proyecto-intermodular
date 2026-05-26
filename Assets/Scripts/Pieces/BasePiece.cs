@@ -4,23 +4,23 @@ using UnityEngine;
 // Clase base para las piezas
 public abstract class BasePiece : MonoBehaviour
 {
-    public Tile OccupiedCasilla;             // Casilla que ocupa
+    public Tile OccupiedTile;                   // Casilla que ocupa
     public Player player;                       // Jugador al que pertenece
-    public Vector2[][] movimientosPosibles;     // Array en el que se registran los posibles movimientos de la ficha en un turno
+    public Vector2[][] posibleMoves;            // Array en el que se registran los posibles movimientos de la ficha en un turno
     public bool inCheck = false;
 
     public List<BasePiece> protectingPieces;    // Lista de piezas que protejen del jaque
 
     public List<BasePiece> dangerPieces;        // Lista de piezas que ponen en jaque
-    public List<Tile> dangerPath;            // Lista de casillas que forman el camino de amenaza
+    public List<Tile> dangerPath;               // Lista de casillas que forman el camino de amenaza
 
     // Calcula los posibles movimientos de la ficha, dependiendo de su tipo y posición actual
     // El métedo está sujeto a cambios, según que clase de ficha se trate
-    public abstract bool calcularMovimientos(Tile casillaInic, Tile casillaDese);
+    public abstract bool calculateMovements(Tile casillaInic, Tile casillaDese);
 
     public Tile getCasilla()
     {
-        return OccupiedCasilla;
+        return OccupiedTile;
     }
 
     public bool detectCheck(Tile casillaIni)
@@ -28,8 +28,8 @@ public abstract class BasePiece : MonoBehaviour
         bool inCheck = false;
 
         Debug.Log("Detectando jaque para " + this.name);
-        casillaIni = casillaIni ?? OccupiedCasilla;
-        Debug.Log(OccupiedCasilla);
+        casillaIni = casillaIni ?? OccupiedTile;
+        Debug.Log(OccupiedTile);
 
         protectingPieces = new List<BasePiece>();               // Lista de piezas que protejen a la ficha
         bool dobleProtect = false;
@@ -567,7 +567,7 @@ public abstract class BasePiece : MonoBehaviour
 
         if (inCheck)
         {
-            if(casillaIni == OccupiedCasilla)
+            if(casillaIni == OccupiedTile)
             {
                 this.dangerPieces = dangerPieces;
                 this.dangerPath = dangerPath;

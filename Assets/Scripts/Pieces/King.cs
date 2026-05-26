@@ -8,7 +8,7 @@ public class King : BasePiece
     public bool checkMate = false;
     private bool isFirstMove = true;
 
-    public override bool calcularMovimientos(Tile casillaIni, Tile CasillaDese)
+    public override bool calculateMovements(Tile casillaIni, Tile CasillaDese)
     {
         Debug.Log("Calculando movimientos rey blanco");
         // Registra los posibles movimientos en una lista, luego comprueba que el movimiento
@@ -22,8 +22,8 @@ public class King : BasePiece
 
             if(rook.isFirstMove && this.isFirstMove)
             {
-                int rookPosX = rook.OccupiedCasilla.getPosX();
-                int kingPosY = this.OccupiedCasilla.getPosY();
+                int rookPosX = rook.OccupiedTile.getPosX();
+                int kingPosY = this.OccupiedTile.getPosY();
 
                 int newRookPosX = rookPosX == 7 ? 5 : 3;
                 int newKingPosX = rookPosX == 7 ? 6 : 2;
@@ -196,7 +196,7 @@ public class King : BasePiece
     {
         Debug.Log("Se puede mover el rey?");
         bool inCheck = false;
-        Tile casillaIni = OccupiedCasilla;
+        Tile casillaIni = OccupiedTile;
 
         for (int i = -1; i < 2; i++)
         {

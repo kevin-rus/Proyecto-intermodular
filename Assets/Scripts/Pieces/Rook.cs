@@ -7,7 +7,7 @@ public class Rook : BasePiece
 {
     public bool isFirstMove = true;
 
-    public override bool calcularMovimientos(Tile casillaIni, Tile CasillaDese)
+    public override bool calculateMovements(Tile casillaIni, Tile CasillaDese)
     {
         // Obtiene el rey del jugador para comprobar los movimientos cuando está en jaque
         King myKing = player == Player.White ? PieceManager.instance.GetWhiteKing() : PieceManager.instance.GetBlackKing();
