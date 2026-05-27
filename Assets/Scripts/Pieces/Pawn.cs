@@ -25,6 +25,7 @@ public class Pawn : BasePiece
                     if(!myKing.inCheck)
                     {
                         Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        isFirstMove = false;
                         return true;
                     }
                     else
@@ -33,6 +34,7 @@ public class Pawn : BasePiece
                         if (myKing.dangerPieces.Count == 1 && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
                         {
                             Destroy(posibCasilla.OccupiedPiece.gameObject);
+                            isFirstMove = false;
                             return true;
                         }
                     }
@@ -116,5 +118,19 @@ public class Pawn : BasePiece
 
         // Si no es posible, devuelve false
         return false;
+    }
+
+    // If pawn reaches the other end of the board, promotes into a queen
+    public void promote()
+    {
+        Tile tile = this.OccupiedTile;
+        if((player == Player.White && OccupiedTile.getPosY() == 7) || (player == Player.Black && OccupiedTile.getPosY() == 0))
+        {
+            BasePiece promote = player == Player.White ? PieceManager.instance.ReinaBlanca : PieceManager.instance.ReinaNegra;
+
+            var promotedQueen = Instantiate(promote);
+            tile.setPiece(promotedQueen);
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -55,7 +55,7 @@ public class Tile : NetworkBehaviour
             moveWhite();
         }
         // Si es turno de negras, actua el Cliente
-        else if ((GameManager.instance.state == GameState.BlackTurn) && !isServer)
+        else if ((GameManager.instance.state == GameState.BlackTurn) && isServer)
         {
             moveBlack();
         }
@@ -86,6 +86,13 @@ public class Tile : NetworkBehaviour
                 {
                     Debug.Log("Moviendo pieza blanca");
                     setPiece(PieceManager.instance.SelectedPiece);
+
+                    if(pieza is Pawn)
+                    {
+                        Pawn pawn = (Pawn)pieza;
+                        pawn.promote();
+                    }
+                    
                     PieceManager.instance.SetSelectedPiece(null);
 
                     PieceManager.instance.GetBlackKing().isInCheck();
@@ -123,7 +130,13 @@ public class Tile : NetworkBehaviour
                 if (sePuedeMover)
                 {
                     Debug.Log("Moviendo pieza negra");
-                    setPiece(PieceManager.instance.SelectedPiece);
+                    setPiece(pieza);
+
+                    if(pieza is Pawn)
+                    {
+                        Pawn pawn = (Pawn)pieza;
+                        pawn.promote();
+                    }
                     PieceManager.instance.SetSelectedPiece(null);
 
                     PieceManager.instance.GetBlackKing().isInCheck();
