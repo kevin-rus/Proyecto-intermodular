@@ -79,7 +79,7 @@ public abstract class BasePiece : MonoBehaviour
                 }
                 else break;
             }
-            else if (posibCasilla.OccupiedPiece.player == player)
+            else if (posibCasilla.OccupiedPiece.player == player && posibCasilla.OccupiedPiece != this)
             {
                 if(protectingPiece == null) protectingPiece = posibCasilla.OccupiedPiece;
                 else dobleProtect = true;
@@ -125,7 +125,7 @@ public abstract class BasePiece : MonoBehaviour
                 }
                 else break;
             }
-            else if (posibCasilla.OccupiedPiece.player == player)
+            else if (posibCasilla.OccupiedPiece.player == player && posibCasilla.OccupiedPiece != this)
             {
                 if(protectingPiece == null) protectingPiece = posibCasilla.OccupiedPiece;
                 else dobleProtect = true;
@@ -172,7 +172,7 @@ public abstract class BasePiece : MonoBehaviour
                 }
                 else break;
             }
-            else if (posibCasilla.OccupiedPiece.player == player)
+            else if (posibCasilla.OccupiedPiece.player == player && posibCasilla.OccupiedPiece != this)
             {
                 if(protectingPiece == null) protectingPiece = posibCasilla.OccupiedPiece;
                 else dobleProtect = true;
@@ -219,7 +219,7 @@ public abstract class BasePiece : MonoBehaviour
                 }
                 else break;
             }
-            else if (posibCasilla.OccupiedPiece.player == player)
+            else if (posibCasilla.OccupiedPiece.player == player && posibCasilla.OccupiedPiece != this)
             {
                 if(protectingPiece == null) protectingPiece = posibCasilla.OccupiedPiece;
                 else dobleProtect = true;
@@ -269,7 +269,7 @@ public abstract class BasePiece : MonoBehaviour
                 }
                 else break;
             }
-            else if (posibCasilla.OccupiedPiece.player == player)
+            else if (posibCasilla.OccupiedPiece.player == player && posibCasilla.OccupiedPiece != this)
             {
                 if(protectingPiece == null) protectingPiece = posibCasilla.OccupiedPiece;
                 else dobleProtect = true;
@@ -315,7 +315,7 @@ public abstract class BasePiece : MonoBehaviour
                 }
                 else break;
             }
-            else if (posibCasilla.OccupiedPiece.player == player)
+            else if (posibCasilla.OccupiedPiece.player == player && posibCasilla.OccupiedPiece != this)
             {
                 if(protectingPiece == null) protectingPiece = posibCasilla.OccupiedPiece;
                 else dobleProtect = true;
@@ -362,7 +362,7 @@ public abstract class BasePiece : MonoBehaviour
                 }
                 else break;
             }
-            else if (posibCasilla.OccupiedPiece.player == player)
+            else if (posibCasilla.OccupiedPiece.player == player && posibCasilla.OccupiedPiece != this)
             {
                 if(protectingPiece == null) protectingPiece = posibCasilla.OccupiedPiece;
                 else dobleProtect = true;
@@ -409,7 +409,7 @@ public abstract class BasePiece : MonoBehaviour
                 }
                 else break;
             }
-            else if (posibCasilla.OccupiedPiece.player == player)
+            else if (posibCasilla.OccupiedPiece.player == player && posibCasilla.OccupiedPiece != this)
             {
                 if(protectingPiece == null) protectingPiece = posibCasilla.OccupiedPiece;
                 else dobleProtect = true;

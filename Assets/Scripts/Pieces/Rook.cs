@@ -72,9 +72,18 @@ public class Rook : BasePiece
             {
                 if (!myKing.inCheck)
                 {
-                    isFirstMove = false;
-                    Destroy(posibCasilla.OccupiedPiece.gameObject);
-                    return true;
+                    if (myKing.protectingPieces.Contains(this) && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        isFirstMove = false;
+                        return true;
+                    }
+                    else if (!myKing.protectingPieces.Contains(this))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        isFirstMove = false;
+                        return true;
+                    }
                 }
                 else
                 {
@@ -107,9 +116,18 @@ public class Rook : BasePiece
             {
                 if (!myKing.inCheck)
                 {
-                    isFirstMove = false;
-                    Destroy(posibCasilla.OccupiedPiece.gameObject);
-                    return true;
+                    if (myKing.protectingPieces.Contains(this) && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        isFirstMove = false;
+                        return true;
+                    }
+                    else if (!myKing.protectingPieces.Contains(this))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        isFirstMove = false;
+                        return true;
+                    }
                 }
                 else
                 {
@@ -142,9 +160,18 @@ public class Rook : BasePiece
             {
                 if (!myKing.inCheck)
                 {
-                    isFirstMove = false;
-                    Destroy(posibCasilla.OccupiedPiece.gameObject);
-                    return true;
+                    if (myKing.protectingPieces.Contains(this) && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        isFirstMove = false;
+                        return true;
+                    }
+                    else if (!myKing.protectingPieces.Contains(this))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        isFirstMove = false;
+                        return true;
+                    }
                 }
                 else
                 {

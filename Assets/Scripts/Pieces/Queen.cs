@@ -34,8 +34,16 @@ public class Queen : BasePiece
             {
                 if (!myKing.inCheck)
                 {
-                    Destroy(posibCasilla.OccupiedPiece.gameObject);
-                    return true;
+                    if (myKing.protectingPieces.Contains(this) && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
+                    else if (!myKing.protectingPieces.Contains(this))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
                 }
                 else
                 {
@@ -68,8 +76,16 @@ public class Queen : BasePiece
             {
                 if (!myKing.inCheck)
                 {
-                    Destroy(posibCasilla.OccupiedPiece.gameObject);
-                    return true;
+                    if (myKing.protectingPieces.Contains(this) && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
+                    else if (!myKing.protectingPieces.Contains(this))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
                 }
                 else
                 {
@@ -102,8 +118,16 @@ public class Queen : BasePiece
             {
                 if (!myKing.inCheck)
                 {
-                    Destroy(posibCasilla.OccupiedPiece.gameObject);
-                    return true;
+                    if (myKing.protectingPieces.Contains(this) && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
+                    else if (!myKing.protectingPieces.Contains(this))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
                 }
                 else
                 {
@@ -136,8 +160,16 @@ public class Queen : BasePiece
             {
                 if (!myKing.inCheck)
                 {
-                    Destroy(posibCasilla.OccupiedPiece.gameObject);
-                    return true;
+                    if (myKing.protectingPieces.Contains(this) && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
+                    else if (!myKing.protectingPieces.Contains(this))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
                 }
                 else
                 {
@@ -171,8 +203,16 @@ public class Queen : BasePiece
             {
                 if (!myKing.inCheck)
                 {
-                    Destroy(posibCasilla.OccupiedPiece.gameObject);
-                    return true;
+                    if (myKing.protectingPieces.Contains(this) && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
+                    else if (!myKing.protectingPieces.Contains(this))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
                 }
                 else
                 {
@@ -205,8 +245,16 @@ public class Queen : BasePiece
             {
                 if (!myKing.inCheck)
                 {
-                    Destroy(posibCasilla.OccupiedPiece.gameObject);
-                    return true;
+                    if (myKing.protectingPieces.Contains(this) && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
+                    else if (!myKing.protectingPieces.Contains(this))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
                 }
                 else
                 {
@@ -239,8 +287,16 @@ public class Queen : BasePiece
             {
                 if (!myKing.inCheck)
                 {
-                    Destroy(posibCasilla.OccupiedPiece.gameObject);
-                    return true;
+                    if (myKing.protectingPieces.Contains(this) && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
+                    else if (!myKing.protectingPieces.Contains(this))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
                 }
                 else
                 {
@@ -274,8 +330,16 @@ public class Queen : BasePiece
             {
                 if (!myKing.inCheck)
                 {
-                    Destroy(posibCasilla.OccupiedPiece.gameObject);
-                    return true;
+                    if (myKing.protectingPieces.Contains(this) && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
+                    else if (!myKing.protectingPieces.Contains(this))
+                    {
+                        Destroy(posibCasilla.OccupiedPiece.gameObject);
+                        return true;
+                    }
                 }
                 else
                 {

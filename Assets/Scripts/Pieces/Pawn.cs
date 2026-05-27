@@ -24,9 +24,18 @@ public class Pawn : BasePiece
                 {
                     if(!myKing.inCheck)
                     {
-                        Destroy(posibCasilla.OccupiedPiece.gameObject);
-                        isFirstMove = false;
-                        return true;
+                        if (myKing.protectingPieces.Contains(this) && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                        {
+                            Destroy(posibCasilla.OccupiedPiece.gameObject);
+                            isFirstMove = false;
+                            return true;
+                        }
+                        else if (!myKing.protectingPieces.Contains(this))
+                        {
+                            Destroy(posibCasilla.OccupiedPiece.gameObject);
+                            isFirstMove = false;
+                            return true;
+                        }
                     }
                     else
                     {
@@ -47,8 +56,18 @@ public class Pawn : BasePiece
                 {
                     if (!myKing.inCheck)
                     {
-                        Destroy(posibCasilla.OccupiedPiece.gameObject);
-                        return true;
+                        if (myKing.protectingPieces.Contains(this) && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                        {
+                            Destroy(posibCasilla.OccupiedPiece.gameObject);
+                            isFirstMove = false;
+                            return true;
+                        }
+                        else if (!myKing.protectingPieces.Contains(this))
+                        {
+                            Destroy(posibCasilla.OccupiedPiece.gameObject);
+                            isFirstMove = false;
+                            return true;
+                        }
                     }
                     else
                     {
@@ -56,6 +75,7 @@ public class Pawn : BasePiece
                         if (myKing.dangerPieces.Count == 1 && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
                         {
                             Destroy(posibCasilla.OccupiedPiece.gameObject);
+                            isFirstMove = false;
                             return true;
                         }
                     }
