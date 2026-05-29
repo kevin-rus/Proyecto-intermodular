@@ -26,7 +26,7 @@ public class Horse : BasePiece
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     Debug.Log("Casilla vacia");
@@ -71,7 +71,7 @@ public class Horse : BasePiece
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     Debug.Log("Casilla vacia");
@@ -116,7 +116,7 @@ public class Horse : BasePiece
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     Debug.Log("Casilla vacia");
@@ -161,7 +161,7 @@ public class Horse : BasePiece
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     Debug.Log("Casilla vacia");

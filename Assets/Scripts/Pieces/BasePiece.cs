@@ -10,6 +10,7 @@ public abstract class BasePiece : MonoBehaviour
     public bool inCheck = false;
 
     public List<BasePiece> protectingPieces;    // Lista de piezas que protejen del jaque
+    public BasePiece protectingFrom;
 
     public List<BasePiece> dangerPieces;        // Lista de piezas que ponen en jaque
     public List<Tile> dangerPath;               // Lista de casillas que forman el camino de amenaza
@@ -18,17 +19,17 @@ public abstract class BasePiece : MonoBehaviour
     // El métedo está sujeto a cambios, según que clase de ficha se trate
     public abstract bool calculateMovements(Tile casillaInic, Tile casillaDese);
 
-    public Tile getCasilla()
+    public Tile getTile()
     {
         return OccupiedTile;
     }
 
-    public bool detectCheck(Tile casillaIni)
+    public bool detectCheck(Tile initialTile)
     {
         bool inCheck = false;
 
         Debug.Log("Detectando jaque para " + this.name);
-        casillaIni = casillaIni ?? OccupiedTile;
+        initialTile = initialTile ?? OccupiedTile;
         Debug.Log(OccupiedTile);
 
         protectingPieces = new List<BasePiece>();               // Lista de piezas que protejen a la ficha
@@ -45,20 +46,20 @@ public abstract class BasePiece : MonoBehaviour
         // Comprueba casilla en eje Y positivo
         for (int i = 1; i <= 7; i++)
         {
-            int posibMovX = casillaIni.getPosX();
-            int posibMovY = casillaIni.getPosY() + i;
+            int posibMovX = initialTile.getPosX();
+            int posibMovY = initialTile.getPosY() + i;
 
             if (posibMovX > 7 || posibMovY > 7) break;
 
-            Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
-            if (posibCasilla.OccupiedPiece == null)
+            Tile possibleTile = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
+            if (possibleTile.OccupiedPiece == null)
             {
                 // CASILLA LIBRE
-                pathPY.Add(posibCasilla);
+                pathPY.Add(possibleTile);
             }
-            else if (posibCasilla.OccupiedPiece.player != player)
+            else if (possibleTile.OccupiedPiece.player != player)
             {
-                BasePiece enemyPiece = posibCasilla.OccupiedPiece;
+                BasePiece enemyPiece = possibleTile.OccupiedPiece;
                 if (enemyPiece is Rook || enemyPiece is Queen)
                 {
                     if(protectingPiece != null)
@@ -66,6 +67,8 @@ public abstract class BasePiece : MonoBehaviour
                         if(dobleProtect) break;
                         this.protectingPieces.Add(protectingPiece);
                         protectingPiece.dangerPath = pathPY;
+                        protectingFrom = enemyPiece;
+
                         break;
                     }
 
@@ -79,9 +82,9 @@ public abstract class BasePiece : MonoBehaviour
                 }
                 else break;
             }
-            else if (posibCasilla.OccupiedPiece.player == player && posibCasilla.OccupiedPiece != this)
+            else if (possibleTile.OccupiedPiece.player == player && possibleTile.OccupiedPiece != this)
             {
-                if(protectingPiece == null) protectingPiece = posibCasilla.OccupiedPiece;
+                if(protectingPiece == null) protectingPiece = possibleTile.OccupiedPiece;
                 else dobleProtect = true;
             }
         }
@@ -92,12 +95,12 @@ public abstract class BasePiece : MonoBehaviour
         // Comprueba casilla en eje Y negativo
         for (int i = -1; i >= -7; i--)
         {
-            int posibMovX = casillaIni.getPosX();
-            int posibMovY = casillaIni.getPosY() + i;
+            int posibMovX = initialTile.getPosX();
+            int posibMovY = initialTile.getPosY() + i;
 
             if (posibMovX < 0 || posibMovY < 0) break;
 
-            Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+            Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
                 // CASILLA LIBRE
@@ -113,6 +116,8 @@ public abstract class BasePiece : MonoBehaviour
                         if(dobleProtect) break;
                         this.protectingPieces.Add(protectingPiece);
                         protectingPiece.dangerPath = pathNY;
+                        protectingFrom = enemyPiece;
+
                         break;
                     }
                     Debug.Log($"{name} en amenaza por pieza en casilla: " + posibMovX + " - " + posibMovY);
@@ -138,12 +143,12 @@ public abstract class BasePiece : MonoBehaviour
         List<Tile> pathPX = new List<Tile>();
         for (int i = 1; i <= 7; i++)
         {
-            int posibMovX = casillaIni.getPosX() + i;
-            int posibMovY = casillaIni.getPosY();
+            int posibMovX = initialTile.getPosX() + i;
+            int posibMovY = initialTile.getPosY();
 
             if (posibMovX > 7 || posibMovY > 7) break;
 
-            Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+            Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
                 // CASILLA LIBRE
@@ -159,6 +164,8 @@ public abstract class BasePiece : MonoBehaviour
                         if(dobleProtect) break;
                         this.protectingPieces.Add(protectingPiece);
                         protectingPiece.dangerPath = pathPX;
+                        protectingFrom = enemyPiece;
+
                         break;
                     }
 
@@ -185,12 +192,12 @@ public abstract class BasePiece : MonoBehaviour
         List<Tile> pathNX = new List<Tile>();
         for (int i = -1; i >= -7; i--)
         {
-            int posibMovX = casillaIni.getPosX() + i;
-            int posibMovY = casillaIni.getPosY();
+            int posibMovX = initialTile.getPosX() + i;
+            int posibMovY = initialTile.getPosY();
 
             if (posibMovX < 0 || posibMovY < 0) break;
 
-            Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+            Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
                 // CASILLA LIBRE
@@ -206,6 +213,8 @@ public abstract class BasePiece : MonoBehaviour
                         if(dobleProtect) break;
                         this.protectingPieces.Add(protectingPiece);
                         protectingPiece.dangerPath = pathNX;
+                        protectingFrom = enemyPiece;
+
                         break;
                     }
 
@@ -235,12 +244,12 @@ public abstract class BasePiece : MonoBehaviour
         List<Tile> pathPXPY = new List<Tile>();
         for (int i = 1; i <= 7; i++)
         {
-            int posibMovX = casillaIni.getPosX() + i;
-            int posibMovY = casillaIni.getPosY() + i;
+            int posibMovX = initialTile.getPosX() + i;
+            int posibMovY = initialTile.getPosY() + i;
 
             if (posibMovX > 7 || posibMovY > 7) break;
 
-            Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+            Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
                 // CASILLA LIBRE
@@ -256,6 +265,8 @@ public abstract class BasePiece : MonoBehaviour
                         if(dobleProtect) break;
                         this.protectingPieces.Add(protectingPiece);
                         protectingPiece.dangerPath = pathPXPY;
+                        protectingFrom = enemyPiece;
+
                         break;
                     }
 
@@ -282,12 +293,12 @@ public abstract class BasePiece : MonoBehaviour
         List<Tile> pathPXNY = new List<Tile>();
         for (int i = 1; i <= 7; i++)
         {
-            int posibMovX = casillaIni.getPosX() + i;
-            int posibMovY = casillaIni.getPosY() + (i * -1);
+            int posibMovX = initialTile.getPosX() + i;
+            int posibMovY = initialTile.getPosY() + (i * -1);
 
             if (posibMovX > 7 || posibMovY < 0) break;
 
-            Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+            Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
                 // CASILLA LIBRE
@@ -303,6 +314,8 @@ public abstract class BasePiece : MonoBehaviour
                         if(dobleProtect) break;
                         this.protectingPieces.Add(protectingPiece);
                         protectingPiece.dangerPath = pathPXNY;
+                        protectingFrom = enemyPiece;
+
                         break;
                     }
                     Debug.Log($"{name} en amenaza por pieza en casilla: " + posibMovX + " - " + posibMovY);
@@ -328,12 +341,12 @@ public abstract class BasePiece : MonoBehaviour
         List<Tile> pathNXNY = new List<Tile>();
         for (int i = 1; i <= 7; i++)
         {
-            int posibMovX = casillaIni.getPosX() + (i * -1);
-            int posibMovY = casillaIni.getPosY() + (i * -1);
+            int posibMovX = initialTile.getPosX() + (i * -1);
+            int posibMovY = initialTile.getPosY() + (i * -1);
 
             if (posibMovX < 0 || posibMovY < 0) break;
 
-            Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+            Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
                 // CASILLA LIBRE
@@ -349,6 +362,8 @@ public abstract class BasePiece : MonoBehaviour
                         if(dobleProtect) break;
                         this.protectingPieces.Add(protectingPiece);
                         protectingPiece.dangerPath = pathNXNY;
+                        protectingFrom = enemyPiece;
+
                         break;
                     }
 
@@ -375,12 +390,12 @@ public abstract class BasePiece : MonoBehaviour
         List<Tile> pathNXPY = new List<Tile>();
         for (int i = 1; i <= 7; i++)
         {
-            int posibMovX = casillaIni.getPosX() + (i * -1);
-            int posibMovY = casillaIni.getPosY() + i;
+            int posibMovX = initialTile.getPosX() + (i * -1);
+            int posibMovY = initialTile.getPosY() + i;
 
             if (posibMovX < 0 || posibMovY > 7) break;
 
-            Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+            Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
                 // CASILLA LIBRE
@@ -396,6 +411,8 @@ public abstract class BasePiece : MonoBehaviour
                         if(dobleProtect) break;
                         this.protectingPieces.Add(protectingPiece);
                         protectingPiece.dangerPath = pathNXPY;
+                        protectingFrom = enemyPiece;
+
                         break;
                     }
 
@@ -424,12 +441,12 @@ public abstract class BasePiece : MonoBehaviour
         {
             int movL = i == 0 ? 1 : -1;
 
-            int posibMovX = casillaIni.getPosX() + movL;
-            int posibMovY = casillaIni.getPosY() + 2;
+            int posibMovX = initialTile.getPosX() + movL;
+            int posibMovY = initialTile.getPosY() + 2;
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     // CASILLA LIBRE
@@ -452,12 +469,12 @@ public abstract class BasePiece : MonoBehaviour
         {
             int movL = i == 0 ? 1 : -1;
 
-            int posibMovX = casillaIni.getPosX() + movL;
-            int posibMovY = casillaIni.getPosY() - 2;
+            int posibMovX = initialTile.getPosX() + movL;
+            int posibMovY = initialTile.getPosY() - 2;
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     // CASILLA LIBRE
@@ -480,12 +497,12 @@ public abstract class BasePiece : MonoBehaviour
         {
             int movL = i == 0 ? 1 : -1;
 
-            int posibMovX = casillaIni.getPosX() + 2;
-            int posibMovY = casillaIni.getPosY() + movL;
+            int posibMovX = initialTile.getPosX() + 2;
+            int posibMovY = initialTile.getPosY() + movL;
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     // CASILLA LIBRE
@@ -508,12 +525,12 @@ public abstract class BasePiece : MonoBehaviour
         {
             int movL = i == 0 ? 1 : -1;
 
-            int posibMovX = casillaIni.getPosX() - 2;
-            int posibMovY = casillaIni.getPosY() + movL;
+            int posibMovX = initialTile.getPosX() - 2;
+            int posibMovY = initialTile.getPosY() + movL;
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     // CASILLA LIBRE
@@ -534,16 +551,16 @@ public abstract class BasePiece : MonoBehaviour
         // ****** Detecta jaque por peon ******
         Debug.Log("Comprobando peones");
 
-        int posibMovYPawn = casillaIni.getPosY() + (player == Player.White ? 1 : -1);
+        int posibMovYPawn = initialTile.getPosY() + (player == Player.White ? 1 : -1);
 
-        int leftCorner = casillaIni.getPosX() - 1;
-        int rightCorner = casillaIni.getPosX() + 1;
+        int leftCorner = initialTile.getPosX() - 1;
+        int rightCorner = initialTile.getPosX() + 1;
 
         if (posibMovYPawn < 7 && posibMovYPawn >= 0)
         {
             if (leftCorner >= 0)
             {
-                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(leftCorner, posibMovYPawn));
+                Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(leftCorner, posibMovYPawn));
                 if (posibCasilla.OccupiedPiece is Pawn && posibCasilla.OccupiedPiece.player != player)
                 {
                     BasePiece enemyPiece = posibCasilla.OccupiedPiece;
@@ -554,7 +571,7 @@ public abstract class BasePiece : MonoBehaviour
             }
             if (rightCorner <= 7)
             {
-                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(rightCorner, posibMovYPawn));
+                Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(rightCorner, posibMovYPawn));
                 if (posibCasilla.OccupiedPiece is Pawn && posibCasilla.OccupiedPiece.player != player)
                 {
                     BasePiece enemyPiece = posibCasilla.OccupiedPiece;
@@ -567,7 +584,7 @@ public abstract class BasePiece : MonoBehaviour
 
         if (inCheck)
         {
-            if(casillaIni == OccupiedTile)
+            if(initialTile == OccupiedTile)
             {
                 this.dangerPieces = dangerPieces;
                 this.dangerPath = dangerPath;

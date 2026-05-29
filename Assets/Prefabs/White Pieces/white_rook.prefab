@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -1162141694881261147}
   - component: {fileID: 395549151891087187}
   m_Layer: 0
-  m_Name: torre_blanca
+  m_Name: white_rook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

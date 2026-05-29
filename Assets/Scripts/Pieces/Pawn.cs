@@ -19,12 +19,12 @@ public class Pawn : BasePiece
 
             if (leftCorner >= 0)
             {
-                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(leftCorner, posibMovY));
+                Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(leftCorner, posibMovY));
                 if (posibCasilla == CasillaDese)
                 {
                     if(!myKing.inCheck)
                     {
-                        if (myKing.protectingPieces.Contains(this) && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
+                        if (myKing.protectingPieces.Contains(this) && protectingFrom == posibCasilla.OccupiedPiece)
                         {
                             Destroy(posibCasilla.OccupiedPiece.gameObject);
                             isFirstMove = false;
@@ -51,7 +51,7 @@ public class Pawn : BasePiece
             }
             if (rightCorner <= 7)
             {
-                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(rightCorner, posibMovY));
+                Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(rightCorner, posibMovY));
                 if (posibCasilla == CasillaDese)
                 {
                     if (!myKing.inCheck)
@@ -97,7 +97,7 @@ public class Pawn : BasePiece
             if (posibMovX > 7 || posibMovY > 7) break;
 
             // Obtiene la casilla y comprueba que está libre para asignarla a la lista de movimientos posibles
-            Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+            Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
             if (posibCasilla.OccupiedPiece == null)
             {
                 posibMovimientos.Add(posibCasilla);
@@ -146,7 +146,7 @@ public class Pawn : BasePiece
         Tile tile = this.OccupiedTile;
         if((player == Player.White && OccupiedTile.getPosY() == 7) || (player == Player.Black && OccupiedTile.getPosY() == 0))
         {
-            BasePiece promote = player == Player.White ? PieceManager.instance.ReinaBlanca : PieceManager.instance.ReinaNegra;
+            BasePiece promote = player == Player.White ? PieceManager.instance.WhiteQueen : PieceManager.instance.BlackQueen;
 
             var promotedQueen = Instantiate(promote);
             tile.setPiece(promotedQueen);

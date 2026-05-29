@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 46510588}
   - component: {fileID: 46510587}
   m_Layer: 0
-  m_Name: GestorFicha
+  m_Name: PieceManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -390,18 +390,18 @@ MonoBehaviour:
   _networkRules: {fileID: 0}
   _visitiblityRules: {fileID: 0}
   SelectedPiece: {fileID: 0}
-  PeonBlanco: {fileID: -8658484763088141511, guid: 072a18c17b8c96440ab01d71b7d8d4f9, type: 3}
-  PeonNegro: {fileID: 4538064352823889846, guid: d1da8abba5c0fdd4ebcc64643867b567, type: 3}
-  TorreBlanca: {fileID: -1162141694881261147, guid: aee87f6d6b5caba4ea96d8b7b2428c07, type: 3}
-  TorreNegra: {fileID: 8384181040276734919, guid: 10fa13f4f177c5642b27f2753dda492f, type: 3}
-  CaballoBlanco: {fileID: -1395883728960559899, guid: 584c2dad15f16c0429abeb6aa6a3942d, type: 3}
-  CaballoNegro: {fileID: 9100804728594379350, guid: c4dafcab6efa4ff42bc1b3e0b6fcf29b, type: 3}
-  AlfilBlanco: {fileID: -3590043189156243616, guid: 009635323daa13648b8d301f78835d61, type: 3}
-  AlfilNegro: {fileID: -3989657125907412595, guid: ea35b9dcd809c9148b1d19d3d7e81c1c, type: 3}
-  ReyBlanco: {fileID: -5555361879448148961, guid: 93dddb79fabc4dc48acac63415536927, type: 3}
-  ReyNegro: {fileID: 4176835358884849097, guid: a2d1dbad80f51d14a879990f24bea010, type: 3}
-  ReinaBlanca: {fileID: -1640331462936558035, guid: d406c9192e8724745aa6d6f40b7fb7ec, type: 3}
-  ReinaNegra: {fileID: -3865254281503430431, guid: 6188d329b2ab23241a86339b62564216, type: 3}
+  WhitePawn: {fileID: -8658484763088141511, guid: 072a18c17b8c96440ab01d71b7d8d4f9, type: 3}
+  BlackPawn: {fileID: 4538064352823889846, guid: d1da8abba5c0fdd4ebcc64643867b567, type: 3}
+  WhiteRook: {fileID: -1162141694881261147, guid: aee87f6d6b5caba4ea96d8b7b2428c07, type: 3}
+  BlackRook: {fileID: 8384181040276734919, guid: 10fa13f4f177c5642b27f2753dda492f, type: 3}
+  WhiteHorse: {fileID: -1395883728960559899, guid: 584c2dad15f16c0429abeb6aa6a3942d, type: 3}
+  BlackHorse: {fileID: 9100804728594379350, guid: c4dafcab6efa4ff42bc1b3e0b6fcf29b, type: 3}
+  WhiteBishop: {fileID: -3590043189156243616, guid: 009635323daa13648b8d301f78835d61, type: 3}
+  BlackBishop: {fileID: -3989657125907412595, guid: ea35b9dcd809c9148b1d19d3d7e81c1c, type: 3}
+  WhiteKing: {fileID: -5555361879448148961, guid: 93dddb79fabc4dc48acac63415536927, type: 3}
+  BlackKing: {fileID: 4176835358884849097, guid: a2d1dbad80f51d14a879990f24bea010, type: 3}
+  WhiteQueen: {fileID: -1640331462936558035, guid: d406c9192e8724745aa6d6f40b7fb7ec, type: 3}
+  BlackQueen: {fileID: -3865254281503430431, guid: 6188d329b2ab23241a86339b62564216, type: 3}
 --- !u!114 &46510589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,7 +532,7 @@ GameObject:
   - component: {fileID: 196016492}
   - component: {fileID: 196016491}
   m_Layer: 0
-  m_Name: Tablero
+  m_Name: BoardManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -590,7 +590,7 @@ MonoBehaviour:
   _directChildren: []
   _networkRules: {fileID: 0}
   _visitiblityRules: {fileID: 0}
-  _casillaPrefab: {fileID: 811192234774955626, guid: a6f68e2ba41c2ae469ed42790b8e45f6, type: 3}
+  _tilePrefab: {fileID: 811192234774955626, guid: a6f68e2ba41c2ae469ed42790b8e45f6, type: 3}
   porcentajeAlturaPantalla: 0.8
 --- !u!4 &196016493
 Transform:

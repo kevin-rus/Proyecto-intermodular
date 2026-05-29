@@ -28,8 +28,8 @@ public class King : BasePiece
                 int newRookPosX = rookPosX == 7 ? 5 : 3;
                 int newKingPosX = rookPosX == 7 ? 6 : 2;
 
-                Tile rookTile = TableroManager.instance.GetCaillaFromPosition(new Vector2(newRookPosX, kingPosY));
-                Tile kingTile = TableroManager.instance.GetCaillaFromPosition(new Vector2(newKingPosX, kingPosY));
+                Tile rookTile = BoardManager.instance.GetTileFromPosition(new Vector2(newRookPosX, kingPosY));
+                Tile kingTile = BoardManager.instance.GetTileFromPosition(new Vector2(newKingPosX, kingPosY));
 
                 rookTile.setPiece(rook);
                 kingTile.setPiece(this);
@@ -54,7 +54,7 @@ public class King : BasePiece
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     Debug.Log("Casilla vacia");
@@ -85,7 +85,7 @@ public class King : BasePiece
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     Debug.Log("Casilla vacia");
@@ -114,7 +114,7 @@ public class King : BasePiece
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
                     Debug.Log("Casilla vacia");
@@ -205,7 +205,7 @@ public class King : BasePiece
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null || posibCasilla.OccupiedPiece.player != player)
                 {
                     inCheck = detectCheck(posibCasilla);
@@ -229,7 +229,7 @@ public class King : BasePiece
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null || posibCasilla.OccupiedPiece.player != player)
                 {
                     inCheck = detectCheck(posibCasilla);
@@ -251,7 +251,7 @@ public class King : BasePiece
 
             if (!(posibMovX > 7 || posibMovY > 7 || posibMovX < 0 || posibMovY < 0))
             {
-                Tile posibCasilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(posibMovX, posibMovY));
+                Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null || posibCasilla.OccupiedPiece.player != player)
                 {
                     inCheck = detectCheck(posibCasilla);

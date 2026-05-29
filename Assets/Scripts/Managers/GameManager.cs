@@ -59,11 +59,11 @@ public class GameManager : NetworkBehaviour
                 UpdateGameState(GameState.GenerateTable);
                 break;
             case GameState.GenerateTable:
-                TableroManager.instance.CalcularTamañoCasilla();
-                TableroManager.instance.GenerarTablero();
+                BoardManager.instance.CalculateTileSize();
+                BoardManager.instance.GenerateBoard();
                 break;
             case GameState.ColorTable:
-                TableroManager.instance.cambiarColor();
+                BoardManager.instance.ChangeColor();
                 break;
             case GameState.SpawnWhites:
                 PieceManager.instance.SpawnWhites();

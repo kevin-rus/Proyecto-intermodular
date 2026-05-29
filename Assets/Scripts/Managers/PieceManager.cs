@@ -12,12 +12,12 @@ public class PieceManager : NetworkBehaviour
     private List<ScriptablePieces> _pieces;
 
     public BasePiece SelectedPiece;
-    public BasePiece PeonBlanco, PeonNegro;
-    public BasePiece TorreBlanca, TorreNegra;
-    public BasePiece CaballoBlanco, CaballoNegro;
-    public BasePiece AlfilBlanco, AlfilNegro;
-    public BasePiece ReyBlanco, ReyNegro;
-    public BasePiece ReinaBlanca, ReinaNegra;
+    public BasePiece WhitePawn, BlackPawn;
+    public BasePiece WhiteRook, BlackRook;
+    public BasePiece WhiteHorse, BlackHorse;
+    public BasePiece WhiteBishop, BlackBishop;
+    public BasePiece WhiteKing, BlackKing;
+    public BasePiece WhiteQueen, BlackQueen;
 
     // Referencias a los reyes spawneados en partida
     private King _blackKing, _whiteKing;
@@ -35,8 +35,8 @@ public class PieceManager : NetworkBehaviour
         // Genera los peones blancos
         for (int i = 0; i < whiteCount; i++)
         {
-            var spawnedPeon = Instantiate(PeonBlanco);
-            var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(i, 1));
+            var spawnedPeon = Instantiate(WhitePawn);
+            var casilla = BoardManager.instance.GetTileFromPosition(new Vector2(i, 1));
 
             casilla.setPiece(spawnedPeon);
         }
@@ -44,8 +44,8 @@ public class PieceManager : NetworkBehaviour
         //Genera las torres blancas
         for (int i = 0; i < 2; i++)
         {
-            var spawnedTorre = Instantiate(TorreBlanca);
-            var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(i * 7, 0));
+            var spawnedTorre = Instantiate(WhiteRook);
+            var casilla = BoardManager.instance.GetTileFromPosition(new Vector2(i * 7, 0));
 
             casilla.setPiece(spawnedTorre);
         }
@@ -53,8 +53,8 @@ public class PieceManager : NetworkBehaviour
         // Genera los caballos blancos
         for (int i = 0; i < 2; i++)
         {
-            var spawnedCaballo = Instantiate(CaballoBlanco);
-            var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(1 + i * 5, 0));
+            var spawnedCaballo = Instantiate(WhiteHorse);
+            var casilla = BoardManager.instance.GetTileFromPosition(new Vector2(1 + i * 5, 0));
 
             casilla.setPiece(spawnedCaballo);
         }
@@ -62,23 +62,23 @@ public class PieceManager : NetworkBehaviour
         // Genera los alfiles blancos
         for (int i = 0; i < 2; i++)
         {
-            var spawnedAlfil = Instantiate(AlfilBlanco);
-            var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(2 + i * 3, 0));
+            var spawnedAlfil = Instantiate(WhiteBishop);
+            var casilla = BoardManager.instance.GetTileFromPosition(new Vector2(2 + i * 3, 0));
 
             casilla.setPiece(spawnedAlfil);
         }
 
         // Genera el rey blanco
-        var spawnedRey = Instantiate(ReyBlanco);
-        var casillaRey = TableroManager.instance.GetCaillaFromPosition(new Vector2(4, 0));
+        var spawnedRey = Instantiate(WhiteKing);
+        var casillaRey = BoardManager.instance.GetTileFromPosition(new Vector2(4, 0));
 
         casillaRey.setPiece(spawnedRey);
 
         _whiteKing = (King)spawnedRey;
 
         // Genera la reina blanca
-        var spawnedReina = Instantiate(ReinaBlanca);
-        var casillaReina = TableroManager.instance.GetCaillaFromPosition(new Vector2(3, 0));
+        var spawnedReina = Instantiate(WhiteQueen);
+        var casillaReina = BoardManager.instance.GetTileFromPosition(new Vector2(3, 0));
 
         casillaReina.setPiece(spawnedReina);
 
@@ -93,8 +93,8 @@ public class PieceManager : NetworkBehaviour
         // Genera los peones negros
         for (int i = 0; i < blackCount; i++)
         {
-            var spawnedBlack = Instantiate(PeonNegro);
-            var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(i, 6));
+            var spawnedBlack = Instantiate(BlackPawn);
+            var casilla = BoardManager.instance.GetTileFromPosition(new Vector2(i, 6));
 
             casilla.setPiece(spawnedBlack);
         }
@@ -102,8 +102,8 @@ public class PieceManager : NetworkBehaviour
         // Genera las torres negras
         for (int i = 0; i < 2; i++)
         {
-            var spawnedTorre = Instantiate(TorreNegra);
-            var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(i * 7, 7));
+            var spawnedTorre = Instantiate(BlackRook);
+            var casilla = BoardManager.instance.GetTileFromPosition(new Vector2(i * 7, 7));
 
             casilla.setPiece(spawnedTorre);
         }
@@ -111,8 +111,8 @@ public class PieceManager : NetworkBehaviour
         // Genera los caballos negros
         for (int i = 0; i < 2; i++)
         {
-            var spawnedCaballo = Instantiate(CaballoNegro);
-            var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(1 + i * 5, 7));
+            var spawnedCaballo = Instantiate(BlackHorse);
+            var casilla = BoardManager.instance.GetTileFromPosition(new Vector2(1 + i * 5, 7));
 
             casilla.setPiece(spawnedCaballo);
         }
@@ -120,23 +120,23 @@ public class PieceManager : NetworkBehaviour
         // Genera los alfiles negros
         for (int i = 0; i < 2; i++)
         {
-            var spawnedAlfil = Instantiate(AlfilNegro);
-            var casilla = TableroManager.instance.GetCaillaFromPosition(new Vector2(2 + i * 3, 7));
+            var spawnedAlfil = Instantiate(BlackBishop);
+            var casilla = BoardManager.instance.GetTileFromPosition(new Vector2(2 + i * 3, 7));
 
             casilla.setPiece(spawnedAlfil);
         }
 
         // Genera el rey negro
-        var spawnedRey = Instantiate(ReyNegro);
-        var casillaRey = TableroManager.instance.GetCaillaFromPosition(new Vector2(4, 7));
+        var spawnedRey = Instantiate(BlackKing);
+        var casillaRey = BoardManager.instance.GetTileFromPosition(new Vector2(4, 7));
 
         casillaRey.setPiece(spawnedRey);
 
         _blackKing = (King)spawnedRey;
 
         // Genera la reina negra
-        var spawnedReina = Instantiate(ReinaNegra);
-        var casillaReina = TableroManager.instance.GetCaillaFromPosition(new Vector2(3, 7));
+        var spawnedReina = Instantiate(BlackQueen);
+        var casillaReina = BoardManager.instance.GetTileFromPosition(new Vector2(3, 7));
 
         casillaReina.setPiece(spawnedReina);
 

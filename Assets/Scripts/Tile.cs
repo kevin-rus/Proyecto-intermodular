@@ -19,18 +19,18 @@ public class Tile : NetworkBehaviour
     }
 
     // Función puente que permite el correcto funcionamiento del Network
-    public void inicioCambioColor(int x, int y)
+    public void IniChangeColor(int x, int y)
     {
         Debug.Log("Init cambio color");
         posX = x;
         posY = y;
 
-        cambiarColor(posX, posY);
+        ChangeColor(posX, posY);
     }
 
     // Cambia el color de la casilla
     [ObserversRpc]
-    public void cambiarColor(int x, int y)
+    public void ChangeColor(int x, int y)
     {
         Debug.Log($"Ejecutando cambio de color en casilla: {x} {y}");
 
