@@ -9,8 +9,6 @@ public class PieceManager : NetworkBehaviour
 {
     public static PieceManager instance;
 
-    private List<ScriptablePieces> _pieces;
-
     public BasePiece SelectedPiece;
     public BasePiece WhitePawn, BlackPawn;
     public BasePiece WhiteRook, BlackRook;
@@ -22,6 +20,8 @@ public class PieceManager : NetworkBehaviour
     // Referencias a los reyes spawneados en partida
     private King _blackKing, _whiteKing;
 
+    private bool whiteAlreadySpawned, blackAlreadySpawned;
+
     private void Awake()
     {
         instance = this;
@@ -31,6 +31,8 @@ public class PieceManager : NetworkBehaviour
     public void SpawnWhites()
     {
         if (!isServer) return;
+        if (whiteAlreadySpawned) return;
+        whiteAlreadySpawned = true;
 
         var whiteCount = 8;
 
@@ -91,6 +93,8 @@ public class PieceManager : NetworkBehaviour
     public void SpawnBlacks()
     {
         if(!isServer) return;
+        if (blackAlreadySpawned) return;
+        blackAlreadySpawned = true;
 
         var blackCount = 8;
 
