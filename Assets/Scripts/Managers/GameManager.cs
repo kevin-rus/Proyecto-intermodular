@@ -67,10 +67,16 @@ public class GameManager : NetworkBehaviour
                 BoardManager.instance.ChangeColor();
                 break;
             case GameState.SpawnWhites:
-                PieceManager.instance.SpawnWhites();
+                if (isServer)
+                {
+                    PieceManager.instance.SpawnWhites();
+                }
                 break;
             case GameState.SpawnBlacks:
-                PieceManager.instance.SpawnBlacks();
+                if (isServer)
+                {
+                    PieceManager.instance.SpawnBlacks();
+                }
                 break;
             case GameState.WhiteTurn:
                 whiteTurnIndicator.gameObject.SetActive(true);
