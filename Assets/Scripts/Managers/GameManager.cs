@@ -88,26 +88,24 @@ public class GameManager : NetworkBehaviour
             }
     }
 
-    [ObserversRpc]
+    [ServerRpc]
     public void lookForCheck()
     {
-        if(PieceManager.instance.GetWhiteKing().checkMate || PieceManager.instance.GetBlackKing().checkMate)
+        if (PieceManager.instance.GetWhiteKing().checkMate || PieceManager.instance.GetBlackKing().checkMate)
         {
             endGame();
         }
         if (PieceManager.instance.GetWhiteKing().inCheck)
         {
-            checkIndicatorText.text = "Rey blanco en jaque!";
-            checkIndicator.gameObject.SetActive(true);
+            displayCheck(true, Player.White);
         }
         else if (PieceManager.instance.GetBlackKing().inCheck)
         {
-            checkIndicatorText.text = "Rey negro en jaque!";
-            checkIndicator.gameObject.SetActive(true);
+            displayCheck(true, Player.Black);
         }
         else
         {
-            checkIndicator.gameObject.SetActive(false);
+            displayCheck(false, Player.White);  // Recibe un Player.White porque necesita de un placeholder, pero realmente no se va a usar
         }
     }
 
@@ -118,15 +116,30 @@ public class GameManager : NetworkBehaviour
         UpdateGameState(GameState.CheckMate);
 
         if (!isServer) return;
-        winner.text = PieceManager.instance.GetWhiteKing().checkMate ? "Negras ganan!" : "Blancas ganan!";
+        Player playerInCheck = PieceManager.instance.GetWhiteKing().checkMate ? Player.White : Player.Black;
         
-        displayEndGame();
+        displayEndGame(playerInCheck);
     }
 
     [ObserversRpc]
-    public void displayEndGame()
+    public void displayEndGame(Player player)
     {
+        winner.text = player == Player.White ? "Negras ganan!" : "Blancas ganan!";
         checkMate.gameObject.SetActive(true);
+    }
+
+    [ObserversRpc]
+    public void displayCheck(bool inCheck, Player player)
+    {
+        if(!inCheck)
+        {
+            checkIndicator.gameObject.SetActive(false);
+        }
+        else
+        {
+            checkIndicatorText.text = player == Player.White ? "Rey blanco en jaque!" : "Rey negro en jaque!";
+            checkIndicator.gameObject.SetActive(true);
+        }
     }
 }
 
