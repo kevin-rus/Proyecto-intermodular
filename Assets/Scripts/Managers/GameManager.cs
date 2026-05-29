@@ -81,7 +81,7 @@ public class GameManager : NetworkBehaviour
                 }
                 break;
             case GameState.SetPlayer:
-                thisPlayerText.text = "Juegas como: " + (isServer ? "Blancas" : "Negras");
+                setPlayer();
                 break;
             case GameState.WhiteTurn:
                 whiteTurnIndicator.gameObject.SetActive(true);
@@ -152,6 +152,12 @@ public class GameManager : NetworkBehaviour
             checkIndicatorText.text = player == Player.White ? "Rey blanco en jaque!" : "Rey negro en jaque!";
             checkIndicator.gameObject.SetActive(true);
         }
+    }
+
+    [ObserversRpc]
+    public void setPlayer()
+    {
+        thisPlayerText.text = "Juegas como: " + (isServer ? "Blancas" : "Negras");
     }
 }
 
