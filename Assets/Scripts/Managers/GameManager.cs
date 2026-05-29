@@ -19,7 +19,6 @@ public class GameManager : NetworkBehaviour
     public Image checkIndicator;
     public TextMeshProUGUI checkIndicatorText;
 
-    public Image thisPlayer;
     public TextMeshProUGUI thisPlayerText;
 
     public Button returnToLobby;
