@@ -37,8 +37,6 @@ public class GameManager : NetworkBehaviour
         checkIndicator.gameObject.SetActive(false);
         checkMate.gameObject.SetActive(false);
 
-        thisPlayerText.text = "Juegas como: " + (isServer ? "Blancas" : "Negras");
-
         returnToLobby.onClick.AddListener(() =>
         {
             SceneManager.LoadScene(nextScene);
@@ -81,6 +79,9 @@ public class GameManager : NetworkBehaviour
                 {
                     PieceManager.instance.SpawnBlacks();
                 }
+                break;
+            case GameState.SetPlayer:
+                thisPlayerText.text = "Juegas como: " + (isServer ? "Blancas" : "Negras");
                 break;
             case GameState.WhiteTurn:
                 whiteTurnIndicator.gameObject.SetActive(true);
@@ -162,6 +163,7 @@ public enum GameState
     ColorTable,
     SpawnWhites,
     SpawnBlacks,
+    SetPlayer,
     WhiteTurn,
     BlackTurn,
     CheckMate,
