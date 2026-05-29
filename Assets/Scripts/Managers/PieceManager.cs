@@ -28,9 +28,10 @@ public class PieceManager : NetworkBehaviour
     }
 
     // Carga las piezas blancas en el tablero
-    [ServerRpc]
     public void SpawnWhites()
     {
+        if (!isServer) return;
+
         var whiteCount = 8;
 
         // Genera los peones blancos
@@ -87,9 +88,10 @@ public class PieceManager : NetworkBehaviour
     }
 
     // Carga las piezas negras en el tablero
-    [ServerRpc]
     public void SpawnBlacks()
     {
+        if(!isServer) return;
+
         var blackCount = 8;
 
         // Genera los peones negros
