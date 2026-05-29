@@ -47,7 +47,6 @@ public class BoardManager : NetworkBehaviour
         if(!isServer)
         {
             Debug.Log("Is not server");
-            Await();
             return;
         }
 
@@ -121,10 +120,13 @@ public class BoardManager : NetworkBehaviour
     }
 
     // No se por que, pero el cliente solo se actualiza de esta forma
-    public void Await()
+
+    /*
+     * public void Await()
     {
         GameManager.instance.UpdateGameState(GameState.WhiteTurn);
     }
+     */
 
     public Tile GetTileFromPosition(Vector2 pos)
     {
