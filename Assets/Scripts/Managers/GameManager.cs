@@ -19,6 +19,9 @@ public class GameManager : NetworkBehaviour
     public Image checkIndicator;
     public TextMeshProUGUI checkIndicatorText;
 
+    public Image thisPlayer;
+    public TextMeshProUGUI thisPlayerText;
+
     public Button returnToLobby;
     [PurrScene, SerializeField] private string nextScene;
 
@@ -34,6 +37,8 @@ public class GameManager : NetworkBehaviour
         blackTurnIndicator.gameObject.SetActive(false);
         checkIndicator.gameObject.SetActive(false);
         checkMate.gameObject.SetActive(false);
+
+        thisPlayerText.text = "Juegas como: " + (isServer ? "Blancas" : "Negras");
 
         returnToLobby.onClick.AddListener(() =>
         {
