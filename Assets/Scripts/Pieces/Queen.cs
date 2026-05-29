@@ -47,7 +47,7 @@ public class Queen : BasePiece
                 }
                 else
                 {
-                    // Si el rey está en jaque, el peón solo puede comer la pieza que lo amenaza
+                    // Si el rey está en jaque, la pieza solo puede capturar la pieza que lo amenaza
                     if (myKing.dangerPieces.Count == 1 && myKing.dangerPieces.Contains(posibCasilla.OccupiedPiece))
                     {
                         Destroy(posibCasilla.OccupiedPiece.gameObject);

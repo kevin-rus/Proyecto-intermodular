@@ -28,9 +28,8 @@ public abstract class BasePiece : MonoBehaviour
     {
         bool inCheck = false;
 
-        Debug.Log("Detectando jaque para " + this.name);
         initialTile = initialTile ?? OccupiedTile;
-        Debug.Log(OccupiedTile);
+        Debug.Log("Detectando jaque para " + this.name + " en la casilla: " + initialTile);
 
         protectingPieces = new List<BasePiece>();               // Lista de piezas que protejen a la ficha
         bool dobleProtect = false;

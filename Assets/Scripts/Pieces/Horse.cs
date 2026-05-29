@@ -29,7 +29,6 @@ public class Horse : BasePiece
                 Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
-                    Debug.Log("Casilla vacia");
                     posibMovimientos.Add(posibCasilla);
                 }
                 else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
@@ -74,7 +73,6 @@ public class Horse : BasePiece
                 Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
-                    Debug.Log("Casilla vacia");
                     posibMovimientos.Add(posibCasilla);
                 }
                 else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
@@ -119,7 +117,6 @@ public class Horse : BasePiece
                 Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
-                    Debug.Log("Casilla vacia");
                     posibMovimientos.Add(posibCasilla);
                 }
                 else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
@@ -164,7 +161,6 @@ public class Horse : BasePiece
                 Tile posibCasilla = BoardManager.instance.GetTileFromPosition(new Vector2(posibMovX, posibMovY));
                 if (posibCasilla.OccupiedPiece == null)
                 {
-                    Debug.Log("Casilla vacia");
                     posibMovimientos.Add(posibCasilla);
                 }
                 else if (posibCasilla.OccupiedPiece.player != player && posibCasilla == CasillaDese)
