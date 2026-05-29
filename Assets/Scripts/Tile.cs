@@ -55,7 +55,7 @@ public class Tile : NetworkBehaviour
             moveWhite();
         }
         // Si es turno de negras, actua el Cliente
-        else if ((GameManager.instance.state == GameState.BlackTurn) && isServer)
+        else if ((GameManager.instance.state == GameState.BlackTurn) && !isServer)
         {
             moveBlack();
         }
