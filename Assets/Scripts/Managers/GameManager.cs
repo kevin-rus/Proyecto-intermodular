@@ -47,6 +47,7 @@ public class GameManager : NetworkBehaviour
         UpdateGameState(GameState.GenerateTable);
     }
 
+    [ObserversRpc]
     public void UpdateGameState(GameState newState)
     {
         Debug.Log("Actualizando estado: " + newState);

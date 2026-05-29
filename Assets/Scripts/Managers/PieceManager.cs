@@ -28,6 +28,7 @@ public class PieceManager : NetworkBehaviour
     }
 
     // Carga las piezas blancas en el tablero
+    [ServerRpc]
     public void SpawnWhites()
     {
         var whiteCount = 8;
@@ -86,6 +87,7 @@ public class PieceManager : NetworkBehaviour
     }
 
     // Carga las piezas negras en el tablero
+    [ServerRpc]
     public void SpawnBlacks()
     {
         var blackCount = 8;

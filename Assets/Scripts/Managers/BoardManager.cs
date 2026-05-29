@@ -25,6 +25,7 @@ public class BoardManager : NetworkBehaviour
     }
 
     // Calcula el tamaño de cada casilla en función de la cámara y del porcentaje de pantalla
+    [ServerRpc]
     public void CalculateTileSize()
     {
         Camera cam = Camera.main;
